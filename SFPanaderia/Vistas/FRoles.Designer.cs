@@ -31,18 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRoles));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEliminar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEditar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gridRol = new DevExpress.XtraGrid.GridControl();
             this.gridViewRol = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.xpRoles = new DevExpress.Xpo.XPCollection(this.components);
             this.sessionRol = new DevExpress.Xpo.UnitOfWork(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEditar = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEliminar = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -62,6 +62,16 @@
             this.panel1.Size = new System.Drawing.Size(501, 46);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(60, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Roles";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnEliminar);
@@ -72,6 +82,43 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(501, 46);
             this.panel2.TabIndex = 2;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Appearance.Options.UseFont = true;
+            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
+            this.btnEliminar.Location = new System.Drawing.Point(171, 0);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(110, 46);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Appearance.Options.UseFont = true;
+            this.btnEditar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.ImageOptions.Image")));
+            this.btnEditar.Location = new System.Drawing.Point(281, 0);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(110, 46);
+            this.btnEditar.TabIndex = 2;
+            this.btnEditar.Text = "Editar";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Appearance.Options.UseFont = true;
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.Image")));
+            this.btnSalir.Location = new System.Drawing.Point(391, 0);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(110, 46);
+            this.btnSalir.TabIndex = 0;
+            this.btnSalir.Text = "Salir";
             // 
             // tabControl1
             // 
@@ -95,16 +142,6 @@
             this.tabPage1.Text = "Listado de Roles";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(493, 291);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Mantenimiento de Roles";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // gridRol
             // 
             this.gridRol.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -121,6 +158,16 @@
             this.gridViewRol.GridControl = this.gridRol;
             this.gridViewRol.Name = "gridViewRol";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(493, 293);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Mantenimiento de Roles";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // xpRoles
             // 
             this.xpRoles.Session = this.sessionRol;
@@ -129,52 +176,6 @@
             // 
             this.sessionRol.IsObjectModifiedOnNonPersistentPropertyChange = null;
             this.sessionRol.TrackPropertiesModifications = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(60, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Roles";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Appearance.Options.UseFont = true;
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(391, 0);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(110, 46);
-            this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "Salir";
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Appearance.Options.UseFont = true;
-            this.btnEditar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(281, 0);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(110, 46);
-            this.btnEditar.TabIndex = 2;
-            this.btnEditar.Text = "Editar";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Appearance.Options.UseFont = true;
-            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(171, 0);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(110, 46);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
             // 
             // FRoles
             // 

@@ -147,6 +147,12 @@
     <Compile Include="Vistas\FPresentacion.Designer.cs">
       <DependentUpon>FPresentacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\FProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FProducto.Designer.cs">
+      <DependentUpon>FProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\FrmEntrada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,12 +164,6 @@
     </Compile>
     <Compile Include="Vistas\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\FrmPresentacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmPresentacion.Designer.cs">
-      <DependentUpon>FrmPresentacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -215,14 +215,14 @@
     <EmbeddedResource Include="Vistas\FPresentacion.resx">
       <DependentUpon>FPresentacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FProducto.resx">
+      <DependentUpon>FProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmEntrada.resx">
       <DependentUpon>FrmEntrada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmPresentacion.resx">
-      <DependentUpon>FrmPresentacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -239,9 +239,9 @@
     <EmbeddedResource Include="Vistas\FRoles.resx">
       <DependentUpon>FRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ORMPanaderia.xpo" />
-    <None Include="ORMPanaderia.xpo.diagram">
-      <DependentUpon>ORMPanaderia.xpo</DependentUpon>
+    <None Include="ORMPanederia.xpo" />
+    <None Include="ORMPanederia.xpo.diagram">
+      <DependentUpon>ORMPanederia.xpo</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

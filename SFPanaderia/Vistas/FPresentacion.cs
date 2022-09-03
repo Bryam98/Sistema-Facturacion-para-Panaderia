@@ -16,6 +16,7 @@ namespace SFPanaderia.Vistas
         public FPresentacion()
         {
             InitializeComponent();
+            this.mensajesDeAyuda();
         }
 
 
@@ -157,11 +158,11 @@ namespace SFPanaderia.Vistas
 
             if (p == null)
             {
-
                 mensajeError("Debe seleccionar un registro a eliminar");
+                return;
             }
 
-            var result = MessageBox.Show("Seguro que desea eliminar el registro", "Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            var result = MessageBox.Show("Seguro que desea eliminar el registro", "Presentacion", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
             if (result == DialogResult.No)
             {
@@ -184,5 +185,7 @@ namespace SFPanaderia.Vistas
         {
             this.Close();
         }
+
+       
     }
 }

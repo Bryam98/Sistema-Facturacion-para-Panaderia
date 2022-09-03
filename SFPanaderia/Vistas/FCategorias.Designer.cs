@@ -132,6 +132,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(110, 47);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -166,7 +167,7 @@
             this.gridCategorias.Location = new System.Drawing.Point(3, 3);
             this.gridCategorias.MainView = this.gridViewCategorias;
             this.gridCategorias.Name = "gridCategorias";
-            this.gridCategorias.Size = new System.Drawing.Size(535, 267);
+            this.gridCategorias.Size = new System.Drawing.Size(535, 286);
             this.gridCategorias.TabIndex = 0;
             this.gridCategorias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCategorias});
@@ -252,6 +253,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(112, 46);
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 

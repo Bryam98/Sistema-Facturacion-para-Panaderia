@@ -95,7 +95,6 @@ C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.exe
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.pdb
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmProductos.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.csprojAssemblyReference.cache
-C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmPresentacion.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.frmLogin.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmPrincipal.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmEntrada.resources
@@ -105,3 +104,4 @@ C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FCategorias.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FRoles.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FPresentacion.resources
+C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FProducto.resources

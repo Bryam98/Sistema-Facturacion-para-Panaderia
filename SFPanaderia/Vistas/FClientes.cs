@@ -219,6 +219,7 @@ namespace SFPanaderia.Vistas
             {
 
                 mensajeError("Debe seleccionar un registro a eliminar");
+                return;
             }
 
             var result = MessageBox.Show("Seguro que desea eliminar el registro", "Clientes", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);

@@ -148,14 +148,28 @@ namespace SFPanaderia.Vistas
             this.tabControl1.SelectedIndex = 1;
         }
 
+  
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Habilitar(true);
+            LimpiarCajas();
+            return;
+        }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+
             Categoria categoria = (Categoria)gridViewCategorias.GetFocusedRow();
 
             if (categoria == null)
             {
-
                 mensajeError("Debe seleccionar un registro a eliminar");
+                return;
             }
 
             var result = MessageBox.Show("Seguro que desea eliminar el registro", "Categoria", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -170,12 +184,5 @@ namespace SFPanaderia.Vistas
 
             mensajeCorrecto("El registro fue eliminado correctamente");
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-     
     }
 }
