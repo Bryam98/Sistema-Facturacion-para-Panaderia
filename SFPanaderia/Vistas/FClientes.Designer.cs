@@ -52,7 +52,9 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ctCedula = new System.Windows.Forms.MaskedTextBox();
+            this.searchLookEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.xpEstado = new DevExpress.Xpo.XPCollection(this.components);
+            this.searchLookUpEstado = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.label9 = new System.Windows.Forms.Label();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
@@ -73,8 +75,6 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.searchLookUpEstado = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.searchLookEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,10 +83,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sessionClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientes)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookEstado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -316,10 +316,30 @@
             this.ctCedula.Size = new System.Drawing.Size(164, 21);
             this.ctCedula.TabIndex = 23;
             // 
+            // searchLookEstado
+            // 
+            this.searchLookEstado.Location = new System.Drawing.Point(371, 202);
+            this.searchLookEstado.Name = "searchLookEstado";
+            this.searchLookEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.searchLookEstado.Properties.DataSource = this.xpEstado;
+            this.searchLookEstado.Properties.DisplayMember = "Nombre";
+            this.searchLookEstado.Properties.PopupView = this.searchLookUpEstado;
+            this.searchLookEstado.Properties.ValueMember = "IdEstado";
+            this.searchLookEstado.Size = new System.Drawing.Size(134, 20);
+            this.searchLookEstado.TabIndex = 22;
+            // 
             // xpEstado
             // 
             this.xpEstado.ObjectType = typeof(SFPanaderia.PanaderiaBD.Estado);
             this.xpEstado.Session = this.sessionClientes;
+            // 
+            // searchLookUpEstado
+            // 
+            this.searchLookUpEstado.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEstado.Name = "searchLookUpEstado";
+            this.searchLookUpEstado.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEstado.OptionsView.ShowGroupPanel = false;
             // 
             // label9
             // 
@@ -506,26 +526,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Clientes";
             // 
-            // searchLookUpEstado
-            // 
-            this.searchLookUpEstado.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEstado.Name = "searchLookUpEstado";
-            this.searchLookUpEstado.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEstado.OptionsView.ShowGroupPanel = false;
-            // 
-            // searchLookEstado
-            // 
-            this.searchLookEstado.Location = new System.Drawing.Point(371, 202);
-            this.searchLookEstado.Name = "searchLookEstado";
-            this.searchLookEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.searchLookEstado.Properties.DataSource = this.xpEstado;
-            this.searchLookEstado.Properties.DisplayMember = "Nombre";
-            this.searchLookEstado.Properties.PopupView = this.searchLookUpEstado;
-            this.searchLookEstado.Properties.ValueMember = "IdEstado";
-            this.searchLookEstado.Size = new System.Drawing.Size(134, 20);
-            this.searchLookEstado.TabIndex = 22;
-            // 
             // FClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,11 +549,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewClientes)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookEstado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookEstado.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
