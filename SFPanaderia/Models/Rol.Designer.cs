@@ -32,6 +32,14 @@ namespace SFPanaderia.PanaderiaBD
             get { return fNombre; }
             set { SetPropertyValue<string>(nameof(Nombre), ref fNombre, value); }
         }
+        string fDescripcion;
+        [Size(120)]
+        [Persistent(@"descripcion")]
+        public string Descripcion
+        {
+            get { return fDescripcion; }
+            set { SetPropertyValue<string>(nameof(Descripcion), ref fDescripcion, value); }
+        }
         [Association(@"UsuarioReferencesRol")]
         public XPCollection<Usuario> Usuarios { get { return GetCollection<Usuario>(nameof(Usuarios)); } }
     }
