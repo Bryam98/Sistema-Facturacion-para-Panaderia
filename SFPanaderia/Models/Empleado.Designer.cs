@@ -14,15 +14,15 @@ using System.ComponentModel;
 namespace SFPanaderia.PanaderiaBD
 {
 
-    public partial class Cliente : XPLiteObject
+    public partial class Empleado : XPLiteObject
     {
-        int fIdCliente;
+        int fIdEmpleado;
         [Key(true)]
-        [Persistent(@"idCliente")]
-        public int IdCliente
+        [Persistent(@"idEmpleado")]
+        public int IdEmpleado
         {
-            get { return fIdCliente; }
-            set { SetPropertyValue<int>(nameof(IdCliente), ref fIdCliente, value); }
+            get { return fIdEmpleado; }
+            set { SetPropertyValue<int>(nameof(IdEmpleado), ref fIdEmpleado, value); }
         }
         string fNombres;
         [Size(60)]
@@ -47,6 +47,21 @@ namespace SFPanaderia.PanaderiaBD
             get { return fSexo; }
             set { SetPropertyValue<char>(nameof(Sexo), ref fSexo, value); }
         }
+        DateTime fFechaNacimiento;
+        [Persistent(@"fechaNacimiento")]
+        public DateTime FechaNacimiento
+        {
+            get { return fFechaNacimiento; }
+            set { SetPropertyValue<DateTime>(nameof(FechaNacimiento), ref fFechaNacimiento, value); }
+        }
+        string fCedula;
+        [Size(16)]
+        [Persistent(@"cedula")]
+        public string Cedula
+        {
+            get { return fCedula; }
+            set { SetPropertyValue<string>(nameof(Cedula), ref fCedula, value); }
+        }
         string fDireccion;
         [Size(200)]
         [Persistent(@"direccion")]
@@ -54,14 +69,6 @@ namespace SFPanaderia.PanaderiaBD
         {
             get { return fDireccion; }
             set { SetPropertyValue<string>(nameof(Direccion), ref fDireccion, value); }
-        }
-        string fCedula;
-        [Size(18)]
-        [Persistent(@"cedula")]
-        public string Cedula
-        {
-            get { return fCedula; }
-            set { SetPropertyValue<string>(nameof(Cedula), ref fCedula, value); }
         }
         string fTelefono;
         [Size(20)]
@@ -79,16 +86,24 @@ namespace SFPanaderia.PanaderiaBD
             get { return fFechaRegistro; }
             set { SetPropertyValue<DateTime>(nameof(FechaRegistro), ref fFechaRegistro, value); }
         }
+        Cargo fIdCargo;
+        [Persistent(@"idCargo")]
+        [Association(@"EmpleadoReferencesCargo")]
+        public Cargo IdCargo
+        {
+            get { return fIdCargo; }
+            set { SetPropertyValue<Cargo>(nameof(IdCargo), ref fIdCargo, value); }
+        }
         Estado fIdEstado;
         [Persistent(@"idEstado")]
-        [Association(@"ClienteReferencesEstado")]
+        [Association(@"EmpleadoReferencesEstado")]
         public Estado IdEstado
         {
             get { return fIdEstado; }
             set { SetPropertyValue<Estado>(nameof(IdEstado), ref fIdEstado, value); }
         }
-        [Association(@"VentaReferencesCliente")]
-        public XPCollection<Venta> Ventas { get { return GetCollection<Venta>(nameof(Ventas)); } }
+        [Association(@"UsuarioReferencesEmpleado")]
+        public XPCollection<Usuario> Usuarios { get { return GetCollection<Usuario>(nameof(Usuarios)); } }
     }
 
 }

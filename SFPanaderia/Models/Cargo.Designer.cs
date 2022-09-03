@@ -14,15 +14,15 @@ using System.ComponentModel;
 namespace SFPanaderia.PanaderiaBD
 {
 
-    public partial class Rol : XPLiteObject
+    public partial class Cargo : XPLiteObject
     {
-        int fIdRol;
+        int fIdCargo;
         [Key(true)]
-        [Persistent(@"idRol")]
-        public int IdRol
+        [Persistent(@"idCargo")]
+        public int IdCargo
         {
-            get { return fIdRol; }
-            set { SetPropertyValue<int>(nameof(IdRol), ref fIdRol, value); }
+            get { return fIdCargo; }
+            set { SetPropertyValue<int>(nameof(IdCargo), ref fIdCargo, value); }
         }
         string fNombre;
         [Size(50)]
@@ -40,8 +40,8 @@ namespace SFPanaderia.PanaderiaBD
             get { return fDescripcion; }
             set { SetPropertyValue<string>(nameof(Descripcion), ref fDescripcion, value); }
         }
-        [Association(@"UsuarioReferencesRol")]
-        public XPCollection<Usuario> Usuarios { get { return GetCollection<Usuario>(nameof(Usuarios)); } }
+        [Association(@"EmpleadoReferencesCargo")]
+        public XPCollection<Empleado> Empleadoes { get { return GetCollection<Empleado>(nameof(Empleadoes)); } }
     }
 
 }

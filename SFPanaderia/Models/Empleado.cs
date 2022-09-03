@@ -6,9 +6,9 @@ using System.ComponentModel;
 namespace SFPanaderia.PanaderiaBD
 {
 
-    public partial class Rol
+    public partial class Empleado
     {
-        public Rol(Session session) : base(session) { }
+        public Empleado(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
     }
 

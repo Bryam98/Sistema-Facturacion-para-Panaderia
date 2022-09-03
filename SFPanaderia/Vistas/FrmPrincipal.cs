@@ -26,7 +26,7 @@ namespace SFPanaderia.Vistas
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            string nombreCompleto = usuario.Nombres + " " + usuario.Apellidos;
+            string nombreCompleto = usuario.IdEmpleado.Nombres + " " + usuario.IdEmpleado.Apellidos;
             LabelDate.Caption = DateTime.Now.ToString();
             ctUserActivo.Caption = nombreCompleto;
         }

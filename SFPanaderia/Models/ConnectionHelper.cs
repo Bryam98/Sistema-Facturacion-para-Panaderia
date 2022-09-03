@@ -16,15 +16,16 @@ namespace SFPanaderia.PanaderiaBD
     public static class ConnectionHelper
     {
         static Type[] persistentTypes = new Type[] {
+            typeof(Cargo),
             typeof(Categoria),
             typeof(Cliente),
             typeof(DetalleEntrada),
             typeof(DetalleVenta),
+            typeof(Empleado),
             typeof(Entrada),
             typeof(Estado),
             typeof(Presentacion),
             typeof(Producto),
-            typeof(Rol),
             typeof(Usuario),
             typeof(Venta)
         };

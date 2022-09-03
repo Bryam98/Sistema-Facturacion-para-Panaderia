@@ -24,24 +24,8 @@ namespace SFPanaderia.PanaderiaBD
             get { return fIdUsuario; }
             set { SetPropertyValue<int>(nameof(IdUsuario), ref fIdUsuario, value); }
         }
-        string fNombres;
-        [Size(60)]
-        [Persistent(@"nombres")]
-        public string Nombres
-        {
-            get { return fNombres; }
-            set { SetPropertyValue<string>(nameof(Nombres), ref fNombres, value); }
-        }
-        string fApellidos;
-        [Size(60)]
-        [Persistent(@"apellidos")]
-        public string Apellidos
-        {
-            get { return fApellidos; }
-            set { SetPropertyValue<string>(nameof(Apellidos), ref fApellidos, value); }
-        }
         string fLogin;
-        [Size(12)]
+        [Size(8)]
         [Persistent(@"login")]
         public string Login
         {
@@ -64,13 +48,13 @@ namespace SFPanaderia.PanaderiaBD
             get { return fFechaRegistro; }
             set { SetPropertyValue<DateTime>(nameof(FechaRegistro), ref fFechaRegistro, value); }
         }
-        Rol fIdRol;
-        [Persistent(@"idRol")]
-        [Association(@"UsuarioReferencesRol")]
-        public Rol IdRol
+        Empleado fIdEmpleado;
+        [Persistent(@"idEmpleado")]
+        [Association(@"UsuarioReferencesEmpleado")]
+        public Empleado IdEmpleado
         {
-            get { return fIdRol; }
-            set { SetPropertyValue<Rol>(nameof(IdRol), ref fIdRol, value); }
+            get { return fIdEmpleado; }
+            set { SetPropertyValue<Empleado>(nameof(IdEmpleado), ref fIdEmpleado, value); }
         }
         Estado fIdEstado;
         [Persistent(@"idEstado")]

@@ -11,31 +11,31 @@ using System.Windows.Forms;
 
 namespace SFPanaderia.Vistas
 {
-    public partial class FRoles : Form
+    public partial class FCargos : Form
     {
-        public FRoles()
+        public FCargos()
         {
             InitializeComponent();
+            this.mensajesDeAyuda();
         }
-
         private void mensajesDeAyuda()
         {
-            this.ttMensaje.SetToolTip(this.ctId, "Codigo de Rol");
-            this.ttMensaje.SetToolTip(this.ctNombre, "Ingrese Nombre del Rol");
-            this.ttMensaje.SetToolTip(this.ctDescripcion, "Ingrese la Descripcion del Rol");
+            this.ttMensaje.SetToolTip(this.ctId, "Codigo del Cargo");
+            this.ttMensaje.SetToolTip(this.ctNombre, "Ingrese Nombre del Cargo");
+            this.ttMensaje.SetToolTip(this.ctDescripcion, "Ingrese Descripcion del Cargo");
 
         }
 
         private void mensajeCorrecto(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Roles", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         private void mensajeError(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Roles", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(mensaje, "Categoria", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -64,7 +64,14 @@ namespace SFPanaderia.Vistas
             btnEliminar.Enabled = v;
 
         }
+
+        private void FCargos_Load(object sender, EventArgs e)
+        {
+            Habilitar(true);
+        }
+
         private bool IsEditar = false;
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (CamposVacios())
@@ -74,27 +81,28 @@ namespace SFPanaderia.Vistas
                 return;
             }
 
-            Rol rol;
+            Cargo cargo;
+
 
             if (!IsEditar)
             {
 
-                rol = new Rol(sessionRol);
+                cargo = new Cargo(sessionCargos);
             }
             else
             {
-                rol = (Rol)gridViewRol.GetFocusedRow();
+                cargo = (Cargo)gridViewCargos.GetFocusedRow();
             }
 
 
-            rol.Nombre = ctNombre.Text;
-            rol.Descripcion = ctDescripcion.Text;
+            cargo.Nombre = ctNombre.Text;
+            cargo.Descripcion = ctDescripcion.Text;
 
-            rol.Save();
+            cargo.Save();
 
             try
             {
-                sessionRol.CommitChanges();
+                sessionCargos.CommitChanges();
 
             }
             catch (Exception ex)
@@ -105,18 +113,13 @@ namespace SFPanaderia.Vistas
 
             mensajeCorrecto("Registro Guardado Correctamente");
             LimpiarCajas();
-            xpRoles.Reload();
+            xpCargos.Reload();
             IsEditar = false;
             Habilitar(true);
 
             //Nos cambia a la seccion de Listado de Categorias
             this.tabControl1.SelectedIndex = 0;
 
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -134,18 +137,17 @@ namespace SFPanaderia.Vistas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            Cargo cargo = (Cargo)gridViewCargos.GetFocusedRow();
 
-            Rol rol = (Rol)gridViewRol.GetFocusedRow();
-
-            if (rol == null)
+            if (cargo == null)
             {
                 mensajeError("Debe selecionar un registro a editar");
                 return;
             }
 
-            ctId.Text = rol.IdRol.ToString();
-            ctNombre.Text = rol.Nombre.ToString();
-            ctDescripcion.Text = rol.Descripcion.ToString();
+            ctId.Text = cargo.IdCargo.ToString();
+            ctNombre.Text = cargo.Nombre.ToString();
+            ctDescripcion.Text = cargo.Descripcion.ToString();
             IsEditar = true;
             Habilitar(false);
 
@@ -154,9 +156,9 @@ namespace SFPanaderia.Vistas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Rol rol = (Rol)gridViewRol.GetFocusedRow();
+            Cargo cargo = (Cargo)gridViewCargos.GetFocusedRow();
 
-            if (rol == null)
+            if (cargo == null)
             {
                 mensajeError("Debe seleccionar un registro a eliminar");
                 return;
@@ -169,11 +171,15 @@ namespace SFPanaderia.Vistas
 
                 return;
             }
-            rol.Delete();
-            sessionRol.CommitChanges();
+            cargo.Delete();
+            sessionCargos.CommitChanges();
 
             mensajeCorrecto("El registro fue eliminado correctamente");
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

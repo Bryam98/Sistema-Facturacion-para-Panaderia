@@ -122,8 +122,8 @@ namespace SFPanaderia.Vistas
             }
 
 
-            c.Nombre = ctNombres.Text;
-            c.Apellido = ctApellidos.Text;
+            c.Nombres= ctNombres.Text;
+            c.Apellidos = ctApellidos.Text;
             c.Cedula = ctCedula.Text;
             if (cbSexo.Text == "Femenino")
                 c.Sexo = 'F';
@@ -181,8 +181,8 @@ namespace SFPanaderia.Vistas
             }
 
             ctId.Text = cliente.IdCliente.ToString();
-            ctNombres.Text = cliente.Nombre.ToString();
-            ctApellidos.Text = cliente.Apellido.ToString();
+            ctNombres.Text = cliente.Nombres.ToString();
+            ctApellidos.Text = cliente.Apellidos.ToString();
             ctCedula.Text = cliente.Cedula.ToString();
             if (cliente.Sexo.ToString().Equals("F"))
                 cbSexo.Text = "Femenino";
