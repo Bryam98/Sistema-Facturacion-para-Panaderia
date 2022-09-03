@@ -94,10 +94,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tabControl1.Location = new System.Drawing.Point(0, 56);
+            this.tabControl1.Location = new System.Drawing.Point(0, 48);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(715, 395);
+            this.tabControl1.Size = new System.Drawing.Size(715, 403);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -108,7 +108,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(707, 369);
+            this.tabPage1.Size = new System.Drawing.Size(707, 377);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado Clientes";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 328);
+            this.panel1.Location = new System.Drawing.Point(3, 329);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(701, 38);
+            this.panel1.Size = new System.Drawing.Size(701, 45);
             this.panel1.TabIndex = 1;
             // 
             // btnEliminar
@@ -130,7 +130,7 @@
             this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
             this.btnEliminar.Location = new System.Drawing.Point(341, 0);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(120, 38);
+            this.btnEliminar.Size = new System.Drawing.Size(120, 45);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -141,7 +141,7 @@
             this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.ImageOptions.Image")));
             this.btnEditar.Location = new System.Drawing.Point(461, 0);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(120, 38);
+            this.btnEditar.Size = new System.Drawing.Size(120, 45);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -152,7 +152,7 @@
             this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.Image")));
             this.btnSalir.Location = new System.Drawing.Point(581, 0);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(120, 38);
+            this.btnSalir.Size = new System.Drawing.Size(120, 45);
             this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -164,7 +164,7 @@
             this.gridClientes.Location = new System.Drawing.Point(3, 3);
             this.gridClientes.MainView = this.gridViewClientes;
             this.gridClientes.Name = "gridClientes";
-            this.gridClientes.Size = new System.Drawing.Size(701, 319);
+            this.gridClientes.Size = new System.Drawing.Size(701, 320);
             this.gridClientes.TabIndex = 0;
             this.gridClientes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewClientes});
@@ -513,16 +513,16 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(715, 50);
+            this.panel2.Size = new System.Drawing.Size(715, 42);
             this.panel2.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(104, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(85, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 29);
+            this.label1.Size = new System.Drawing.Size(98, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Clientes";
             // 
@@ -537,7 +537,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FClientes";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.FClientes_Load);
             this.tabControl1.ResumeLayout(false);

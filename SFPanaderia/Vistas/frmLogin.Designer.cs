@@ -64,7 +64,6 @@
             this.ctUsuario.Name = "ctUsuario";
             this.ctUsuario.Size = new System.Drawing.Size(183, 20);
             this.ctUsuario.TabIndex = 1;
-          
             // 
             // ctClave
             // 
@@ -178,7 +177,7 @@
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionLogin)).EndInit();

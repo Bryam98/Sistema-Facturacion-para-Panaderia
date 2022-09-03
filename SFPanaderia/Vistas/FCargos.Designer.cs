@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCargos));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -38,14 +39,13 @@
             this.btnEditar = new DevExpress.XtraEditors.SimpleButton();
             this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
             this.gridCargos = new DevExpress.XtraGrid.GridControl();
-            this.gridViewCargos = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.sessionCargos = new DevExpress.Xpo.UnitOfWork(this.components);
             this.xpCargos = new DevExpress.Xpo.XPCollection(this.components);
-            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.sessionCargos = new DevExpress.Xpo.UnitOfWork(this.components);
+            this.gridViewCargos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdCargo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevo = new DevExpress.XtraEditors.SimpleButton();
@@ -55,16 +55,16 @@
             this.ctDescripcion = new System.Windows.Forms.TextBox();
             this.ctNombre = new System.Windows.Forms.TextBox();
             this.ctId = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCargos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionCargos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCargos)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionCargos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,6 +75,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(549, 48);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(68, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Cargos";
             // 
             // tabControl1
             // 
@@ -161,6 +171,16 @@
             this.gridCargos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCargos});
             // 
+            // xpCargos
+            // 
+            this.xpCargos.ObjectType = typeof(SFPanaderia.PanaderiaBD.Cargo);
+            this.xpCargos.Session = this.sessionCargos;
+            // 
+            // sessionCargos
+            // 
+            this.sessionCargos.IsObjectModifiedOnNonPersistentPropertyChange = null;
+            this.sessionCargos.TrackPropertiesModifications = false;
+            // 
             // gridViewCargos
             // 
             this.gridViewCargos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -171,35 +191,6 @@
             this.gridViewCargos.Name = "gridViewCargos";
             this.gridViewCargos.OptionsFind.AlwaysVisible = true;
             this.gridViewCargos.OptionsFind.ShowFindButton = false;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnCancelar);
-            this.tabPage2.Controls.Add(this.btnGuardar);
-            this.tabPage2.Controls.Add(this.btnNuevo);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.ctDescripcion);
-            this.tabPage2.Controls.Add(this.ctNombre);
-            this.tabPage2.Controls.Add(this.ctId);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(541, 354);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Mantenimiento Cargos";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // sessionCargos
-            // 
-            this.sessionCargos.IsObjectModifiedOnNonPersistentPropertyChange = null;
-            this.sessionCargos.TrackPropertiesModifications = false;
-            // 
-            // xpCargos
-            // 
-            this.xpCargos.ObjectType = typeof(SFPanaderia.PanaderiaBD.Cargo);
-            this.xpCargos.Session = this.sessionCargos;
             // 
             // colIdCargo
             // 
@@ -221,6 +212,25 @@
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 2;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnCancelar);
+            this.tabPage2.Controls.Add(this.btnGuardar);
+            this.tabPage2.Controls.Add(this.btnNuevo);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.ctDescripcion);
+            this.tabPage2.Controls.Add(this.ctNombre);
+            this.tabPage2.Controls.Add(this.ctId);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(541, 354);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Mantenimiento Cargos";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
@@ -311,16 +321,6 @@
             this.ctId.Size = new System.Drawing.Size(82, 21);
             this.ctId.TabIndex = 9;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(68, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Cargos";
-            // 
             // FCargos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +329,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "FCargos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FCargos";
             this.Load += new System.EventHandler(this.FCargos_Load);
             this.panel1.ResumeLayout(false);
@@ -337,11 +338,11 @@
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridCargos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessionCargos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCargos)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sessionCargos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).EndInit();
             this.ResumeLayout(false);
 
         }

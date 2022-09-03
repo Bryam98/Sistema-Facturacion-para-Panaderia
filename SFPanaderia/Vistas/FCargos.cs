@@ -94,7 +94,7 @@ namespace SFPanaderia.Vistas
                 cargo = (Cargo)gridViewCargos.GetFocusedRow();
             }
 
-
+            
             cargo.Nombre = ctNombre.Text;
             cargo.Descripcion = ctDescripcion.Text;
 

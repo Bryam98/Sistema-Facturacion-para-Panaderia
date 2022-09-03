@@ -586,6 +586,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "FProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FProducto";
             this.Load += new System.EventHandler(this.FProducto_Load);
             this.panel1.ResumeLayout(false);

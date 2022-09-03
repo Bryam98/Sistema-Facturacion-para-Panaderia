@@ -85,7 +85,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(549, 59);
             this.panel1.TabIndex = 0;
-        
             // 
             // label1
             // 
@@ -326,6 +325,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "FPresentacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FPresentacion";
             this.Load += new System.EventHandler(this.FPresentacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sessionPresentacion)).EndInit();
