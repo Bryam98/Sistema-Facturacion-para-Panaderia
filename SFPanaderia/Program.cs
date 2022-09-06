@@ -23,7 +23,7 @@ namespace SFPanaderia
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FCargos());
+            Application.Run(new FUsuario());
         }
     }
 }

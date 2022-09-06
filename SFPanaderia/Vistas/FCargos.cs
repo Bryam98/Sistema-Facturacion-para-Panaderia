@@ -130,6 +130,14 @@ namespace SFPanaderia.Vistas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            if (IsEditar)
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                tabControl1.SelectedIndex = 0;
+                return;
+            }
+
             Habilitar(true);
             LimpiarCajas();
             return;

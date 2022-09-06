@@ -105,3 +105,4 @@ C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FProducto.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FCargos.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FEmpleado.resources
+C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FUsuario.resources
