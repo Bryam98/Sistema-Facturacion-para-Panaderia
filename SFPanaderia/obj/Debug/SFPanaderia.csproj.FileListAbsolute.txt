@@ -93,7 +93,6 @@ C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.csproj
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.csproj.CopyComplete
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.exe
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.pdb
-C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmProductos.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.csprojAssemblyReference.cache
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.frmLogin.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmPrincipal.resources

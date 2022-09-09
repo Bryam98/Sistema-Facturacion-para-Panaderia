@@ -69,5 +69,10 @@ namespace SFPanaderia.Vistas
 
 
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

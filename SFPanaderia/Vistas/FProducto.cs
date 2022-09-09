@@ -1,4 +1,5 @@
-﻿using SFPanaderia.PanaderiaBD;
+﻿using DevExpress.XtraEditors;
+using SFPanaderia.PanaderiaBD;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,33 @@ namespace SFPanaderia.Vistas
 {
     public partial class FProducto : Form
     {
+
+        //variable para verificar si estamos en ediccion de producto o guardando nuevo
+        private bool IsEditar = false;
+
+        int valorCategoria, valorPresentacion, valorEstado;
+
         public FProducto()
         {
             InitializeComponent();
+            mensajesDeAyuda();
         }
 
 
+        private void mensajesDeAyuda()
+        {
+            this.ttMensaje.SetToolTip(this.ctId, "Codigo del producto");
+            this.ttMensaje.SetToolTip(this.ctNombre, "Ingrese el nombre del producto");
+            this.ttMensaje.SetToolTip(this.ctPrecio, "Ingrese el precio del producto");
+            this.ttMensaje.SetToolTip(this.ctCantidad, "Ingrese la cantidad del producto");
+            this.ttMensaje.SetToolTip(this.dateFRegistro, "Ingrese la fecha de registro del producto");
+            this.ttMensaje.SetToolTip(this.searchCategoria, "seleccione la categoria del producto");
+            this.ttMensaje.SetToolTip(this.searchPresentacion, "seleccione la presentacion del producto");
+            this.ttMensaje.SetToolTip(this.searchEstado, "seleccione el estado del producto");
+        
 
+
+        }
 
         //funcion verifica los campos vacios
         public bool CamposVacios()
@@ -38,13 +59,13 @@ namespace SFPanaderia.Vistas
         private void MensajeCorrecto(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         private void mensajeError(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(mensaje, "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -55,9 +76,10 @@ namespace SFPanaderia.Vistas
             ctNombre.Clear();
             ctPrecio.Clear();
             ctCantidad.Clear();
-            searchCategoria.Reset();
-            searchPresentacion.Reset();
-            searchEstado.Reset();
+            searchCategoria.ResetText();
+            searchPresentacion.ResetText();
+            searchEstado.ResetText();
+            dateFRegistro.ResetText();
           
 
         }
@@ -97,8 +119,6 @@ namespace SFPanaderia.Vistas
 
         }
 
-        //variable para verificar si estamos en ediccion de producto o guardando nuevo
-        private bool IsEditar = false;
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -124,19 +144,50 @@ namespace SFPanaderia.Vistas
             }
 
 
+
+            if (searchCategoria.EditValue == null || Convert.ToInt32(searchCategoria.EditValue) != valorCategoria)
+            {
+                producto.IdCategoria = (Categoria)searchEditCategoria.GetFocusedRow();
+            }
+            else
+            {
+                producto.IdCategoria.IdCategoria = valorCategoria;
+            }
+
+
+            if (searchPresentacion.EditValue == null || Convert.ToInt32(searchPresentacion.EditValue) != valorPresentacion)
+            {
+                producto.IdPresentacion = (Presentacion)searchEditPresentacion.GetFocusedRow();
+            }
+            else
+            {
+                producto.IdPresentacion.IdPresentacion = valorPresentacion;
+            }
+
+            if (searchEstado.EditValue == null || Convert.ToInt32(searchEstado.EditValue) != valorEstado)
+            {
+
+                producto.IdEstado = (Estado)searchEditEstado.GetFocusedRow();
+            }
+            else
+            {
+                producto.IdEstado.IdEstado = valorEstado;
+            }
+
+
+
             producto.Nombre = ctNombre.Text;
             producto.PrecioUnidad = Convert.ToDouble(ctPrecio.Text);
             producto.Existencias = Convert.ToInt32(ctCantidad.Text);
             producto.FechaRegistro = DateTime.Now.Date;
-            producto.IdCategoria = (Categoria)searchEditCategoria.GetFocusedRow();
-            producto.IdPresentacion = (Presentacion)searchEditPresentacion.GetFocusedRow();
-            producto.IdEstado = (Estado)searchEditEstado.GetFocusedRow();
-
-            producto.Save();
+            
 
             try
             {
+
+                producto.Save();
                 sessionProductos.CommitChanges();
+
 
             }
             catch (Exception ex)
@@ -147,7 +198,7 @@ namespace SFPanaderia.Vistas
 
             MensajeCorrecto("Registro Guardado Correctamente");
             LimpiarCajas();
-            xpCategorias.Reload();
+            xpProductos.Reload();
             IsEditar = false;
             Habilitar(true);
 
@@ -174,6 +225,36 @@ namespace SFPanaderia.Vistas
             this.Close();
         }
 
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (xpProductos.Count == 0)
+            {
+                mensajeError("Error a un no existe Productos registrados...!!");
+                return;
+            }
+
+            Producto producto = (Producto)gridViewProductos.GetFocusedRow();
+
+            if (producto == null)
+            {
+
+                mensajeError("Debe seleccionar un registro a eliminar");
+                return;
+            }
+
+            var result = MessageBox.Show("Seguro que desea eliminar el registro", "Clientes", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+            if (result == DialogResult.No)
+            {
+
+                return;
+            }
+            producto.Delete();
+            sessionProductos.CommitChanges();
+
+            MensajeCorrecto("El registro fue eliminado correctamente");
+        }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Producto producto = (Producto)gridViewProductos.GetFocusedRow();
@@ -188,7 +269,18 @@ namespace SFPanaderia.Vistas
             ctNombre.Text = producto.Nombre.ToString();
             ctPrecio.Text = producto.PrecioUnidad.ToString();
             ctCantidad.Text = producto.Existencias.ToString();
-            
+            dateFRegistro.Text = producto.FechaRegistro.ToString();
+
+            searchCategoria.EditValue = producto.IdCategoria.IdCategoria;
+            valorCategoria = producto.IdCategoria.IdCategoria;
+
+            searchPresentacion.EditValue = producto.IdPresentacion.IdPresentacion;
+            valorPresentacion = producto.IdPresentacion.IdPresentacion;
+
+            searchEstado.EditValue = producto.IdEstado.IdEstado;
+            valorEstado = producto.IdEstado.IdEstado;
+
+
             IsEditar = true;
             Habilitar(false);
 

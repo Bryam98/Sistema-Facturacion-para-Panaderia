@@ -14,6 +14,11 @@ namespace SFPanaderia.Vistas
 {
     public partial class FClientes : Form
     {
+
+
+        private bool IsEditar = false;
+        int valorEstado;
+
         public FClientes()
         {
             InitializeComponent();
@@ -94,10 +99,8 @@ namespace SFPanaderia.Vistas
 
         }
 
-        /// <summary>
-        /// Variable para ver si el estado es guardar o editar
-        /// </summary>
-        private bool IsEditar = false;
+       
+      
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (CamposVacios())
@@ -132,7 +135,17 @@ namespace SFPanaderia.Vistas
             c.Direccion = ctDireccion.Text;
             c.Telefono = ctTelefono.Text;
             c.FechaRegistro = DateTime.Now;
-            c.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+
+            if (searchLookEstado.EditValue == null || Convert.ToInt32(searchLookEstado.EditValue) != valorEstado)
+            {
+                c.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+
+            }
+            else
+            {
+                c.IdEstado.IdEstado = valorEstado;
+            }
+
             c.Save();
 
             try
@@ -191,7 +204,9 @@ namespace SFPanaderia.Vistas
             ctDireccion.Text = cliente.Direccion.ToString();
             ctTelefono.Text = cliente.Telefono.ToString();
 
-            
+            searchLookEstado.EditValue = cliente.IdEstado.IdEstado;
+            valorEstado = cliente.IdEstado.IdEstado;
+
 
             IsEditar = true;
             Habilitar(false);

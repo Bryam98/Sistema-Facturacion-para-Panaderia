@@ -56,7 +56,6 @@
             this.searchLookEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.xpEstado = new DevExpress.Xpo.XPCollection(this.components);
             this.searchLookUpEstado = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevo = new DevExpress.XtraEditors.SimpleButton();
@@ -76,6 +75,7 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
@@ -289,9 +289,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.ctCedula);
             this.tabPage2.Controls.Add(this.searchLookEstado);
-            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Controls.Add(this.btnNuevo);
@@ -308,7 +308,7 @@
             this.tabPage2.Controls.Add(this.ctApellidos);
             this.tabPage2.Controls.Add(this.ctNombres);
             this.tabPage2.Controls.Add(this.ctId);
-            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -327,15 +327,17 @@
             // 
             // searchLookEstado
             // 
-            this.searchLookEstado.Location = new System.Drawing.Point(371, 202);
+            this.searchLookEstado.Location = new System.Drawing.Point(371, 200);
             this.searchLookEstado.Name = "searchLookEstado";
+            this.searchLookEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLookEstado.Properties.Appearance.Options.UseFont = true;
             this.searchLookEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchLookEstado.Properties.DataSource = this.xpEstado;
             this.searchLookEstado.Properties.DisplayMember = "Nombre";
             this.searchLookEstado.Properties.PopupView = this.searchLookUpEstado;
             this.searchLookEstado.Properties.ValueMember = "IdEstado";
-            this.searchLookEstado.Size = new System.Drawing.Size(134, 20);
+            this.searchLookEstado.Size = new System.Drawing.Size(134, 22);
             this.searchLookEstado.TabIndex = 22;
             // 
             // xpEstado
@@ -349,15 +351,6 @@
             this.searchLookUpEstado.Name = "searchLookUpEstado";
             this.searchLookUpEstado.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEstado.OptionsView.ShowGroupPanel = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(310, 202);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 15);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Estado:";
             // 
             // btnCancelar
             // 
@@ -397,6 +390,7 @@
             // 
             // ctTelefono
             // 
+            this.ctTelefono.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTelefono.Location = new System.Drawing.Point(96, 200);
             this.ctTelefono.Name = "ctTelefono";
             this.ctTelefono.Size = new System.Drawing.Size(149, 21);
@@ -425,6 +419,7 @@
             // 
             // ctDireccion
             // 
+            this.ctDireccion.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctDireccion.Location = new System.Drawing.Point(96, 155);
             this.ctDireccion.Name = "ctDireccion";
             this.ctDireccion.Size = new System.Drawing.Size(514, 21);
@@ -434,7 +429,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(315, 117);
+            this.label6.Location = new System.Drawing.Point(317, 117);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 11;
@@ -462,6 +457,7 @@
             // 
             // cbSexo
             // 
+            this.cbSexo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Items.AddRange(new object[] {
             "Femenino",
@@ -475,7 +471,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(301, 79);
+            this.label4.Location = new System.Drawing.Point(303, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 6;
@@ -501,6 +497,7 @@
             // 
             // ctNombres
             // 
+            this.ctNombres.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctNombres.Location = new System.Drawing.Point(96, 77);
             this.ctNombres.Name = "ctNombres";
             this.ctNombres.Size = new System.Drawing.Size(192, 21);
@@ -510,6 +507,7 @@
             // ctId
             // 
             this.ctId.Enabled = false;
+            this.ctId.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctId.Location = new System.Drawing.Point(96, 39);
             this.ctId.Name = "ctId";
             this.ctId.Size = new System.Drawing.Size(100, 21);
@@ -534,6 +532,16 @@
             this.label1.Size = new System.Drawing.Size(98, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Clientes";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(315, 204);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Estado: ";
             // 
             // FClientes
             // 
@@ -591,7 +599,6 @@
         private DevExpress.Xpo.UnitOfWork sessionClientes;
         private DevExpress.Xpo.XPCollection xpClientes;
         private System.Windows.Forms.ToolTip ttMensaje;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnEliminar;
         private DevExpress.XtraEditors.SimpleButton btnEditar;
@@ -615,5 +622,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private System.Windows.Forms.Label label9;
     }
 }

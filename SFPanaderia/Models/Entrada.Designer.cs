@@ -32,13 +32,13 @@ namespace SFPanaderia.PanaderiaBD
             get { return fFechaEntrada; }
             set { SetPropertyValue<DateTime>(nameof(FechaEntrada), ref fFechaEntrada, value); }
         }
-        Usuario fIdUsuario;
-        [Persistent(@"idUsuario")]
-        [Association(@"EntradaReferencesUsuario")]
-        public Usuario IdUsuario
+        Empleado fIdEmpleado;
+        [Persistent(@"idEmpleado")]
+        [Association(@"EntradaReferencesEmpleado")]
+        public Empleado IdEmpleado
         {
-            get { return fIdUsuario; }
-            set { SetPropertyValue<Usuario>(nameof(IdUsuario), ref fIdUsuario, value); }
+            get { return fIdEmpleado; }
+            set { SetPropertyValue<Empleado>(nameof(IdEmpleado), ref fIdEmpleado, value); }
         }
         [Association(@"DetalleEntradaReferencesEntrada")]
         public XPCollection<DetalleEntrada> DetalleEntradas { get { return GetCollection<DetalleEntrada>(nameof(DetalleEntradas)); } }

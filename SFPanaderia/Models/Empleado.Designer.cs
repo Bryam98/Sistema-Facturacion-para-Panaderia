@@ -102,8 +102,12 @@ namespace SFPanaderia.PanaderiaBD
             get { return fIdEstado; }
             set { SetPropertyValue<Estado>(nameof(IdEstado), ref fIdEstado, value); }
         }
+        [Association(@"EntradaReferencesEmpleado")]
+        public XPCollection<Entrada> Entradas { get { return GetCollection<Entrada>(nameof(Entradas)); } }
         [Association(@"UsuarioReferencesEmpleado")]
         public XPCollection<Usuario> Usuarios { get { return GetCollection<Usuario>(nameof(Usuarios)); } }
+        [Association(@"VentaReferencesEmpleado")]
+        public XPCollection<Venta> Ventas { get { return GetCollection<Venta>(nameof(Ventas)); } }
     }
 
 }

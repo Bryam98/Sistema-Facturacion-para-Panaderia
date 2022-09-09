@@ -38,8 +38,6 @@ namespace SFPanaderia.PanaderiaBD
         public XPCollection<Empleado> Empleadoes { get { return GetCollection<Empleado>(nameof(Empleadoes)); } }
         [Association(@"ProductoReferencesEstado")]
         public XPCollection<Producto> Productoes { get { return GetCollection<Producto>(nameof(Productoes)); } }
-        [Association(@"UsuarioReferencesEstado")]
-        public XPCollection<Usuario> Usuarios { get { return GetCollection<Usuario>(nameof(Usuarios)); } }
     }
 
 }

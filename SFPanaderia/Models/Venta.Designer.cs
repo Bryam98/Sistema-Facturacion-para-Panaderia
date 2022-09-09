@@ -53,13 +53,13 @@ namespace SFPanaderia.PanaderiaBD
             get { return fMontoFinal; }
             set { SetPropertyValue<double>(nameof(MontoFinal), ref fMontoFinal, value); }
         }
-        Usuario fIdUsuario;
-        [Persistent(@"idUsuario")]
-        [Association(@"VentaReferencesUsuario")]
-        public Usuario IdUsuario
+        Empleado fIdEmpleado;
+        [Persistent(@"idEmpleado")]
+        [Association(@"VentaReferencesEmpleado")]
+        public Empleado IdEmpleado
         {
-            get { return fIdUsuario; }
-            set { SetPropertyValue<Usuario>(nameof(IdUsuario), ref fIdUsuario, value); }
+            get { return fIdEmpleado; }
+            set { SetPropertyValue<Empleado>(nameof(IdEmpleado), ref fIdEmpleado, value); }
         }
         Cliente fIdCliente;
         [Persistent(@"idCliente")]

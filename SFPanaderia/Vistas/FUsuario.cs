@@ -13,6 +13,11 @@ namespace SFPanaderia.Vistas
 {
     public partial class FUsuario : Form
     {
+
+
+        private bool IsEditar = false;
+        int valorEmpleado;
+
         public FUsuario()
         {
             InitializeComponent();
@@ -24,8 +29,7 @@ namespace SFPanaderia.Vistas
             this.ttMensaje.SetToolTip(this.ctCorfirmacion, "Ingrese la clave");
             this.ttMensaje.SetToolTip(this.ctClave, "Vuelva ingresar la clave");
             this.ttMensaje.SetToolTip(this.searchLookEmpleado, "Eliga el nombre del Empleado");
-            this.ttMensaje.SetToolTip(this.searchLookEstado, "Ingrese el Estado del Usuario");
-
+           
 
         }
 
@@ -49,8 +53,6 @@ namespace SFPanaderia.Vistas
                     ctUsuario.Text.Trim().Length == 0 ||
                     ctCorfirmacion.Text.Trim().Length == 0 ||
                     ctClave.Text.Trim().Length == 0 ||
-                    searchLookEstado.Text.Trim().Length == 0 ||
-                    searchLookEstado.Text.Equals("[Vacío]") ||
                     searchLookEmpleado.Text.Trim().Length == 0 ||
                     searchLookEmpleado.Text.Equals("[Vacío]")
 
@@ -73,9 +75,9 @@ namespace SFPanaderia.Vistas
             ctUsuario.Enabled = !v;
             ctCorfirmacion.Enabled = !v;
             ctClave.Enabled = !v;
-            searchLookEstado.Enabled = !v;
-            searchLookEstado.Enabled = !v;
-
+            searchLookEmpleado.Enabled = !v;
+            CkMostrar.Enabled = !v;
+            
             btnNuevo.Enabled = v;
             btnGuardar.Enabled = !v;
             btnCancelar.Enabled = !v;
@@ -87,7 +89,7 @@ namespace SFPanaderia.Vistas
 
         private void FUsuario_Load(object sender, EventArgs e)
         {
-
+            Habilitar(true);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -110,17 +112,22 @@ namespace SFPanaderia.Vistas
             }
                     
         }
-        /// <summary>
-        /// Variable para ver si el estado es guardar o editar
-        /// </summary>
-        private bool IsEditar = false;
+   
+        
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+           
+
             if (CamposVacios())
             {
                 mensajeError("Todo Lo campos deben estar completos");
                 ctUsuario.Focus();
+                return;
+            }
+            if (verificarExistenciaBD())
+            {
+                mensajeError("Error el empleado seleccionado ya tiene un usuario");
                 return;
             }
 
@@ -130,7 +137,7 @@ namespace SFPanaderia.Vistas
                 ctCorfirmacion.Focus();
                 return;
             }
-                
+             
                 
 
             Usuario user;
@@ -147,12 +154,19 @@ namespace SFPanaderia.Vistas
 
             }
 
+            if (searchLookEmpleado.EditValue == null || Convert.ToInt32(searchLookEmpleado.EditValue) != valorEmpleado)
+            {
+                user.IdEmpleado = (Empleado)searchLookUpEmpleados.GetFocusedRow();
+            }
+            else
+            {
+                user.IdEmpleado.IdEmpleado = valorEmpleado;
+            }
 
             user.Login = ctUsuario.Text;
             user.Clave = ctCorfirmacion.Text;
             user.FechaRegistro = DateTime.Now;
-            user.IdEmpleado = (Empleado)searchLookUpEmpleados.GetFocusedRow();
-            user.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+
             user.Save();
 
             try
@@ -168,12 +182,31 @@ namespace SFPanaderia.Vistas
 
             mensajeCorrecto("Registro Guardado Correctamente");
             LimpiarCajas();
-            xpEmpleados.Reload();
+            xpUsuarios.Reload();
             IsEditar = false;
             Habilitar(true);
             //manda al seccion de Mantenimiento
             this.tabControlUsuarios.SelectedIndex = 0;
 
+        }
+
+        public bool verificarExistenciaBD()
+        {
+
+           var emp = (Empleado) searchLookUpEmpleados.GetFocusedRow();
+
+            bool existe = false;
+
+            foreach(Usuario userExistente in xpUsuarios)
+            {
+                if( userExistente.IdEmpleado.IdEmpleado ==  emp.IdEmpleado)
+                {
+                    existe = true;
+                  
+                }
+            }
+
+            return existe;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -235,6 +268,8 @@ namespace SFPanaderia.Vistas
             ctUsuario.Text = user.Login.ToString();
             ctClave.Text = user.Clave.ToString();
             ctCorfirmacion.Text = user.Clave.ToString();
+            searchLookEmpleado.EditValue = user.IdEmpleado.IdEmpleado;
+            valorEmpleado = user.IdEmpleado.IdEmpleado;
           
 
             IsEditar = true;
@@ -242,5 +277,7 @@ namespace SFPanaderia.Vistas
             //manda al seccion de Mantenimiento
             this.tabControlUsuarios.SelectedIndex = 1;
         }
+
+       
     }
 }

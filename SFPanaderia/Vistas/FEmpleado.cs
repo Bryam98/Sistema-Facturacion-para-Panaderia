@@ -259,9 +259,6 @@ namespace SFPanaderia.Vistas
             ctTelefono.Text = emp.Telefono.ToString();
             dateFNacimiento.Text = emp.FechaNacimiento.ToString();
 
-
-
-
             searchCargo.EditValue = emp.IdCargo.IdCargo;
             valorCargo = emp.IdCargo.IdCargo;
 
@@ -327,7 +324,7 @@ namespace SFPanaderia.Vistas
 
         private void ctApellidos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Validar.SoloLetras(e);
+            Validar.SoloLetras(e);  
         }
 
         private void ctNombres_KeyPress(object sender, KeyPressEventArgs e)
