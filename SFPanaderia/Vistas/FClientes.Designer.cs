@@ -152,6 +152,7 @@
             this.gridColumn3});
             this.gridViewClientes.GridControl = this.gridClientes;
             this.gridViewClientes.Name = "gridViewClientes";
+            this.gridViewClientes.OptionsBehavior.Editable = false;
             this.gridViewClientes.OptionsFind.AlwaysVisible = true;
             this.gridViewClientes.OptionsFind.ShowFindButton = false;
             this.gridViewClientes.OptionsView.ColumnAutoWidth = false;
@@ -319,7 +320,7 @@
             // ctCedula
             // 
             this.ctCedula.Location = new System.Drawing.Point(371, 115);
-            this.ctCedula.Mask = "000-000000-0000>&";
+            this.ctCedula.Mask = "000-000000-0000>L";
             this.ctCedula.Name = "ctCedula";
             this.ctCedula.Size = new System.Drawing.Size(164, 21);
             this.ctCedula.TabIndex = 23;

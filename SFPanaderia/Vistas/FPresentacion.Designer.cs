@@ -182,6 +182,7 @@
             this.colDescripcion});
             this.gridViewPresentacion.GridControl = this.gridPresentacion;
             this.gridViewPresentacion.Name = "gridViewPresentacion";
+            this.gridViewPresentacion.OptionsBehavior.Editable = false;
             this.gridViewPresentacion.OptionsFind.AlwaysVisible = true;
             this.gridViewPresentacion.OptionsFind.ShowFindButton = false;
             // 

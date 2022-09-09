@@ -1,4 +1,5 @@
 ﻿using SFPanaderia.PanaderiaBD;
+using SFPanaderia.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,16 @@ namespace SFPanaderia.Vistas
 {
     public partial class FEmpleado : Form
     {
+
+
+        private bool IsEditar = false;
+        int valorCargo, valorEstado;
+
         public FEmpleado()
         {
             InitializeComponent();
             this.mensajesDeAyuda();
         }
-
 
         private void mensajesDeAyuda()
         {
@@ -49,6 +54,7 @@ namespace SFPanaderia.Vistas
 
         }
 
+  
         //Verificar si estan vacias la cajas
         private bool CamposVacios()
         {
@@ -77,8 +83,9 @@ namespace SFPanaderia.Vistas
             ctDireccion.Clear();
             ctTelefono.Clear();
             cbSexo.Text = string.Empty;
-            dateFNacimiento.Reset();
-
+            dateFNacimiento.ResetText();
+            searchCargo.ResetText();
+            searchEstado.ResetText();
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
         public void Habilitar(bool v)
@@ -111,30 +118,43 @@ namespace SFPanaderia.Vistas
 
         }
 
-        /// <summary>
-        /// Variable para ver si el estado es guardar o editar
-        /// </summary>
-        private bool IsEditar = false;
+       
+    
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
             if (CamposVacios())
             {
-                mensajeError("Todo Lo campos deben estar completos");
+                mensajeError("Vefique todos los campos son obligatorios...!!");
                 ctNombres.Focus();
                 return;
             }
 
-           Empleado emp;
+            if((MessageBox.Show("Esta Seguro que desea guardar el registro","Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
+            {
+                if (IsEditar) {
+
+                    IsEditar = false;
+                }
+                 
+                LimpiarCajas();
+                return;
+            }
+
+            Empleado emp;
 
 
             if (!IsEditar)
             {
 
                 emp = new Empleado(sessionEmpleados);
+
+
             }
             else
             {
+
                 emp = (Empleado)gridViewEmpleados.GetFocusedRow();
 
             }
@@ -151,12 +171,34 @@ namespace SFPanaderia.Vistas
             emp.Telefono = ctTelefono.Text;
             emp.FechaNacimiento = dateFNacimiento.DateTime;
             emp.FechaRegistro = DateTime.Now;
-            emp.IdCargo = (Cargo)searchLookUpCargo.GetFocusedRow();
-            emp.IdEstado = (Estado) searchLookUpEstado.GetFocusedRow();
-            emp.Save();
+
+            if (searchCargo.EditValue == null || Convert.ToInt32(searchCargo.EditValue) != valorCargo)
+            {
+
+                emp.IdCargo = (Cargo)searchLookUpCargo.GetFocusedRow();
+
+
+            }
+            else
+            {
+                emp.IdCargo.IdCargo = valorCargo;
+            }
+
+            if (searchEstado.EditValue == null || Convert.ToInt32(searchEstado.EditValue) != valorEstado)
+            {
+                emp.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+
+            }
+            else
+            {
+                emp.IdEstado.IdEstado = valorEstado;
+            }
+
+
 
             try
             {
+                emp.Save();
                 sessionEmpleados.CommitChanges();
 
             }
@@ -173,6 +215,7 @@ namespace SFPanaderia.Vistas
             Habilitar(true);
             //manda al seccion de Mantenimiento
             this.tabEmpleados.SelectedIndex = 0;
+
 
         }
 
@@ -191,12 +234,16 @@ namespace SFPanaderia.Vistas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            if(xpEmpleados.Count == 0)
+            {
+                mensajeError("Error a un no existe registro...!!");
+                return;
+            }
             Empleado emp = (Empleado)gridViewEmpleados.GetFocusedRow();
 
             if (emp == null)
             {
-                mensajeError("Debe selecionar un registro a editar");
+                mensajeError("Debe selecionar un registro a editar..!!");
                 return;
             }
 
@@ -213,6 +260,14 @@ namespace SFPanaderia.Vistas
             dateFNacimiento.Text = emp.FechaNacimiento.ToString();
 
 
+
+
+            searchCargo.EditValue = emp.IdCargo.IdCargo;
+            valorCargo = emp.IdCargo.IdCargo;
+
+            searchEstado.EditValue = emp.IdEstado.IdEstado;
+            valorEstado = emp.IdEstado.IdEstado;
+            
             IsEditar = true;
             Habilitar(false);
             //manda al seccion de Mantenimiento
@@ -221,6 +276,12 @@ namespace SFPanaderia.Vistas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (xpEmpleados.Count == 0)
+            {
+                mensajeError("Error a un no existe registro...!!");
+                return;
+            }
+
             Empleado emp = (Empleado)gridViewEmpleados.GetFocusedRow();
             
             if (emp == null)
@@ -248,6 +309,7 @@ namespace SFPanaderia.Vistas
             this.Close();
         }
 
+      
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (IsEditar)
@@ -263,6 +325,17 @@ namespace SFPanaderia.Vistas
             return;
         }
 
-       
+        private void ctApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
+        private void ctNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
+
+
     }
 }

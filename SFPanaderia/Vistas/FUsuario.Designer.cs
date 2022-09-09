@@ -216,6 +216,7 @@
             this.gridColumn4});
             this.gridViewUsuarios.GridControl = this.gridUsuarios;
             this.gridViewUsuarios.Name = "gridViewUsuarios";
+            this.gridViewUsuarios.OptionsBehavior.Editable = false;
             this.gridViewUsuarios.OptionsFind.AlwaysVisible = true;
             this.gridViewUsuarios.OptionsFind.ShowFindButton = false;
             this.gridViewUsuarios.OptionsView.ColumnAutoWidth = false;

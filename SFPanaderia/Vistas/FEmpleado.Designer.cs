@@ -57,10 +57,11 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.searchEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.xpEstado = new DevExpress.Xpo.XPCollection(this.components);
             this.searchLookUpEstado = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dateFNacimiento = new DevExpress.XtraEditors.DateEdit();
             this.searchCargo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.xpCargo = new DevExpress.Xpo.XPCollection(this.components);
+            this.xpCargos = new DevExpress.Xpo.XPCollection(this.components);
             this.searchLookUpCargo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -82,8 +83,8 @@
             this.ctApellidos = new System.Windows.Forms.TextBox();
             this.ctNombres = new System.Windows.Forms.TextBox();
             this.ctId = new System.Windows.Forms.TextBox();
-            this.xpEstado = new DevExpress.Xpo.XPCollection(this.components);
             this.tMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2.SuspendLayout();
             this.tabEmpleados.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -94,13 +95,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEmpleados)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchEstado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCargo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCargo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCargo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -110,7 +112,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(715, 48);
+            this.panel2.Size = new System.Drawing.Size(714, 48);
             this.panel2.TabIndex = 4;
             // 
             // label1
@@ -131,7 +133,7 @@
             this.tabEmpleados.Location = new System.Drawing.Point(0, 48);
             this.tabEmpleados.Name = "tabEmpleados";
             this.tabEmpleados.SelectedIndex = 0;
-            this.tabEmpleados.Size = new System.Drawing.Size(715, 403);
+            this.tabEmpleados.Size = new System.Drawing.Size(714, 403);
             this.tabEmpleados.TabIndex = 5;
             // 
             // tabPage1
@@ -141,7 +143,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(707, 377);
+            this.tabPage1.Size = new System.Drawing.Size(706, 377);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado de Empleados";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -154,14 +156,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(3, 329);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(701, 45);
+            this.panel1.Size = new System.Drawing.Size(700, 45);
             this.panel1.TabIndex = 2;
             // 
             // btnEliminar
             // 
             this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(341, 0);
+            this.btnEliminar.Location = new System.Drawing.Point(340, 0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 45);
             this.btnEliminar.TabIndex = 2;
@@ -172,7 +174,7 @@
             // 
             this.btnEditar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.ImageOptions.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(461, 0);
+            this.btnEditar.Location = new System.Drawing.Point(460, 0);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 45);
             this.btnEditar.TabIndex = 3;
@@ -183,7 +185,7 @@
             // 
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(581, 0);
+            this.btnSalir.Location = new System.Drawing.Point(580, 0);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(120, 45);
             this.btnSalir.TabIndex = 4;
@@ -197,7 +199,7 @@
             this.gridEmpleados.Location = new System.Drawing.Point(3, 3);
             this.gridEmpleados.MainView = this.gridViewEmpleados;
             this.gridEmpleados.Name = "gridEmpleados";
-            this.gridEmpleados.Size = new System.Drawing.Size(701, 320);
+            this.gridEmpleados.Size = new System.Drawing.Size(700, 320);
             this.gridEmpleados.TabIndex = 1;
             this.gridEmpleados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewEmpleados});
@@ -230,6 +232,7 @@
             this.gridColumn4});
             this.gridViewEmpleados.GridControl = this.gridEmpleados;
             this.gridViewEmpleados.Name = "gridViewEmpleados";
+            this.gridViewEmpleados.OptionsBehavior.Editable = false;
             this.gridViewEmpleados.OptionsFind.AlwaysVisible = true;
             this.gridViewEmpleados.OptionsFind.ShowFindButton = false;
             this.gridViewEmpleados.OptionsView.ColumnAutoWidth = false;
@@ -247,6 +250,7 @@
             this.colNombres.Name = "colNombres";
             this.colNombres.Visible = true;
             this.colNombres.VisibleIndex = 1;
+            this.colNombres.Width = 104;
             // 
             // colApellidos
             // 
@@ -254,6 +258,7 @@
             this.colApellidos.Name = "colApellidos";
             this.colApellidos.Visible = true;
             this.colApellidos.VisibleIndex = 2;
+            this.colApellidos.Width = 102;
             // 
             // colSexo
             // 
@@ -261,69 +266,72 @@
             this.colSexo.Name = "colSexo";
             this.colSexo.Visible = true;
             this.colSexo.VisibleIndex = 3;
+            this.colSexo.Width = 36;
             // 
             // colFechaNacimiento
             // 
             this.colFechaNacimiento.FieldName = "FechaNacimiento";
             this.colFechaNacimiento.Name = "colFechaNacimiento";
             this.colFechaNacimiento.Visible = true;
-            this.colFechaNacimiento.VisibleIndex = 4;
+            this.colFechaNacimiento.VisibleIndex = 5;
             // 
             // colCedula
             // 
             this.colCedula.FieldName = "Cedula";
             this.colCedula.Name = "colCedula";
             this.colCedula.Visible = true;
-            this.colCedula.VisibleIndex = 5;
+            this.colCedula.VisibleIndex = 6;
+            this.colCedula.Width = 117;
             // 
             // colDireccion
             // 
             this.colDireccion.FieldName = "Direccion";
             this.colDireccion.Name = "colDireccion";
             this.colDireccion.Visible = true;
-            this.colDireccion.VisibleIndex = 6;
+            this.colDireccion.VisibleIndex = 7;
+            this.colDireccion.Width = 162;
             // 
             // colTelefono
             // 
             this.colTelefono.FieldName = "Telefono";
             this.colTelefono.Name = "colTelefono";
             this.colTelefono.Visible = true;
-            this.colTelefono.VisibleIndex = 7;
+            this.colTelefono.VisibleIndex = 8;
             // 
             // colFechaRegistro
             // 
             this.colFechaRegistro.FieldName = "FechaRegistro";
             this.colFechaRegistro.Name = "colFechaRegistro";
             this.colFechaRegistro.Visible = true;
-            this.colFechaRegistro.VisibleIndex = 8;
+            this.colFechaRegistro.VisibleIndex = 10;
+            this.colFechaRegistro.Width = 90;
             // 
             // gridColumn1
             // 
             this.gridColumn1.FieldName = "IdCargo!";
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 9;
             // 
             // gridColumn2
             // 
-            this.gridColumn2.FieldName = "IdCargo!Key";
+            this.gridColumn2.Caption = "Cargo";
+            this.gridColumn2.FieldName = "IdCargo.Nombre";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 10;
+            this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 84;
             // 
             // gridColumn3
             // 
             this.gridColumn3.FieldName = "IdEstado!";
             this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 11;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.FieldName = "IdEstado!Key";
+            this.gridColumn4.Caption = "Estado";
+            this.gridColumn4.FieldName = "IdEstado.Nombre";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 12;
+            this.gridColumn4.VisibleIndex = 9;
             // 
             // tabPage2
             // 
@@ -353,7 +361,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(707, 377);
+            this.tabPage2.Size = new System.Drawing.Size(706, 377);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento de Empleados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -370,6 +378,11 @@
             this.searchEstado.Properties.ValueMember = "IdEstado";
             this.searchEstado.Size = new System.Drawing.Size(107, 20);
             this.searchEstado.TabIndex = 45;
+            // 
+            // xpEstado
+            // 
+            this.xpEstado.ObjectType = typeof(SFPanaderia.PanaderiaBD.Estado);
+            this.xpEstado.Session = this.sessionEmpleados;
             // 
             // searchLookUpEstado
             // 
@@ -396,17 +409,17 @@
             this.searchCargo.Name = "searchCargo";
             this.searchCargo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.searchCargo.Properties.DataSource = this.xpCargo;
+            this.searchCargo.Properties.DataSource = this.xpCargos;
             this.searchCargo.Properties.DisplayMember = "Nombre";
             this.searchCargo.Properties.PopupView = this.searchLookUpCargo;
             this.searchCargo.Properties.ValueMember = "IdCargo";
             this.searchCargo.Size = new System.Drawing.Size(144, 20);
             this.searchCargo.TabIndex = 11;
             // 
-            // xpCargo
+            // xpCargos
             // 
-            this.xpCargo.ObjectType = typeof(SFPanaderia.PanaderiaBD.Cargo);
-            this.xpCargo.Session = this.sessionEmpleados;
+            this.xpCargos.ObjectType = typeof(SFPanaderia.PanaderiaBD.Cargo);
+            this.xpCargos.Session = this.sessionEmpleados;
             // 
             // searchLookUpCargo
             // 
@@ -438,7 +451,7 @@
             // ctCedula
             // 
             this.ctCedula.Location = new System.Drawing.Point(393, 116);
-            this.ctCedula.Mask = "000-000000-0000>&";
+            this.ctCedula.Mask = "000-000000-0000>L";
             this.ctCedula.Name = "ctCedula";
             this.ctCedula.Size = new System.Drawing.Size(164, 20);
             this.ctCedula.TabIndex = 10;
@@ -590,6 +603,7 @@
             this.ctApellidos.Name = "ctApellidos";
             this.ctApellidos.Size = new System.Drawing.Size(239, 20);
             this.ctApellidos.TabIndex = 8;
+            this.ctApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctApellidos_KeyPress);
             // 
             // ctNombres
             // 
@@ -597,6 +611,7 @@
             this.ctNombres.Name = "ctNombres";
             this.ctNombres.Size = new System.Drawing.Size(192, 20);
             this.ctNombres.TabIndex = 7;
+            this.ctNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctNombres_KeyPress);
             // 
             // ctId
             // 
@@ -606,16 +621,15 @@
             this.ctId.Size = new System.Drawing.Size(100, 20);
             this.ctId.TabIndex = 6;
             // 
-            // xpEstado
+            // errorProvider
             // 
-            this.xpEstado.ObjectType = typeof(SFPanaderia.PanaderiaBD.Estado);
-            this.xpEstado.Session = this.sessionEmpleados;
+            this.errorProvider.ContainerControl = this;
             // 
             // FEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 451);
+            this.ClientSize = new System.Drawing.Size(714, 451);
             this.Controls.Add(this.tabEmpleados);
             this.Controls.Add(this.panel2);
             this.Name = "FEmpleado";
@@ -634,13 +648,14 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchEstado.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCargo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpCargo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCargo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -681,7 +696,6 @@
         private DevExpress.Xpo.UnitOfWork sessionEmpleados;
         private DevExpress.Xpo.XPCollection xpEmpleados;
         private DevExpress.Xpo.XPCollection xpEstado;
-        private DevExpress.Xpo.XPCollection xpCargo;
         private DevExpress.XtraGrid.Columns.GridColumn colIdEmpleado;
         private DevExpress.XtraGrid.Columns.GridColumn colNombres;
         private DevExpress.XtraGrid.Columns.GridColumn colApellidos;
@@ -701,5 +715,7 @@
         private DevExpress.XtraEditors.DateEdit dateFNacimiento;
         private DevExpress.XtraEditors.SearchLookUpEdit searchEstado;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEstado;
+        private DevExpress.Xpo.XPCollection xpCargos;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

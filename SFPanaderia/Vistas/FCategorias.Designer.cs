@@ -190,6 +190,7 @@
             this.colDescripcion});
             this.gridViewCategorias.GridControl = this.gridCategorias;
             this.gridViewCategorias.Name = "gridViewCategorias";
+            this.gridViewCategorias.OptionsBehavior.Editable = false;
             this.gridViewCategorias.OptionsFind.AlwaysVisible = true;
             this.gridViewCategorias.OptionsFind.ShowFindButton = false;
             // 

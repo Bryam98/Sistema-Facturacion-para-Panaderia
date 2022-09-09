@@ -189,6 +189,7 @@
             this.colDescripcion});
             this.gridViewCargos.GridControl = this.gridCargos;
             this.gridViewCargos.Name = "gridViewCargos";
+            this.gridViewCargos.OptionsBehavior.Editable = false;
             this.gridViewCargos.OptionsFind.AlwaysVisible = true;
             this.gridViewCargos.OptionsFind.ShowFindButton = false;
             // 

@@ -231,6 +231,7 @@
             this.gridColumn6});
             this.gridViewProductos.GridControl = this.gridProductos;
             this.gridViewProductos.Name = "gridViewProductos";
+            this.gridViewProductos.OptionsBehavior.Editable = false;
             this.gridViewProductos.OptionsFind.AlwaysVisible = true;
             this.gridViewProductos.OptionsFind.ShowFindButton = false;
             this.gridViewProductos.OptionsView.ColumnAutoWidth = false;
