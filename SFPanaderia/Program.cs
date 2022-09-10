@@ -23,7 +23,7 @@ namespace SFPanaderia
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FProducto());
+            Application.Run(new FEmpleados());
         }
     }
 }

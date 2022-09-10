@@ -77,6 +77,7 @@ namespace SFPanaderia.Vistas
             ctDireccion.Clear();
             ctTelefono.Clear();
             cbSexo.Text = string.Empty;
+            searchLookEstado.ResetText();
          
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
@@ -99,8 +100,25 @@ namespace SFPanaderia.Vistas
 
         }
 
-       
-      
+        private bool verificarCedula()
+        {
+            bool existe = false;
+
+            foreach(Cliente cli in xpClientes)
+            {
+                if(cli.Cedula == ctCedula.Text)
+                {
+                    existe = true;
+                }
+
+            }
+
+            return existe;
+            
+            
+        }
+
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (CamposVacios())
@@ -109,7 +127,15 @@ namespace SFPanaderia.Vistas
                 ctNombres.Focus();
                 return;
             }
-
+            if (!IsEditar)
+            {
+                if (verificarCedula())
+                {
+                    mensajeError("Ya existe un cliente con ese numero de cedula..!!");
+                    ctCedula.Focus();
+                    return;
+                }
+            }
             Cliente c;
 
 
@@ -169,6 +195,7 @@ namespace SFPanaderia.Vistas
 
         }
 
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Habilitar(false);
@@ -179,7 +206,8 @@ namespace SFPanaderia.Vistas
         private void FClientes_Load(object sender, EventArgs e)
         {
             Habilitar(true);
-  
+            gridViewClientes.ActiveFilterString = "[IdEstado.Nombre] = 'Activo'";
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -270,6 +298,18 @@ namespace SFPanaderia.Vistas
         private void ctTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloNumeros(e);
+        }
+
+        private void rrActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewClientes.ActiveFilterString = "[IdEstado.Nombre] = 'Activo'";
+            xpClientes.Reload();
+        }
+
+        private void rrInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewClientes.ActiveFilterString = "[IdEstado.Nombre] = 'Inactivo'";
+            xpClientes.Reload();
         }
     }
 }

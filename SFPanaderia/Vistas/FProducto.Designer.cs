@@ -32,12 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProducto));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.rrInactivos = new System.Windows.Forms.RadioButton();
+            this.rrActivo = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEliminar = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEditar = new DevExpress.XtraEditors.SimpleButton();
             this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEditar = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEliminar = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridProductos = new DevExpress.XtraGrid.GridControl();
             this.xpProductos = new DevExpress.Xpo.XPCollection(this.components);
             this.sessionProductos = new DevExpress.Xpo.UnitOfWork(this.components);
@@ -52,7 +54,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.dateFRegistro = new DevExpress.XtraEditors.DateEdit();
@@ -83,7 +85,7 @@
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionProductos)).BeginInit();
@@ -121,6 +123,30 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Productos";
             // 
+            // rrInactivos
+            // 
+            this.rrInactivos.AutoSize = true;
+            this.rrInactivos.Location = new System.Drawing.Point(194, 12);
+            this.rrInactivos.Name = "rrInactivos";
+            this.rrInactivos.Size = new System.Drawing.Size(77, 17);
+            this.rrInactivos.TabIndex = 2;
+            this.rrInactivos.Text = "Inactivos";
+            this.rrInactivos.UseVisualStyleBackColor = true;
+            this.rrInactivos.CheckedChanged += new System.EventHandler(this.rrInactivos_CheckedChanged);
+            // 
+            // rrActivo
+            // 
+            this.rrActivo.AutoSize = true;
+            this.rrActivo.Checked = true;
+            this.rrActivo.Location = new System.Drawing.Point(119, 12);
+            this.rrActivo.Name = "rrActivo";
+            this.rrActivo.Size = new System.Drawing.Size(67, 17);
+            this.rrActivo.TabIndex = 1;
+            this.rrActivo.TabStop = true;
+            this.rrActivo.Text = "Activos";
+            this.rrActivo.UseVisualStyleBackColor = true;
+            this.rrActivo.CheckedChanged += new System.EventHandler(this.rrActivo_CheckedChanged);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -129,80 +155,81 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 46);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(714, 405);
-            this.tabControl1.TabIndex = 2;
+            this.tabControl1.Size = new System.Drawing.Size(714, 435);
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.btnSalir);
+            this.tabPage1.Controls.Add(this.btnEditar);
+            this.tabPage1.Controls.Add(this.btnEliminar);
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.gridProductos);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(706, 379);
+            this.tabPage1.Size = new System.Drawing.Size(706, 409);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado de Productos";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnEliminar);
-            this.panel2.Controls.Add(this.btnEditar);
-            this.panel2.Controls.Add(this.btnSalir);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 333);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(700, 43);
-            this.panel2.TabIndex = 1;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Appearance.Options.UseFont = true;
-            this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(340, 0);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(120, 43);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Appearance.Options.UseFont = true;
-            this.btnEditar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.ImageOptions.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(460, 0);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(120, 43);
-            this.btnEditar.TabIndex = 1;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnSalir
             // 
             this.btnSalir.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Appearance.Options.UseFont = true;
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(580, 0);
+            this.btnSalir.Location = new System.Drawing.Point(580, 360);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(120, 43);
-            this.btnSalir.TabIndex = 0;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Appearance.Options.UseFont = true;
+            this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.ImageOptions.Image")));
+            this.btnEditar.Location = new System.Drawing.Point(454, 360);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(120, 43);
+            this.btnEditar.TabIndex = 5;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Appearance.Options.UseFont = true;
+            this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
+            this.btnEliminar.Location = new System.Drawing.Point(328, 360);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(120, 43);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rrInactivos);
+            this.groupBox1.Controls.Add(this.rrActivo);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(700, 35);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Estado Productos";
             // 
             // gridProductos
             // 
             this.gridProductos.DataSource = this.xpProductos;
-            this.gridProductos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gridProductos.Location = new System.Drawing.Point(3, 3);
+            this.gridProductos.Location = new System.Drawing.Point(3, 38);
             this.gridProductos.MainView = this.gridViewProductos;
             this.gridProductos.Name = "gridProductos";
-            this.gridProductos.Size = new System.Drawing.Size(700, 324);
-            this.gridProductos.TabIndex = 0;
+            this.gridProductos.Size = new System.Drawing.Size(700, 319);
+            this.gridProductos.TabIndex = 3;
             this.gridProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewProductos});
             // 
@@ -229,13 +256,15 @@
             this.gridColumn3,
             this.gridColumn4,
             this.gridColumn5,
-            this.gridColumn6});
+            this.Estado});
             this.gridViewProductos.GridControl = this.gridProductos;
             this.gridViewProductos.Name = "gridViewProductos";
             this.gridViewProductos.OptionsBehavior.Editable = false;
             this.gridViewProductos.OptionsFind.AlwaysVisible = true;
             this.gridViewProductos.OptionsFind.ShowFindButton = false;
+            this.gridViewProductos.OptionsNavigation.UseTabKey = false;
             this.gridViewProductos.OptionsView.ColumnAutoWidth = false;
+            this.gridViewProductos.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             // 
             // colIdProducto
             // 
@@ -309,14 +338,14 @@
             this.gridColumn5.FieldName = "IdEstado.Nombre";
             this.gridColumn5.Name = "gridColumn5";
             // 
-            // gridColumn6
+            // Estado
             // 
-            this.gridColumn6.Caption = "Estado";
-            this.gridColumn6.FieldName = "IdEstado.Nombre";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 7;
-            this.gridColumn6.Width = 85;
+            this.Estado.Caption = "Estado";
+            this.Estado.FieldName = "IdEstado.Nombre";
+            this.Estado.Name = "Estado";
+            this.Estado.Visible = true;
+            this.Estado.VisibleIndex = 7;
+            this.Estado.Width = 85;
             // 
             // tabPage2
             // 
@@ -342,7 +371,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(706, 379);
+            this.tabPage2.Size = new System.Drawing.Size(706, 409);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento Productos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -369,7 +398,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateFRegistro.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dateFRegistro.Size = new System.Drawing.Size(146, 20);
-            this.dateFRegistro.TabIndex = 23;
+            this.dateFRegistro.TabIndex = 3;
             // 
             // btnCancelar
             // 
@@ -379,7 +408,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(363, 284);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 41);
-            this.btnCancelar.TabIndex = 22;
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -391,7 +420,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(230, 284);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 41);
-            this.btnGuardar.TabIndex = 21;
+            this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -403,7 +432,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(95, 284);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(120, 41);
-            this.btnNuevo.TabIndex = 20;
+            this.btnNuevo.TabIndex = 7;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -418,7 +447,7 @@
             this.searchEstado.Properties.PopupView = this.searchEditEstado;
             this.searchEstado.Properties.ValueMember = "IdEstado";
             this.searchEstado.Size = new System.Drawing.Size(146, 20);
-            this.searchEstado.TabIndex = 13;
+            this.searchEstado.TabIndex = 7;
             // 
             // xpEstado
             // 
@@ -453,7 +482,7 @@
             this.searchPresentacion.Properties.PopupView = this.searchEditPresentacion;
             this.searchPresentacion.Properties.ValueMember = "IdPresentacion";
             this.searchPresentacion.Size = new System.Drawing.Size(146, 20);
-            this.searchPresentacion.TabIndex = 11;
+            this.searchPresentacion.TabIndex = 5;
             // 
             // xpPresentacion
             // 
@@ -472,14 +501,14 @@
             this.ctPrecio.Location = new System.Drawing.Point(95, 172);
             this.ctPrecio.Name = "ctPrecio";
             this.ctPrecio.Size = new System.Drawing.Size(100, 20);
-            this.ctPrecio.TabIndex = 10;
+            this.ctPrecio.TabIndex = 6;
             // 
             // ctCantidad
             // 
             this.ctCantidad.Location = new System.Drawing.Point(95, 219);
             this.ctCantidad.Name = "ctCantidad";
             this.ctCantidad.Size = new System.Drawing.Size(100, 20);
-            this.ctCantidad.TabIndex = 9;
+            this.ctCantidad.TabIndex = 8;
             // 
             // searchCategoria
             // 
@@ -492,7 +521,7 @@
             this.searchCategoria.Properties.PopupView = this.searchEditCategoria;
             this.searchCategoria.Properties.ValueMember = "IdCategoria";
             this.searchCategoria.Size = new System.Drawing.Size(133, 20);
-            this.searchCategoria.TabIndex = 8;
+            this.searchCategoria.TabIndex = 4;
             // 
             // xpCategorias
             // 
@@ -558,10 +587,11 @@
             // 
             // ctId
             // 
+            this.ctId.Enabled = false;
             this.ctId.Location = new System.Drawing.Point(95, 44);
             this.ctId.Name = "ctId";
             this.ctId.Size = new System.Drawing.Size(100, 20);
-            this.ctId.TabIndex = 2;
+            this.ctId.TabIndex = 1;
             // 
             // label1
             // 
@@ -578,24 +608,27 @@
             this.ctNombre.Location = new System.Drawing.Point(95, 88);
             this.ctNombre.Name = "ctNombre";
             this.ctNombre.Size = new System.Drawing.Size(199, 20);
-            this.ctNombre.TabIndex = 0;
+            this.ctNombre.TabIndex = 2;
             // 
             // FProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 451);
+            this.ClientSize = new System.Drawing.Size(714, 481);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FProducto";
             this.Load += new System.EventHandler(this.FProducto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionProductos)).EndInit();
@@ -623,7 +656,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraGrid.GridControl gridProductos;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewProductos;
         private DevExpress.Xpo.UnitOfWork sessionProductos;
@@ -642,7 +674,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn Estado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ctId;
@@ -669,5 +701,8 @@
         private DevExpress.XtraEditors.SimpleButton btnEditar;
         private DevExpress.XtraEditors.DateEdit dateFRegistro;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton rrInactivos;
+        private System.Windows.Forms.RadioButton rrActivo;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

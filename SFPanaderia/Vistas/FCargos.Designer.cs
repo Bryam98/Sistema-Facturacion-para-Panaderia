@@ -118,7 +118,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 304);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(535, 47);
-            this.panel2.TabIndex = 2;
+            this.panel2.TabIndex = 0;
             // 
             // btnEliminar
             // 
@@ -129,7 +129,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(205, 0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(110, 47);
-            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.TabIndex = 0;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -142,7 +142,7 @@
             this.btnEditar.Location = new System.Drawing.Point(315, 0);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 47);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -155,7 +155,7 @@
             this.btnSalir.Location = new System.Drawing.Point(425, 0);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 47);
-            this.btnSalir.TabIndex = 0;
+            this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -192,6 +192,7 @@
             this.gridViewCargos.OptionsBehavior.Editable = false;
             this.gridViewCargos.OptionsFind.AlwaysVisible = true;
             this.gridViewCargos.OptionsFind.ShowFindButton = false;
+            this.gridViewCargos.OptionsNavigation.UseTabKey = false;
             // 
             // colIdCargo
             // 
@@ -306,7 +307,7 @@
             this.ctDescripcion.Multiline = true;
             this.ctDescripcion.Name = "ctDescripcion";
             this.ctDescripcion.Size = new System.Drawing.Size(348, 75);
-            this.ctDescripcion.TabIndex = 11;
+            this.ctDescripcion.TabIndex = 3;
             // 
             // ctNombre
             // 
@@ -314,7 +315,7 @@
             this.ctNombre.Location = new System.Drawing.Point(106, 92);
             this.ctNombre.Name = "ctNombre";
             this.ctNombre.Size = new System.Drawing.Size(200, 21);
-            this.ctNombre.TabIndex = 10;
+            this.ctNombre.TabIndex = 2;
             // 
             // ctId
             // 
@@ -323,7 +324,7 @@
             this.ctId.Location = new System.Drawing.Point(106, 48);
             this.ctId.Name = "ctId";
             this.ctId.Size = new System.Drawing.Size(82, 21);
-            this.ctId.TabIndex = 9;
+            this.ctId.TabIndex = 1;
             // 
             // FCargos
             // 

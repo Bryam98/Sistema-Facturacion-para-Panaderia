@@ -130,7 +130,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(205, 0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(110, 47);
-            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.TabIndex = 0;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -143,7 +143,7 @@
             this.btnEditar.Location = new System.Drawing.Point(315, 0);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 47);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -156,7 +156,7 @@
             this.btnSalir.Location = new System.Drawing.Point(425, 0);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 47);
-            this.btnSalir.TabIndex = 0;
+            this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -193,6 +193,7 @@
             this.gridViewCategorias.OptionsBehavior.Editable = false;
             this.gridViewCategorias.OptionsFind.AlwaysVisible = true;
             this.gridViewCategorias.OptionsFind.ShowFindButton = false;
+            this.gridViewCategorias.OptionsNavigation.UseTabKey = false;
             // 
             // colIdCategoria
             // 
@@ -252,7 +253,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(352, 235);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 46);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -264,7 +265,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(234, 235);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(112, 46);
-            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -276,7 +277,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(116, 235);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(112, 46);
-            this.btnNuevo.TabIndex = 6;
+            this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 

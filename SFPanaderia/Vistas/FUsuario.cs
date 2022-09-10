@@ -121,19 +121,31 @@ namespace SFPanaderia.Vistas
 
             if (CamposVacios())
             {
-                mensajeError("Todo Lo campos deben estar completos");
+                mensajeError("Todos los campos deben estar completos");
                 ctUsuario.Focus();
                 return;
             }
-            if (verificarExistenciaBD())
+            if (verificarUsuario())
             {
-                mensajeError("Error el empleado seleccionado ya tiene un usuario");
+
+                mensajeError("Error el nombre de usuario ya existe");
+                ctUsuario.Focus();
                 return;
+
+            }
+
+            if (!IsEditar)
+            {
+                if (verificarExistenciaBD())
+                {
+                    mensajeError("Error el empleado seleccionado ya tiene un usuario");
+                    return;
+                }
             }
 
             if (!ctCorfirmacion.Text.Equals(ctClave.Text))
             {
-                mensajeError("Las claves que intruducio no conciden");
+                mensajeError("Las claves introducidas no coinciden");
                 ctCorfirmacion.Focus();
                 return;
             }
@@ -188,25 +200,6 @@ namespace SFPanaderia.Vistas
             //manda al seccion de Mantenimiento
             this.tabControlUsuarios.SelectedIndex = 0;
 
-        }
-
-        public bool verificarExistenciaBD()
-        {
-
-           var emp = (Empleado) searchLookUpEmpleados.GetFocusedRow();
-
-            bool existe = false;
-
-            foreach(Usuario userExistente in xpUsuarios)
-            {
-                if( userExistente.IdEmpleado.IdEmpleado ==  emp.IdEmpleado)
-                {
-                    existe = true;
-                  
-                }
-            }
-
-            return existe;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -270,14 +263,56 @@ namespace SFPanaderia.Vistas
             ctCorfirmacion.Text = user.Clave.ToString();
             searchLookEmpleado.EditValue = user.IdEmpleado.IdEmpleado;
             valorEmpleado = user.IdEmpleado.IdEmpleado;
-          
+            
 
             IsEditar = true;
             Habilitar(false);
+
+            //desabilitamos el control no se puede cambiar el empleado
+            searchLookEmpleado.Enabled = false;
+            
             //manda al seccion de Mantenimiento
             this.tabControlUsuarios.SelectedIndex = 1;
         }
 
-       
+
+
+        public bool verificarExistenciaBD()
+        {
+
+            bool existe = false;
+
+            var empleado = (Empleado)searchLookUpEmpleados.GetFocusedRow();
+
+
+
+            foreach (Usuario userExistente in xpUsuarios)
+            {
+                if (userExistente.IdEmpleado.IdEmpleado == empleado.IdEmpleado)
+                {
+                    existe = true;
+
+                }
+            }
+
+            return existe;
+        }
+
+        private bool verificarUsuario()
+        {
+            bool existe = false;
+
+            foreach(Usuario user in xpUsuarios)
+            {
+                if(user.Login == ctUsuario.Text)
+                {
+                    existe = true;
+                }
+            }
+
+            return existe;
+        }
+
+
     }
 }

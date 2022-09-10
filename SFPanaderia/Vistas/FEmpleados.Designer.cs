@@ -1,6 +1,6 @@
 ﻿namespace SFPanaderia.Vistas
 {
-    partial class FEmpleado
+    partial class FEmpleados
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FEmpleado));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FEmpleados));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabEmpleados = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rrInactivos = new System.Windows.Forms.RadioButton();
+            this.rrActivo = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEliminar = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditar = new DevExpress.XtraEditors.SimpleButton();
@@ -88,6 +91,7 @@
             this.panel2.SuspendLayout();
             this.tabEmpleados.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEmpleados)).BeginInit();
@@ -113,7 +117,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(714, 48);
-            this.panel2.TabIndex = 4;
+            this.panel2.TabIndex = 0;
             // 
             // label1
             // 
@@ -133,20 +137,59 @@
             this.tabEmpleados.Location = new System.Drawing.Point(0, 48);
             this.tabEmpleados.Name = "tabEmpleados";
             this.tabEmpleados.SelectedIndex = 0;
-            this.tabEmpleados.Size = new System.Drawing.Size(714, 403);
-            this.tabEmpleados.TabIndex = 5;
+            this.tabEmpleados.Size = new System.Drawing.Size(714, 433);
+            this.tabEmpleados.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.gridEmpleados);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(706, 377);
+            this.tabPage1.Size = new System.Drawing.Size(706, 407);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado de Empleados";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rrInactivos);
+            this.groupBox1.Controls.Add(this.rrActivo);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(700, 36);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Estado Productos";
+            // 
+            // rrInactivos
+            // 
+            this.rrInactivos.AutoSize = true;
+            this.rrInactivos.Location = new System.Drawing.Point(194, 12);
+            this.rrInactivos.Name = "rrInactivos";
+            this.rrInactivos.Size = new System.Drawing.Size(77, 17);
+            this.rrInactivos.TabIndex = 4;
+            this.rrInactivos.TabStop = true;
+            this.rrInactivos.Text = "Inactivos";
+            this.rrInactivos.UseVisualStyleBackColor = true;
+            this.rrInactivos.CheckedChanged += new System.EventHandler(this.rrInactivos_CheckedChanged);
+            // 
+            // rrActivo
+            // 
+            this.rrActivo.AutoSize = true;
+            this.rrActivo.Checked = true;
+            this.rrActivo.Location = new System.Drawing.Point(119, 12);
+            this.rrActivo.Name = "rrActivo";
+            this.rrActivo.Size = new System.Drawing.Size(67, 17);
+            this.rrActivo.TabIndex = 3;
+            this.rrActivo.TabStop = true;
+            this.rrActivo.Text = "Activos";
+            this.rrActivo.UseVisualStyleBackColor = true;
+            this.rrActivo.CheckedChanged += new System.EventHandler(this.rrActivo_CheckedChanged);
             // 
             // panel1
             // 
@@ -154,7 +197,7 @@
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 329);
+            this.panel1.Location = new System.Drawing.Point(3, 359);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(700, 45);
             this.panel1.TabIndex = 2;
@@ -166,7 +209,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(340, 0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 45);
-            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -177,7 +220,7 @@
             this.btnEditar.Location = new System.Drawing.Point(460, 0);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 45);
-            this.btnEditar.TabIndex = 3;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -188,19 +231,18 @@
             this.btnSalir.Location = new System.Drawing.Point(580, 0);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(120, 45);
-            this.btnSalir.TabIndex = 4;
+            this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // gridEmpleados
             // 
             this.gridEmpleados.DataSource = this.xpEmpleados;
-            this.gridEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gridEmpleados.Location = new System.Drawing.Point(3, 3);
+            this.gridEmpleados.Location = new System.Drawing.Point(3, 39);
             this.gridEmpleados.MainView = this.gridViewEmpleados;
             this.gridEmpleados.Name = "gridEmpleados";
-            this.gridEmpleados.Size = new System.Drawing.Size(700, 320);
-            this.gridEmpleados.TabIndex = 1;
+            this.gridEmpleados.Size = new System.Drawing.Size(700, 314);
+            this.gridEmpleados.TabIndex = 8;
             this.gridEmpleados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewEmpleados});
             // 
@@ -235,7 +277,9 @@
             this.gridViewEmpleados.OptionsBehavior.Editable = false;
             this.gridViewEmpleados.OptionsFind.AlwaysVisible = true;
             this.gridViewEmpleados.OptionsFind.ShowFindButton = false;
+            this.gridViewEmpleados.OptionsNavigation.UseTabKey = false;
             this.gridViewEmpleados.OptionsView.ColumnAutoWidth = false;
+            this.gridViewEmpleados.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             // 
             // colIdEmpleado
             // 
@@ -361,7 +405,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(706, 377);
+            this.tabPage2.Size = new System.Drawing.Size(706, 407);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento de Empleados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -379,7 +423,7 @@
             this.searchEstado.Properties.PopupView = this.searchLookUpEstado;
             this.searchEstado.Properties.ValueMember = "IdEstado";
             this.searchEstado.Size = new System.Drawing.Size(107, 22);
-            this.searchEstado.TabIndex = 45;
+            this.searchEstado.TabIndex = 10;
             // 
             // xpEstado
             // 
@@ -405,7 +449,7 @@
             this.dateFNacimiento.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateFNacimiento.Size = new System.Drawing.Size(161, 22);
-            this.dateFNacimiento.TabIndex = 13;
+            this.dateFNacimiento.TabIndex = 7;
             // 
             // searchCargo
             // 
@@ -420,7 +464,7 @@
             this.searchCargo.Properties.PopupView = this.searchLookUpCargo;
             this.searchCargo.Properties.ValueMember = "IdCargo";
             this.searchCargo.Size = new System.Drawing.Size(144, 22);
-            this.searchCargo.TabIndex = 11;
+            this.searchCargo.TabIndex = 6;
             // 
             // xpCargos
             // 
@@ -461,7 +505,7 @@
             this.ctCedula.Mask = "000-000000-0000>L";
             this.ctCedula.Name = "ctCedula";
             this.ctCedula.Size = new System.Drawing.Size(164, 21);
-            this.ctCedula.TabIndex = 10;
+            this.ctCedula.TabIndex = 5;
             // 
             // label9
             // 
@@ -515,7 +559,7 @@
             this.ctTelefono.Location = new System.Drawing.Point(96, 241);
             this.ctTelefono.Name = "ctTelefono";
             this.ctTelefono.Size = new System.Drawing.Size(149, 21);
-            this.ctTelefono.TabIndex = 15;
+            this.ctTelefono.TabIndex = 9;
             // 
             // label8
             // 
@@ -543,7 +587,7 @@
             this.ctDireccion.Location = new System.Drawing.Point(96, 198);
             this.ctDireccion.Name = "ctDireccion";
             this.ctDireccion.Size = new System.Drawing.Size(514, 21);
-            this.ctDireccion.TabIndex = 14;
+            this.ctDireccion.TabIndex = 8;
             // 
             // label6
             // 
@@ -585,7 +629,7 @@
             this.cbSexo.Location = new System.Drawing.Point(96, 116);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(86, 23);
-            this.cbSexo.TabIndex = 9;
+            this.cbSexo.TabIndex = 4;
             // 
             // label4
             // 
@@ -613,7 +657,7 @@
             this.ctApellidos.Location = new System.Drawing.Point(393, 78);
             this.ctApellidos.Name = "ctApellidos";
             this.ctApellidos.Size = new System.Drawing.Size(239, 21);
-            this.ctApellidos.TabIndex = 8;
+            this.ctApellidos.TabIndex = 3;
             this.ctApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctApellidos_KeyPress);
             // 
             // ctNombres
@@ -622,7 +666,7 @@
             this.ctNombres.Location = new System.Drawing.Point(96, 78);
             this.ctNombres.Name = "ctNombres";
             this.ctNombres.Size = new System.Drawing.Size(192, 21);
-            this.ctNombres.TabIndex = 7;
+            this.ctNombres.TabIndex = 2;
             this.ctNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctNombres_KeyPress);
             // 
             // ctId
@@ -632,20 +676,20 @@
             this.ctId.Location = new System.Drawing.Point(96, 40);
             this.ctId.Name = "ctId";
             this.ctId.Size = new System.Drawing.Size(100, 21);
-            this.ctId.TabIndex = 6;
+            this.ctId.TabIndex = 1;
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // FEmpleado
+            // FEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 451);
+            this.ClientSize = new System.Drawing.Size(714, 481);
             this.Controls.Add(this.tabEmpleados);
             this.Controls.Add(this.panel2);
-            this.Name = "FEmpleado";
+            this.Name = "FEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FEmpleado";
             this.Load += new System.EventHandler(this.FEmpleado_Load);
@@ -653,6 +697,8 @@
             this.panel2.PerformLayout();
             this.tabEmpleados.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridEmpleados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEmpleados)).EndInit();
@@ -730,5 +776,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEstado;
         private DevExpress.Xpo.XPCollection xpCargos;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rrInactivos;
+        private System.Windows.Forms.RadioButton rrActivo;
     }
 }

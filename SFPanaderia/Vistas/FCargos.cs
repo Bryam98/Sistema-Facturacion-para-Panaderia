@@ -68,6 +68,7 @@ namespace SFPanaderia.Vistas
         private void FCargos_Load(object sender, EventArgs e)
         {
             Habilitar(true);
+            
         }
 
         private bool IsEditar = false;

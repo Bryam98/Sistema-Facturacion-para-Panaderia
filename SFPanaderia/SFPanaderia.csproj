@@ -151,11 +151,11 @@
     <Compile Include="Vistas\FClientes.Designer.cs">
       <DependentUpon>FClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FEmpleado.cs">
+    <Compile Include="Vistas\FEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\FEmpleado.Designer.cs">
-      <DependentUpon>FEmpleado.cs</DependentUpon>
+    <Compile Include="Vistas\FEmpleados.Designer.cs">
+      <DependentUpon>FEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FPresentacion.cs">
       <SubType>Form</SubType>
@@ -219,8 +219,8 @@
     <EmbeddedResource Include="Vistas\FClientes.resx">
       <DependentUpon>FClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FEmpleado.resx">
-      <DependentUpon>FEmpleado.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FEmpleados.resx">
+      <DependentUpon>FEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FPresentacion.resx">
       <DependentUpon>FPresentacion.cs</DependentUpon>

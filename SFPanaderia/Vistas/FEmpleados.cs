@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace SFPanaderia.Vistas
 {
-    public partial class FEmpleado : Form
+    public partial class FEmpleados : Form
     {
 
 
         private bool IsEditar = false;
         int valorCargo, valorEstado;
 
-        public FEmpleado()
+        public FEmpleados()
         {
             InitializeComponent();
             this.mensajesDeAyuda();
@@ -117,9 +117,26 @@ namespace SFPanaderia.Vistas
           
 
         }
+        private bool verificarCedula()
+        {
+            bool existe = false;
 
-       
-    
+            foreach (Empleado emp in xpEmpleados)
+            {
+                if (emp.Cedula == ctCedula.Text)
+                {
+                    existe = true;
+                }
+
+            }
+
+            return existe;
+
+
+        }
+
+
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -130,8 +147,17 @@ namespace SFPanaderia.Vistas
                 ctNombres.Focus();
                 return;
             }
+            if (!IsEditar)
+            {
+                if (verificarCedula())
+                {
+                    mensajeError("Ya existe un cliente con ese numero de cedula..!!");
+                    ctCedula.Focus();
+                    return;
+                }
+            }
 
-            if((MessageBox.Show("Esta Seguro que desea guardar el registro","Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
+            if ((MessageBox.Show("Esta Seguro que desea guardar el registro","Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
             {
                 if (IsEditar) {
 
@@ -229,7 +255,7 @@ namespace SFPanaderia.Vistas
         private void FClientes_Load(object sender, EventArgs e)
         {
             Habilitar(true);
-
+            gridViewEmpleados.ActiveFilterString = "[IdEstado.Nombre] = 'activo'";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -325,6 +351,18 @@ namespace SFPanaderia.Vistas
         private void ctApellidos_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloLetras(e);  
+        }
+
+        private void rrActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewEmpleados.ActiveFilterString = "[IdEstado.Nombre] = 'activo'";
+            xpEmpleados.Reload();
+        }
+
+        private void rrInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewEmpleados.ActiveFilterString = "[IdEstado.Nombre] = 'inactivo'";
+            xpEmpleados.Reload();
         }
 
         private void ctNombres_KeyPress(object sender, KeyPressEventArgs e)

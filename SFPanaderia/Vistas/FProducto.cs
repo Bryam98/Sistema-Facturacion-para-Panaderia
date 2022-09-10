@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
 using SFPanaderia.PanaderiaBD;
 using System;
 using System.Collections.Generic;
@@ -108,6 +109,9 @@ namespace SFPanaderia.Vistas
         {
             Habilitar(true);
             dateFRegistro.DateTime = DateTime.Now.Date;
+
+            gridViewProductos.ActiveFilterString = "[IdEstado.Nombre] = 'Activo'";
+
 
         }
 
@@ -253,6 +257,18 @@ namespace SFPanaderia.Vistas
             sessionProductos.CommitChanges();
 
             MensajeCorrecto("El registro fue eliminado correctamente");
+        }
+
+        private void rrActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewProductos.ActiveFilterString = "[IdEstado.Nombre] = 'Activo'";
+            xpProductos.Reload();
+        }
+
+        private void rrInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewProductos.ActiveFilterString = "[IdEstado.Nombre] = 'Inactivo'";
+            xpProductos.Reload();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
