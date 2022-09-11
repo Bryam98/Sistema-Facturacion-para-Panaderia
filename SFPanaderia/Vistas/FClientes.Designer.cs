@@ -54,6 +54,7 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ctTelefono = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.ctCedula = new System.Windows.Forms.MaskedTextBox();
             this.searchLookEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -62,7 +63,6 @@
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevo = new DevExpress.XtraEditors.SimpleButton();
-            this.ctTelefono = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ctDireccion = new System.Windows.Forms.TextBox();
@@ -160,7 +160,7 @@
             this.groupBox1.Size = new System.Drawing.Size(700, 36);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado Productos";
+            this.groupBox1.Text = "Estado Clientes";
             // 
             // rrInactivos
             // 
@@ -318,13 +318,13 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ctTelefono);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.ctCedula);
             this.tabPage2.Controls.Add(this.searchLookEstado);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Controls.Add(this.btnNuevo);
-            this.tabPage2.Controls.Add(this.ctTelefono);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.ctDireccion);
@@ -346,11 +346,20 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // ctTelefono
+            // 
+            this.ctTelefono.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTelefono.Location = new System.Drawing.Point(96, 200);
+            this.ctTelefono.Mask = "0000-0000";
+            this.ctTelefono.Name = "ctTelefono";
+            this.ctTelefono.Size = new System.Drawing.Size(100, 22);
+            this.ctTelefono.TabIndex = 6;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(315, 204);
+            this.label9.Location = new System.Drawing.Point(330, 202);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 13);
             this.label9.TabIndex = 24;
@@ -358,17 +367,18 @@
             // 
             // ctCedula
             // 
-            this.ctCedula.Location = new System.Drawing.Point(371, 115);
+            this.ctCedula.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctCedula.Location = new System.Drawing.Point(387, 115);
             this.ctCedula.Mask = "000-000000-0000>L";
             this.ctCedula.Name = "ctCedula";
-            this.ctCedula.Size = new System.Drawing.Size(164, 21);
+            this.ctCedula.Size = new System.Drawing.Size(158, 22);
             this.ctCedula.TabIndex = 4;
             // 
             // searchLookEstado
             // 
-            this.searchLookEstado.Location = new System.Drawing.Point(371, 200);
+            this.searchLookEstado.Location = new System.Drawing.Point(387, 200);
             this.searchLookEstado.Name = "searchLookEstado";
-            this.searchLookEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLookEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLookEstado.Properties.Appearance.Options.UseFont = true;
             this.searchLookEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -427,129 +437,121 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // ctTelefono
-            // 
-            this.ctTelefono.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctTelefono.Location = new System.Drawing.Point(96, 200);
-            this.ctTelefono.Name = "ctTelefono";
-            this.ctTelefono.Size = new System.Drawing.Size(149, 21);
-            this.ctTelefono.TabIndex = 6;
-            this.ctTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctTelefono_KeyPress);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(33, 202);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(25, 200);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 14;
             this.label8.Text = "Telefono:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 155);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(18, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.Size = new System.Drawing.Size(72, 15);
             this.label7.TabIndex = 13;
             this.label7.Text = "Direccion:";
             // 
             // ctDireccion
             // 
-            this.ctDireccion.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctDireccion.Location = new System.Drawing.Point(96, 155);
             this.ctDireccion.Name = "ctDireccion";
-            this.ctDireccion.Size = new System.Drawing.Size(514, 21);
+            this.ctDireccion.Size = new System.Drawing.Size(514, 22);
             this.ctDireccion.TabIndex = 5;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(317, 117);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(325, 115);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.Size = new System.Drawing.Size(56, 15);
             this.label6.TabIndex = 11;
             this.label6.Text = "Cedula:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 41);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Codigo:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 117);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(47, 115);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "Sexo:";
             // 
             // cbSexo
             // 
-            this.cbSexo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSexo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Items.AddRange(new object[] {
             "Femenino",
             "Masculino"});
             this.cbSexo.Location = new System.Drawing.Point(96, 115);
             this.cbSexo.Name = "cbSexo";
-            this.cbSexo.Size = new System.Drawing.Size(86, 23);
+            this.cbSexo.Size = new System.Drawing.Size(86, 24);
             this.cbSexo.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(303, 79);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(310, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(74, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Apellidos: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 79);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(69, 15);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nombres:";
             // 
             // ctApellidos
             // 
-            this.ctApellidos.Location = new System.Drawing.Point(371, 77);
+            this.ctApellidos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctApellidos.Location = new System.Drawing.Point(387, 76);
             this.ctApellidos.Name = "ctApellidos";
-            this.ctApellidos.Size = new System.Drawing.Size(239, 21);
+            this.ctApellidos.Size = new System.Drawing.Size(227, 22);
             this.ctApellidos.TabIndex = 2;
             this.ctApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctApellidos_KeyPress);
             // 
             // ctNombres
             // 
-            this.ctNombres.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctNombres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctNombres.Location = new System.Drawing.Point(96, 77);
             this.ctNombres.Name = "ctNombres";
-            this.ctNombres.Size = new System.Drawing.Size(192, 21);
+            this.ctNombres.Size = new System.Drawing.Size(192, 22);
             this.ctNombres.TabIndex = 1;
             this.ctNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctNombres_KeyPress);
             // 
             // ctId
             // 
             this.ctId.Enabled = false;
-            this.ctId.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctId.Location = new System.Drawing.Point(96, 39);
             this.ctId.Name = "ctId";
-            this.ctId.Size = new System.Drawing.Size(100, 21);
+            this.ctId.Size = new System.Drawing.Size(100, 22);
             this.ctId.TabIndex = 0;
             // 
             // panel2
@@ -612,7 +614,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.SimpleButton btnNuevo;
-        private System.Windows.Forms.TextBox ctTelefono;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ctDireccion;
@@ -654,5 +655,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rrInactivos;
         private System.Windows.Forms.RadioButton rrActivo;
+        private System.Windows.Forms.MaskedTextBox ctTelefono;
     }
 }

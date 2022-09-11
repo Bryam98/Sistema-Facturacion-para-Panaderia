@@ -113,8 +113,8 @@ namespace SFPanaderia.Vistas
         private void FEmpleado_Load(object sender, EventArgs e)
         {
             Habilitar(true);
-
-          
+            gridViewEmpleados.ActiveFilterString = "[IdEstado.Nombre] = 'activo'";
+            
 
         }
         private bool verificarCedula()
@@ -195,7 +195,7 @@ namespace SFPanaderia.Vistas
                 emp.Sexo = 'M';
             emp.Direccion = ctDireccion.Text;
             emp.Telefono = ctTelefono.Text;
-            emp.FechaNacimiento = dateFNacimiento.DateTime;
+            emp.FechaNacimiento = DateTime.Parse(dateFNacimiento.Text);
             emp.FechaRegistro = DateTime.Now;
 
             if (searchCargo.EditValue == null || Convert.ToInt32(searchCargo.EditValue) != valorCargo)

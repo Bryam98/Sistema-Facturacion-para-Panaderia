@@ -90,6 +90,7 @@ namespace SFPanaderia.Vistas
         private void FUsuario_Load(object sender, EventArgs e)
         {
             Habilitar(true);
+            gridViewUsuarios.ActiveFilterString = "[IdEmpleado.IdEstado.Nombre] = 'activo'";
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -178,7 +179,7 @@ namespace SFPanaderia.Vistas
             user.Login = ctUsuario.Text;
             user.Clave = ctCorfirmacion.Text;
             user.FechaRegistro = DateTime.Now;
-
+          
             user.Save();
 
             try
@@ -313,6 +314,16 @@ namespace SFPanaderia.Vistas
             return existe;
         }
 
+        private void rrActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewUsuarios.ActiveFilterString = "[IdEmpleado.IdEstado.Nombre] = 'activo'";
+            xpUsuarios.Reload();
+        }
 
+        private void rrInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            gridViewUsuarios.ActiveFilterString = "[IdEmpleado.IdEstado.Nombre] = 'inactivo'";
+            xpUsuarios.Reload();
+        }
     }
 }

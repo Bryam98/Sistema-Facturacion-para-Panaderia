@@ -392,12 +392,14 @@
             this.dateFRegistro.Enabled = false;
             this.dateFRegistro.Location = new System.Drawing.Point(436, 88);
             this.dateFRegistro.Name = "dateFRegistro";
+            this.dateFRegistro.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFRegistro.Properties.Appearance.Options.UseFont = true;
             this.dateFRegistro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateFRegistro.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateFRegistro.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.dateFRegistro.Size = new System.Drawing.Size(146, 20);
+            this.dateFRegistro.Size = new System.Drawing.Size(146, 22);
             this.dateFRegistro.TabIndex = 3;
             // 
             // btnCancelar
@@ -440,13 +442,15 @@
             // 
             this.searchEstado.Location = new System.Drawing.Point(436, 177);
             this.searchEstado.Name = "searchEstado";
+            this.searchEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEstado.Properties.Appearance.Options.UseFont = true;
             this.searchEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchEstado.Properties.DataSource = this.xpEstado;
             this.searchEstado.Properties.DisplayMember = "Nombre";
             this.searchEstado.Properties.PopupView = this.searchEditEstado;
             this.searchEstado.Properties.ValueMember = "IdEstado";
-            this.searchEstado.Size = new System.Drawing.Size(146, 20);
+            this.searchEstado.Size = new System.Drawing.Size(146, 22);
             this.searchEstado.TabIndex = 7;
             // 
             // xpEstado
@@ -475,13 +479,15 @@
             // 
             this.searchPresentacion.Location = new System.Drawing.Point(438, 130);
             this.searchPresentacion.Name = "searchPresentacion";
+            this.searchPresentacion.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPresentacion.Properties.Appearance.Options.UseFont = true;
             this.searchPresentacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchPresentacion.Properties.DataSource = this.xpPresentacion;
             this.searchPresentacion.Properties.DisplayMember = "Nombre";
             this.searchPresentacion.Properties.PopupView = this.searchEditPresentacion;
             this.searchPresentacion.Properties.ValueMember = "IdPresentacion";
-            this.searchPresentacion.Size = new System.Drawing.Size(146, 20);
+            this.searchPresentacion.Size = new System.Drawing.Size(146, 22);
             this.searchPresentacion.TabIndex = 5;
             // 
             // xpPresentacion
@@ -498,29 +504,33 @@
             // 
             // ctPrecio
             // 
+            this.ctPrecio.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctPrecio.Location = new System.Drawing.Point(95, 172);
             this.ctPrecio.Name = "ctPrecio";
-            this.ctPrecio.Size = new System.Drawing.Size(100, 20);
+            this.ctPrecio.Size = new System.Drawing.Size(100, 22);
             this.ctPrecio.TabIndex = 6;
             // 
             // ctCantidad
             // 
-            this.ctCantidad.Location = new System.Drawing.Point(95, 219);
+            this.ctCantidad.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctCantidad.Location = new System.Drawing.Point(95, 213);
             this.ctCantidad.Name = "ctCantidad";
-            this.ctCantidad.Size = new System.Drawing.Size(100, 20);
+            this.ctCantidad.Size = new System.Drawing.Size(100, 22);
             this.ctCantidad.TabIndex = 8;
             // 
             // searchCategoria
             // 
             this.searchCategoria.Location = new System.Drawing.Point(95, 130);
             this.searchCategoria.Name = "searchCategoria";
+            this.searchCategoria.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchCategoria.Properties.Appearance.Options.UseFont = true;
             this.searchCategoria.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchCategoria.Properties.DataSource = this.xpCategorias;
             this.searchCategoria.Properties.DisplayMember = "Nombre";
             this.searchCategoria.Properties.PopupView = this.searchEditCategoria;
             this.searchCategoria.Properties.ValueMember = "IdCategoria";
-            this.searchCategoria.Size = new System.Drawing.Size(133, 20);
+            this.searchCategoria.Size = new System.Drawing.Size(133, 22);
             this.searchCategoria.TabIndex = 4;
             // 
             // xpCategorias
@@ -559,7 +569,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 220);
+            this.label4.Location = new System.Drawing.Point(21, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 15);
             this.label4.TabIndex = 5;
@@ -588,9 +598,10 @@
             // ctId
             // 
             this.ctId.Enabled = false;
+            this.ctId.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctId.Location = new System.Drawing.Point(95, 44);
             this.ctId.Name = "ctId";
-            this.ctId.Size = new System.Drawing.Size(100, 20);
+            this.ctId.Size = new System.Drawing.Size(100, 22);
             this.ctId.TabIndex = 1;
             // 
             // label1
@@ -605,9 +616,11 @@
             // 
             // ctNombre
             // 
+            this.ctNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ctNombre.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctNombre.Location = new System.Drawing.Point(95, 88);
             this.ctNombre.Name = "ctNombre";
-            this.ctNombre.Size = new System.Drawing.Size(199, 20);
+            this.ctNombre.Size = new System.Drawing.Size(199, 22);
             this.ctNombre.TabIndex = 2;
             // 
             // FProducto

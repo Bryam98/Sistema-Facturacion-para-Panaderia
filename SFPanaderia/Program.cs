@@ -1,5 +1,6 @@
 ﻿using DevExpress.Xpo;
 using SFPanaderia.PanaderiaBD;
+using SFPanaderia.Reportes;
 using SFPanaderia.Vistas;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace SFPanaderia
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FEmpleados());
+            Application.Run(new FUsuario());
         }
     }
 }

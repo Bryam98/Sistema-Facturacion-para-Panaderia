@@ -294,7 +294,7 @@
             // 
             // ctDescripcion
             // 
-            this.ctDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctDescripcion.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctDescripcion.Location = new System.Drawing.Point(106, 132);
             this.ctDescripcion.Multiline = true;
             this.ctDescripcion.Name = "ctDescripcion";
@@ -303,19 +303,19 @@
             // 
             // ctNombre
             // 
-            this.ctNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctNombre.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctNombre.Location = new System.Drawing.Point(106, 83);
             this.ctNombre.Name = "ctNombre";
-            this.ctNombre.Size = new System.Drawing.Size(200, 21);
+            this.ctNombre.Size = new System.Drawing.Size(200, 22);
             this.ctNombre.TabIndex = 10;
             // 
             // ctId
             // 
             this.ctId.Enabled = false;
-            this.ctId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctId.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctId.Location = new System.Drawing.Point(106, 39);
             this.ctId.Name = "ctId";
-            this.ctId.Size = new System.Drawing.Size(82, 21);
+            this.ctId.Size = new System.Drawing.Size(82, 22);
             this.ctId.TabIndex = 9;
             // 
             // FPresentacion

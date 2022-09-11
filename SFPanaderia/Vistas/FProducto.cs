@@ -271,6 +271,7 @@ namespace SFPanaderia.Vistas
             xpProductos.Reload();
         }
 
+     
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Producto producto = (Producto)gridViewProductos.GetFocusedRow();

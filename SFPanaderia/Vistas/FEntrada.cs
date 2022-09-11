@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SFPanaderia.Vistas
 {
-    public partial class FrmEntrada : Form
+    public partial class FEntrada : Form
     {
-        public FrmEntrada()
+        public FEntrada()
         {
             InitializeComponent();
         }

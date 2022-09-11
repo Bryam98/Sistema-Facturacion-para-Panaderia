@@ -59,10 +59,11 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dateFNacimiento = new DevExpress.XtraEditors.TextEdit();
+            this.ctTelefono = new System.Windows.Forms.MaskedTextBox();
             this.searchEstado = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.xpEstado = new DevExpress.Xpo.XPCollection(this.components);
             this.searchLookUpEstado = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dateFNacimiento = new DevExpress.XtraEditors.DateEdit();
             this.searchCargo = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.xpCargos = new DevExpress.Xpo.XPCollection(this.components);
             this.searchLookUpCargo = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -73,7 +74,6 @@
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevo = new DevExpress.XtraEditors.SimpleButton();
-            this.ctTelefono = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ctDireccion = new System.Windows.Forms.TextBox();
@@ -98,11 +98,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sessionEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEmpleados)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEstado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCargo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCargo)).BeginInit();
@@ -137,7 +136,7 @@
             this.tabEmpleados.Location = new System.Drawing.Point(0, 48);
             this.tabEmpleados.Name = "tabEmpleados";
             this.tabEmpleados.SelectedIndex = 0;
-            this.tabEmpleados.Size = new System.Drawing.Size(714, 433);
+            this.tabEmpleados.Size = new System.Drawing.Size(714, 413);
             this.tabEmpleados.TabIndex = 1;
             // 
             // tabPage1
@@ -148,7 +147,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(706, 407);
+            this.tabPage1.Size = new System.Drawing.Size(706, 387);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado de Empleados";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -164,7 +163,7 @@
             this.groupBox1.Size = new System.Drawing.Size(700, 36);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado Productos";
+            this.groupBox1.Text = "Estado Empleados";
             // 
             // rrInactivos
             // 
@@ -197,7 +196,7 @@
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 359);
+            this.panel1.Location = new System.Drawing.Point(3, 339);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(700, 45);
             this.panel1.TabIndex = 2;
@@ -241,7 +240,7 @@
             this.gridEmpleados.Location = new System.Drawing.Point(3, 39);
             this.gridEmpleados.MainView = this.gridViewEmpleados;
             this.gridEmpleados.Name = "gridEmpleados";
-            this.gridEmpleados.Size = new System.Drawing.Size(700, 314);
+            this.gridEmpleados.Size = new System.Drawing.Size(700, 294);
             this.gridEmpleados.TabIndex = 8;
             this.gridEmpleados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewEmpleados});
@@ -379,8 +378,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.searchEstado);
             this.tabPage2.Controls.Add(this.dateFNacimiento);
+            this.tabPage2.Controls.Add(this.ctTelefono);
+            this.tabPage2.Controls.Add(this.searchEstado);
             this.tabPage2.Controls.Add(this.searchCargo);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
@@ -389,7 +389,6 @@
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Controls.Add(this.btnNuevo);
-            this.tabPage2.Controls.Add(this.ctTelefono);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.ctDireccion);
@@ -405,16 +404,36 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(706, 407);
+            this.tabPage2.Size = new System.Drawing.Size(706, 387);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento de Empleados";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dateFNacimiento
+            // 
+            this.dateFNacimiento.Location = new System.Drawing.Point(393, 155);
+            this.dateFNacimiento.Name = "dateFNacimiento";
+            this.dateFNacimiento.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateFNacimiento.Properties.Appearance.Options.UseFont = true;
+            this.dateFNacimiento.Properties.Mask.EditMask = "d";
+            this.dateFNacimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
+            this.dateFNacimiento.Size = new System.Drawing.Size(75, 22);
+            this.dateFNacimiento.TabIndex = 7;
+            // 
+            // ctTelefono
+            // 
+            this.ctTelefono.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTelefono.Location = new System.Drawing.Point(100, 238);
+            this.ctTelefono.Mask = "0000-0000";
+            this.ctTelefono.Name = "ctTelefono";
+            this.ctTelefono.Size = new System.Drawing.Size(116, 22);
+            this.ctTelefono.TabIndex = 9;
+            // 
             // searchEstado
             // 
-            this.searchEstado.Location = new System.Drawing.Point(393, 241);
+            this.searchEstado.Location = new System.Drawing.Point(393, 238);
             this.searchEstado.Name = "searchEstado";
-            this.searchEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEstado.Properties.Appearance.Options.UseFont = true;
             this.searchEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -437,25 +456,11 @@
             this.searchLookUpEstado.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEstado.OptionsView.ShowGroupPanel = false;
             // 
-            // dateFNacimiento
-            // 
-            this.dateFNacimiento.EditValue = null;
-            this.dateFNacimiento.Location = new System.Drawing.Point(396, 159);
-            this.dateFNacimiento.Name = "dateFNacimiento";
-            this.dateFNacimiento.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFNacimiento.Properties.Appearance.Options.UseFont = true;
-            this.dateFNacimiento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFNacimiento.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFNacimiento.Size = new System.Drawing.Size(161, 22);
-            this.dateFNacimiento.TabIndex = 7;
-            // 
             // searchCargo
             // 
             this.searchCargo.Location = new System.Drawing.Point(96, 156);
             this.searchCargo.Name = "searchCargo";
-            this.searchCargo.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchCargo.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchCargo.Properties.Appearance.Options.UseFont = true;
             this.searchCargo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -481,37 +486,37 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(46, 159);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(41, 158);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.Size = new System.Drawing.Size(49, 15);
             this.label11.TabIndex = 44;
             this.label11.Text = "Cargo:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(276, 159);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(266, 157);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(113, 13);
+            this.label10.Size = new System.Drawing.Size(127, 15);
             this.label10.TabIndex = 43;
             this.label10.Text = "Fecha Nacimiento:";
             // 
             // ctCedula
             // 
-            this.ctCedula.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctCedula.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctCedula.Location = new System.Drawing.Point(393, 116);
             this.ctCedula.Mask = "000-000000-0000>L";
             this.ctCedula.Name = "ctCedula";
-            this.ctCedula.Size = new System.Drawing.Size(164, 21);
+            this.ctCedula.Size = new System.Drawing.Size(164, 22);
             this.ctCedula.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(334, 243);
+            this.label9.Location = new System.Drawing.Point(332, 241);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 15);
             this.label9.TabIndex = 40;
@@ -553,129 +558,124 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // ctTelefono
-            // 
-            this.ctTelefono.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctTelefono.Location = new System.Drawing.Point(96, 241);
-            this.ctTelefono.Name = "ctTelefono";
-            this.ctTelefono.Size = new System.Drawing.Size(149, 21);
-            this.ctTelefono.TabIndex = 9;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(33, 245);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(23, 241);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.Size = new System.Drawing.Size(67, 15);
             this.label8.TabIndex = 35;
             this.label8.Text = "Telefono:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 198);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 192);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.Size = new System.Drawing.Size(72, 15);
             this.label7.TabIndex = 34;
             this.label7.Text = "Direccion:";
             // 
             // ctDireccion
             // 
-            this.ctDireccion.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctDireccion.Location = new System.Drawing.Point(96, 198);
+            this.ctDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ctDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctDireccion.Location = new System.Drawing.Point(96, 192);
             this.ctDireccion.Name = "ctDireccion";
-            this.ctDireccion.Size = new System.Drawing.Size(514, 21);
+            this.ctDireccion.Size = new System.Drawing.Size(514, 22);
             this.ctDireccion.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(337, 118);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(327, 116);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.Size = new System.Drawing.Size(56, 15);
             this.label6.TabIndex = 32;
             this.label6.Text = "Cedula:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 42);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 31;
             this.label2.Text = "Codigo:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 118);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(46, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 30;
             this.label5.Text = "Sexo:";
             // 
             // cbSexo
             // 
-            this.cbSexo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSexo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSexo.FormattingEnabled = true;
             this.cbSexo.Items.AddRange(new object[] {
-            "Femenino",
-            "Masculino"});
+            "FEMENINO",
+            "MASCULINO"});
             this.cbSexo.Location = new System.Drawing.Point(96, 116);
             this.cbSexo.Name = "cbSexo";
-            this.cbSexo.Size = new System.Drawing.Size(86, 23);
+            this.cbSexo.Size = new System.Drawing.Size(86, 24);
             this.cbSexo.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(323, 80);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(313, 78);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(74, 15);
             this.label4.TabIndex = 28;
             this.label4.Text = "Apellidos: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 80);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(69, 15);
             this.label3.TabIndex = 27;
             this.label3.Text = "Nombres:";
             // 
             // ctApellidos
             // 
-            this.ctApellidos.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctApellidos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ctApellidos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctApellidos.Location = new System.Drawing.Point(393, 78);
             this.ctApellidos.Name = "ctApellidos";
-            this.ctApellidos.Size = new System.Drawing.Size(239, 21);
+            this.ctApellidos.Size = new System.Drawing.Size(239, 22);
             this.ctApellidos.TabIndex = 3;
             this.ctApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctApellidos_KeyPress);
             // 
             // ctNombres
             // 
-            this.ctNombres.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.ctNombres.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctNombres.Location = new System.Drawing.Point(96, 78);
             this.ctNombres.Name = "ctNombres";
-            this.ctNombres.Size = new System.Drawing.Size(192, 21);
+            this.ctNombres.Size = new System.Drawing.Size(192, 22);
             this.ctNombres.TabIndex = 2;
             this.ctNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctNombres_KeyPress);
             // 
             // ctId
             // 
             this.ctId.Enabled = false;
-            this.ctId.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctId.Location = new System.Drawing.Point(96, 40);
+            this.ctId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctId.Location = new System.Drawing.Point(96, 42);
             this.ctId.Name = "ctId";
-            this.ctId.Size = new System.Drawing.Size(100, 21);
+            this.ctId.Size = new System.Drawing.Size(100, 22);
             this.ctId.TabIndex = 1;
             // 
             // errorProvider
@@ -686,7 +686,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 481);
+            this.ClientSize = new System.Drawing.Size(714, 461);
             this.Controls.Add(this.tabEmpleados);
             this.Controls.Add(this.panel2);
             this.Name = "FEmpleados";
@@ -706,11 +706,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEmpleados)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEstado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEstado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFNacimiento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCargo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpCargos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpCargo)).EndInit();
@@ -737,7 +736,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.SimpleButton btnNuevo;
-        private System.Windows.Forms.TextBox ctTelefono;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ctDireccion;
@@ -771,7 +769,6 @@
         private DevExpress.XtraEditors.SearchLookUpEdit searchCargo;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpCargo;
         private System.Windows.Forms.ToolTip tMensaje;
-        private DevExpress.XtraEditors.DateEdit dateFNacimiento;
         private DevExpress.XtraEditors.SearchLookUpEdit searchEstado;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEstado;
         private DevExpress.Xpo.XPCollection xpCargos;
@@ -779,5 +776,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rrInactivos;
         private System.Windows.Forms.RadioButton rrActivo;
+        private System.Windows.Forms.MaskedTextBox ctTelefono;
+        private DevExpress.XtraEditors.TextEdit dateFNacimiento;
     }
 }

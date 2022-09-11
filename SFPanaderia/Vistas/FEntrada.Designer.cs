@@ -1,6 +1,6 @@
 ﻿namespace SFPanaderia.Vistas
 {
-    partial class FrmEntrada
+    partial class FEntrada
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(234, 164);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(328, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "FORMULARIO DE ENTRADAS";
-            // 
-            // FrmEntrada
+            // FEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Name = "FrmEntrada";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmEntrada";
+            this.ClientSize = new System.Drawing.Size(676, 436);
+            this.Name = "FEntrada";
+            this.Text = "FEntrada";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
     }
 }

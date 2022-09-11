@@ -47,6 +47,8 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.LabelDate = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.labelUsuario = new DevExpress.XtraBars.BarStaticItem();
+            this.ctUserActivo = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.PageMantenimiento = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -63,8 +65,6 @@
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.labelUsuario = new DevExpress.XtraBars.BarStaticItem();
-            this.ctUserActivo = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
             this.SuspendLayout();
@@ -231,6 +231,20 @@
             this.barStaticItem1.Id = 25;
             this.barStaticItem1.Name = "barStaticItem1";
             // 
+            // labelUsuario
+            // 
+            this.labelUsuario.Caption = "Usuario: ";
+            this.labelUsuario.Id = 29;
+            this.labelUsuario.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsuario.ItemAppearance.Disabled.Options.UseFont = true;
+            this.labelUsuario.Name = "labelUsuario";
+            // 
+            // ctUserActivo
+            // 
+            this.ctUserActivo.Caption = ".:.";
+            this.ctUserActivo.Id = 30;
+            this.ctUserActivo.Name = "ctUserActivo";
+            // 
             // ribbonPageCategory1
             // 
             this.ribbonPageCategory1.Name = "ribbonPageCategory1";
@@ -345,20 +359,6 @@
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
             // 
-            // labelUsuario
-            // 
-            this.labelUsuario.Caption = "Usuario: ";
-            this.labelUsuario.Id = 29;
-            this.labelUsuario.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.ItemAppearance.Disabled.Options.UseFont = true;
-            this.labelUsuario.Name = "labelUsuario";
-            // 
-            // ctUserActivo
-            // 
-            this.ctUserActivo.Caption = ".:.";
-            this.ctUserActivo.Id = 30;
-            this.ctUserActivo.Name = "ctUserActivo";
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +369,7 @@
             this.IsMdiContainer = true;
             this.Name = "FrmPrincipal";
             this.Ribbon = this.ribbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "SISTEMA DE PANADERIA ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

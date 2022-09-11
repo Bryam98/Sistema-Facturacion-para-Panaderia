@@ -34,6 +34,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabControlUsuarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rrInactivos = new System.Windows.Forms.RadioButton();
+            this.rrActivo = new System.Windows.Forms.RadioButton();
             this.gridUsuarios = new DevExpress.XtraGrid.GridControl();
             this.xpUsuarios = new DevExpress.Xpo.XPCollection(this.components);
             this.sessionUsuarios = new DevExpress.Xpo.UnitOfWork(this.components);
@@ -71,6 +74,7 @@
             this.panel1.SuspendLayout();
             this.tabControlUsuarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionUsuarios)).BeginInit();
@@ -109,30 +113,68 @@
             this.tabControlUsuarios.Location = new System.Drawing.Point(0, 48);
             this.tabControlUsuarios.Name = "tabControlUsuarios";
             this.tabControlUsuarios.SelectedIndex = 0;
-            this.tabControlUsuarios.Size = new System.Drawing.Size(634, 380);
+            this.tabControlUsuarios.Size = new System.Drawing.Size(634, 403);
             this.tabControlUsuarios.TabIndex = 2;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.gridUsuarios);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(626, 354);
+            this.tabPage1.Size = new System.Drawing.Size(626, 377);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado de Usuarios";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rrInactivos);
+            this.groupBox1.Controls.Add(this.rrActivo);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(620, 33);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Estado Empleados";
+            // 
+            // rrInactivos
+            // 
+            this.rrInactivos.AutoSize = true;
+            this.rrInactivos.Location = new System.Drawing.Point(194, 12);
+            this.rrInactivos.Name = "rrInactivos";
+            this.rrInactivos.Size = new System.Drawing.Size(77, 17);
+            this.rrInactivos.TabIndex = 4;
+            this.rrInactivos.TabStop = true;
+            this.rrInactivos.Text = "Inactivos";
+            this.rrInactivos.UseVisualStyleBackColor = true;
+            this.rrInactivos.CheckedChanged += new System.EventHandler(this.rrInactivos_CheckedChanged);
+            // 
+            // rrActivo
+            // 
+            this.rrActivo.AutoSize = true;
+            this.rrActivo.Checked = true;
+            this.rrActivo.Location = new System.Drawing.Point(119, 12);
+            this.rrActivo.Name = "rrActivo";
+            this.rrActivo.Size = new System.Drawing.Size(67, 17);
+            this.rrActivo.TabIndex = 3;
+            this.rrActivo.TabStop = true;
+            this.rrActivo.Text = "Activos";
+            this.rrActivo.UseVisualStyleBackColor = true;
+            this.rrActivo.CheckedChanged += new System.EventHandler(this.rrActivo_CheckedChanged);
+            // 
             // gridUsuarios
             // 
             this.gridUsuarios.DataSource = this.xpUsuarios;
-            this.gridUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridUsuarios.Location = new System.Drawing.Point(3, 3);
+            this.gridUsuarios.Location = new System.Drawing.Point(3, 38);
             this.gridUsuarios.MainView = this.gridViewUsuarios;
             this.gridUsuarios.Name = "gridUsuarios";
-            this.gridUsuarios.Size = new System.Drawing.Size(620, 301);
-            this.gridUsuarios.TabIndex = 4;
+            this.gridUsuarios.Size = new System.Drawing.Size(620, 283);
+            this.gridUsuarios.TabIndex = 8;
             this.gridUsuarios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewUsuarios});
             // 
@@ -162,7 +204,9 @@
             this.gridViewUsuarios.OptionsBehavior.Editable = false;
             this.gridViewUsuarios.OptionsFind.AlwaysVisible = true;
             this.gridViewUsuarios.OptionsFind.ShowFindButton = false;
+            this.gridViewUsuarios.OptionsNavigation.UseTabKey = false;
             this.gridViewUsuarios.OptionsView.ColumnAutoWidth = false;
+            this.gridViewUsuarios.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             // 
             // colIdUsuario
             // 
@@ -235,7 +279,7 @@
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 304);
+            this.panel2.Location = new System.Drawing.Point(3, 327);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(620, 47);
             this.panel2.TabIndex = 3;
@@ -249,7 +293,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(290, 0);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(110, 47);
-            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -262,7 +306,7 @@
             this.btnEditar.Location = new System.Drawing.Point(400, 0);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(110, 47);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -275,7 +319,7 @@
             this.btnSalir.Location = new System.Drawing.Point(510, 0);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 47);
-            this.btnSalir.TabIndex = 0;
+            this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -298,7 +342,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(626, 354);
+            this.tabPage2.Size = new System.Drawing.Size(626, 377);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -307,10 +351,10 @@
             // 
             this.CkMostrar.AutoSize = true;
             this.CkMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CkMostrar.Location = new System.Drawing.Point(89, 145);
+            this.CkMostrar.Location = new System.Drawing.Point(102, 146);
             this.CkMostrar.Name = "CkMostrar";
             this.CkMostrar.Size = new System.Drawing.Size(152, 19);
-            this.CkMostrar.TabIndex = 21;
+            this.CkMostrar.TabIndex = 3;
             this.CkMostrar.Text = "Mostrar Contraseña";
             this.CkMostrar.UseVisualStyleBackColor = true;
             this.CkMostrar.CheckedChanged += new System.EventHandler(this.CkMostrar_CheckedChanged);
@@ -320,10 +364,10 @@
             this.btnCancelar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Appearance.Options.UseFont = true;
             this.btnCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.ImageOptions.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(325, 247);
+            this.btnCancelar.Location = new System.Drawing.Point(337, 287);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 46);
-            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -332,10 +376,10 @@
             this.btnGuardar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Appearance.Options.UseFont = true;
             this.btnGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.ImageOptions.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(207, 247);
+            this.btnGuardar.Location = new System.Drawing.Point(219, 287);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(112, 46);
-            this.btnGuardar.TabIndex = 19;
+            this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -344,10 +388,10 @@
             this.btnNuevo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Appearance.Options.UseFont = true;
             this.btnNuevo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.ImageOptions.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(89, 247);
+            this.btnNuevo.Location = new System.Drawing.Point(101, 287);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(112, 46);
-            this.btnNuevo.TabIndex = 18;
+            this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -355,7 +399,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 183);
+            this.label6.Location = new System.Drawing.Point(20, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 15);
             this.label6.TabIndex = 9;
@@ -363,9 +407,9 @@
             // 
             // searchLookEmpleado
             // 
-            this.searchLookEmpleado.Location = new System.Drawing.Point(89, 181);
+            this.searchLookEmpleado.Location = new System.Drawing.Point(102, 224);
             this.searchLookEmpleado.Name = "searchLookEmpleado";
-            this.searchLookEmpleado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLookEmpleado.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLookEmpleado.Properties.Appearance.Options.UseFont = true;
             this.searchLookEmpleado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -374,7 +418,7 @@
             this.searchLookEmpleado.Properties.PopupView = this.searchLookUpEmpleados;
             this.searchLookEmpleado.Properties.ValueMember = "IdEmpleado";
             this.searchLookEmpleado.Size = new System.Drawing.Size(205, 22);
-            this.searchLookEmpleado.TabIndex = 8;
+            this.searchLookEmpleado.TabIndex = 5;
             // 
             // xpEmpleados
             // 
@@ -391,28 +435,28 @@
             // 
             // ctClave
             // 
-            this.ctClave.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctClave.Location = new System.Drawing.Point(89, 119);
+            this.ctClave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctClave.Location = new System.Drawing.Point(102, 120);
             this.ctClave.Name = "ctClave";
             this.ctClave.PasswordChar = '*';
-            this.ctClave.Size = new System.Drawing.Size(205, 21);
-            this.ctClave.TabIndex = 7;
+            this.ctClave.Size = new System.Drawing.Size(205, 22);
+            this.ctClave.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(322, 100);
+            this.label5.Location = new System.Drawing.Point(23, 187);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 15);
+            this.label5.Size = new System.Drawing.Size(73, 15);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Confirmar Clave:";
+            this.label5.Text = "Confirme: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 119);
+            this.label3.Location = new System.Drawing.Point(50, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 15);
             this.label3.TabIndex = 5;
@@ -420,18 +464,18 @@
             // 
             // ctCorfirmacion
             // 
-            this.ctCorfirmacion.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctCorfirmacion.Location = new System.Drawing.Point(325, 118);
+            this.ctCorfirmacion.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctCorfirmacion.Location = new System.Drawing.Point(102, 187);
             this.ctCorfirmacion.Name = "ctCorfirmacion";
             this.ctCorfirmacion.PasswordChar = '*';
-            this.ctCorfirmacion.Size = new System.Drawing.Size(205, 21);
+            this.ctCorfirmacion.Size = new System.Drawing.Size(205, 22);
             this.ctCorfirmacion.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 80);
+            this.label2.Location = new System.Drawing.Point(35, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 3;
@@ -439,18 +483,18 @@
             // 
             // ctUsuario
             // 
-            this.ctUsuario.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctUsuario.Location = new System.Drawing.Point(89, 80);
+            this.ctUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctUsuario.Location = new System.Drawing.Point(102, 81);
             this.ctUsuario.MaxLength = 12;
             this.ctUsuario.Name = "ctUsuario";
-            this.ctUsuario.Size = new System.Drawing.Size(135, 21);
-            this.ctUsuario.TabIndex = 2;
+            this.ctUsuario.Size = new System.Drawing.Size(135, 22);
+            this.ctUsuario.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 42);
+            this.label1.Location = new System.Drawing.Point(35, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 1;
@@ -459,17 +503,17 @@
             // ctId
             // 
             this.ctId.Enabled = false;
-            this.ctId.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctId.Location = new System.Drawing.Point(89, 42);
+            this.ctId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctId.Location = new System.Drawing.Point(102, 43);
             this.ctId.Name = "ctId";
-            this.ctId.Size = new System.Drawing.Size(100, 21);
+            this.ctId.Size = new System.Drawing.Size(100, 22);
             this.ctId.TabIndex = 0;
             // 
             // FUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 428);
+            this.ClientSize = new System.Drawing.Size(634, 451);
             this.Controls.Add(this.tabControlUsuarios);
             this.Controls.Add(this.panel1);
             this.Name = "FUsuario";
@@ -479,6 +523,8 @@
             this.panel1.PerformLayout();
             this.tabControlUsuarios.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionUsuarios)).EndInit();
@@ -533,5 +579,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rrInactivos;
+        private System.Windows.Forms.RadioButton rrActivo;
     }
 }
