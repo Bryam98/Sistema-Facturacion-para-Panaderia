@@ -18,11 +18,13 @@ namespace SFPanaderia.Vistas
 
         private bool IsEditar = false;
         int valorEstado;
+     
 
         public FClientes()
         {
             InitializeComponent();
             this.mensajesDeAyuda();
+           
         }
 
         private void mensajesDeAyuda()

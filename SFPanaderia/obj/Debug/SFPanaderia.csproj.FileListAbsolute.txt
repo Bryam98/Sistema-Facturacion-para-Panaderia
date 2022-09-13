@@ -96,7 +96,6 @@ C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.pdb
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.csprojAssemblyReference.cache
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.frmLogin.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmPrincipal.resources
-C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmEntrada.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FrmVenta.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FClientes.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FCategorias.resources
@@ -196,3 +195,5 @@ C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\bin\Debug\ja\DevExpress.Diag
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\bin\Debug\ru\DevExpress.Diagram.v18.1.Core.resources.dll
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Reportes.XtraProducto.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Reportes.ReporteProductos.resources
+C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FEntrada.resources
+C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.Modales.FIngresoCliente.resources

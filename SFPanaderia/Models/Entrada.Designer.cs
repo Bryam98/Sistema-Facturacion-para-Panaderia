@@ -40,6 +40,21 @@ namespace SFPanaderia.PanaderiaBD
             get { return fIdEmpleado; }
             set { SetPropertyValue<Empleado>(nameof(IdEmpleado), ref fIdEmpleado, value); }
         }
+        int fTotal;
+        [Persistent(@"total")]
+        public int Total
+        {
+            get { return fTotal; }
+            set { SetPropertyValue<int>(nameof(Total), ref fTotal, value); }
+        }
+        Estado fIdEstado;
+        [Persistent(@"idEstado")]
+        [Association(@"EntradaReferencesEstado")]
+        public Estado IdEstado
+        {
+            get { return fIdEstado; }
+            set { SetPropertyValue<Estado>(nameof(IdEstado), ref fIdEstado, value); }
+        }
         [Association(@"DetalleEntradaReferencesEntrada")]
         public XPCollection<DetalleEntrada> DetalleEntradas { get { return GetCollection<DetalleEntrada>(nameof(DetalleEntradas)); } }
     }

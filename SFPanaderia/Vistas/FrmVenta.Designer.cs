@@ -29,31 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.searchClientes = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.xpClientes = new DevExpress.Xpo.XPCollection(this.components);
             this.sessionVenta = new DevExpress.Xpo.UnitOfWork(this.components);
-            this.searchViewClientes = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ctNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ctCedula = new System.Windows.Forms.TextBox();
             this.xpDetalleVenta = new DevExpress.Xpo.XPCollection(this.components);
             this.xpProductos = new DevExpress.Xpo.XPCollection(this.components);
+            this.btnCliente = new DevExpress.XtraEditors.SimpleButton();
+            this.ctId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchClientes.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionVenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchViewClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpDetalleVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.ctId);
+            this.groupBox1.Controls.Add(this.btnCliente);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.searchClientes);
             this.groupBox1.Controls.Add(this.ctNombre);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -71,25 +73,8 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(463, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 16);
+            this.label3.Size = new System.Drawing.Size(0, 16);
             this.label3.TabIndex = 5;
-            this.label3.Text = "ID: ";
-            // 
-            // searchClientes
-            // 
-            this.searchClientes.Location = new System.Drawing.Point(500, 19);
-            this.searchClientes.Name = "searchClientes";
-            this.searchClientes.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientes.Properties.Appearance.Options.UseFont = true;
-            this.searchClientes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.searchClientes.Properties.DataSource = this.xpClientes;
-            this.searchClientes.Properties.DisplayMember = "IdCliente";
-            this.searchClientes.Properties.PopupView = this.searchViewClientes;
-            this.searchClientes.Properties.ValueMember = "IdCliente";
-            this.searchClientes.Size = new System.Drawing.Size(87, 22);
-            this.searchClientes.TabIndex = 4;
-            this.searchClientes.EditValueChanged += new System.EventHandler(this.searchLookUpEdit1_EditValueChanged);
             // 
             // xpClientes
             // 
@@ -103,20 +88,12 @@
             this.sessionVenta.IsObjectModifiedOnNonPersistentPropertyChange = null;
             this.sessionVenta.TrackPropertiesModifications = false;
             // 
-            // searchViewClientes
-            // 
-            this.searchViewClientes.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchViewClientes.Name = "searchViewClientes";
-            this.searchViewClientes.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchViewClientes.OptionsView.ColumnAutoWidth = false;
-            this.searchViewClientes.OptionsView.ShowGroupPanel = false;
-            // 
             // ctNombre
             // 
             this.ctNombre.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctNombre.Location = new System.Drawing.Point(228, 50);
             this.ctNombre.Name = "ctNombre";
-            this.ctNombre.Size = new System.Drawing.Size(359, 22);
+            this.ctNombre.Size = new System.Drawing.Size(301, 22);
             this.ctNombre.TabIndex = 3;
             // 
             // label2
@@ -144,7 +121,7 @@
             this.ctCedula.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctCedula.Location = new System.Drawing.Point(228, 22);
             this.ctCedula.Name = "ctCedula";
-            this.ctCedula.Size = new System.Drawing.Size(214, 22);
+            this.ctCedula.Size = new System.Drawing.Size(188, 22);
             this.ctCedula.TabIndex = 0;
             // 
             // xpDetalleVenta
@@ -156,6 +133,36 @@
             // 
             this.xpProductos.ObjectType = typeof(SFPanaderia.PanaderiaBD.Producto);
             this.xpProductos.Session = this.sessionVenta;
+            // 
+            // btnCliente
+            // 
+            this.btnCliente.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.Appearance.Options.UseFont = true;
+            this.btnCliente.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnCliente.Location = new System.Drawing.Point(554, 22);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Size = new System.Drawing.Size(154, 53);
+            this.btnCliente.TabIndex = 6;
+            this.btnCliente.Text = "Agregar Cliente";
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
+            // 
+            // ctId
+            // 
+            this.ctId.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctId.Location = new System.Drawing.Point(454, 22);
+            this.ctId.Name = "ctId";
+            this.ctId.Size = new System.Drawing.Size(52, 22);
+            this.ctId.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(421, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "ID:";
             // 
             // FrmVenta
             // 
@@ -169,10 +176,8 @@
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchClientes.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionVenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchViewClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpDetalleVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpProductos)).EndInit();
             this.ResumeLayout(false);
@@ -190,8 +195,9 @@
         private DevExpress.Xpo.UnitOfWork sessionVenta;
         private DevExpress.Xpo.XPCollection xpDetalleVenta;
         private DevExpress.Xpo.XPCollection xpProductos;
-        private DevExpress.XtraEditors.SearchLookUpEdit searchClientes;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchViewClientes;
         private DevExpress.Xpo.XPCollection xpClientes;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox ctId;
+        private DevExpress.XtraEditors.SimpleButton btnCliente;
     }
 }

@@ -10,33 +10,52 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
+using SFPanaderia.Servicios;
+using SFPanaderia.Vistas.Modales;
 
 namespace SFPanaderia.Vistas
 {
-    public partial class FrmVenta : Form
+    public partial class FrmVenta : Form, IServicesObtenerData<Cliente>
     {
         public FrmVenta()
         {
             InitializeComponent();
+
         }
 
       
 
         private void searchLookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            Cliente cli = (Cliente)searchViewClientes.GetFocusedRow();
-            string nombreCompleto;
+            //Cliente cli = (Cliente)searchViewClientes.GetFocusedRow();
+            //string nombreCompleto;
 
-            ctCedula.Text = cli.Cedula;
-            nombreCompleto = cli.Nombres + " " + cli.Apellidos;
+            //ctCedula.Text = cli.Cedula;
+            //nombreCompleto = cli.Nombres + " " + cli.Apellidos;
         }
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
-            searchViewClientes.ActiveFilterString = "[IdEstado.Nombre] = 'Inactivo'";
+            //searchViewClientes.ActiveFilterString = "[IdEstado.Nombre] = 'Inactivo'";
         }
 
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            FIngresoCliente fIngreso = new FIngresoCliente(this);
+            fIngreso.ShowDialog();
+        }
 
-    
+        public void TransladarInformacion(Cliente DataCliente)
+        {
+            string nombreCompleto;
+
+            ctId.Text = DataCliente.IdCliente.ToString();
+            ctCedula.Text = DataCliente.Cedula;
+     
+            nombreCompleto = DataCliente.Nombres + " " + DataCliente.Apellidos;
+            ctNombre.Text = nombreCompleto;
+
+
+        }
     }
 }

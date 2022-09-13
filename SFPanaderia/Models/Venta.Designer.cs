@@ -69,6 +69,14 @@ namespace SFPanaderia.PanaderiaBD
             get { return fIdCliente; }
             set { SetPropertyValue<Cliente>(nameof(IdCliente), ref fIdCliente, value); }
         }
+        Estado fIdEstado;
+        [Persistent(@"idEstado")]
+        [Association(@"VentaReferencesEstado")]
+        public Estado IdEstado
+        {
+            get { return fIdEstado; }
+            set { SetPropertyValue<Estado>(nameof(IdEstado), ref fIdEstado, value); }
+        }
         [Association(@"DetalleVentaReferencesVenta")]
         public XPCollection<DetalleVenta> DetalleVentas { get { return GetCollection<DetalleVenta>(nameof(DetalleVentas)); } }
     }

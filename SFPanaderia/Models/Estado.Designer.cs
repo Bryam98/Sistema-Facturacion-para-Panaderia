@@ -36,8 +36,12 @@ namespace SFPanaderia.PanaderiaBD
         public XPCollection<Cliente> Clientes { get { return GetCollection<Cliente>(nameof(Clientes)); } }
         [Association(@"EmpleadoReferencesEstado")]
         public XPCollection<Empleado> Empleadoes { get { return GetCollection<Empleado>(nameof(Empleadoes)); } }
+        [Association(@"EntradaReferencesEstado")]
+        public XPCollection<Entrada> Entradas { get { return GetCollection<Entrada>(nameof(Entradas)); } }
         [Association(@"ProductoReferencesEstado")]
         public XPCollection<Producto> Productoes { get { return GetCollection<Producto>(nameof(Productoes)); } }
+        [Association(@"VentaReferencesEstado")]
+        public XPCollection<Venta> Ventas { get { return GetCollection<Venta>(nameof(Ventas)); } }
     }
 
 }
