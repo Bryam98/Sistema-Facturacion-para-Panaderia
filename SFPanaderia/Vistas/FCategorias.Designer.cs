@@ -341,7 +341,10 @@
             this.ClientSize = new System.Drawing.Size(549, 428);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FCategorias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FCategorias";
             this.Load += new System.EventHandler(this.FCategorias_Load);
             this.panel1.ResumeLayout(false);

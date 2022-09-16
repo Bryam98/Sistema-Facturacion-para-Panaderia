@@ -14,12 +14,13 @@ namespace SFPanaderia.Vistas.Modales
 {
     public partial class FIngresoCliente : Form
     {
-        private readonly IServicesObtenerData<Cliente> obtenerData;
+        //servicio para obtenerCliente
+        private readonly IServicesCliente servicesCliente;
 
-        public FIngresoCliente(IServicesObtenerData<Cliente> obtenerData)
+        public FIngresoCliente(IServicesCliente servicesCliente)
         {
             InitializeComponent();
-            this.obtenerData = obtenerData;
+            this.servicesCliente = servicesCliente;
         }
 
         private void FIngresoCliente_Load(object sender, EventArgs e)
@@ -35,8 +36,13 @@ namespace SFPanaderia.Vistas.Modales
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             Cliente cliente = (Cliente)gridViewClientes.GetFocusedRow();
-            obtenerData.TransladarInformacion(cliente);
+            servicesCliente.ObtenerCliente(cliente);
             this.Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

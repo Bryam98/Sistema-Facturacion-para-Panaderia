@@ -32,7 +32,7 @@ namespace SFPanaderia.Vistas
         }
 
        
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -47,16 +47,10 @@ namespace SFPanaderia.Vistas
                     if (user.Clave.Equals(ctClave.Text))
                     {
                         FrmPrincipal frmPrincipal = new FrmPrincipal(user);
-                        frmPrincipal.ShowDialog();
-
-
+                        frmPrincipal.Show();
+                        this.Hide();
                         LimpiarCajas();
                         return;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuario o contraseña incorrecta.",
-                         "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                    
                 }
@@ -72,7 +66,12 @@ namespace SFPanaderia.Vistas
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            ctUsuario.Focus();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

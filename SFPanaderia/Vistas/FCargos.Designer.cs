@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCargos));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -56,7 +54,8 @@
             this.ctNombre = new System.Windows.Forms.TextBox();
             this.ctId = new System.Windows.Forms.TextBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1.SuspendLayout();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,26 +64,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.sessionCargos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCargos)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(549, 48);
-            this.panel1.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(68, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Cargos";
             // 
             // tabControl1
             // 
@@ -207,6 +188,7 @@
             this.colNombre.Name = "colNombre";
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
+            this.colNombre.Width = 162;
             // 
             // colDescripcion
             // 
@@ -214,6 +196,7 @@
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.Visible = true;
             this.colDescripcion.VisibleIndex = 2;
+            this.colDescripcion.Width = 280;
             // 
             // tabPage2
             // 
@@ -326,6 +309,25 @@
             this.ctId.Size = new System.Drawing.Size(82, 22);
             this.ctId.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(68, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Cargos";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(549, 48);
+            this.panel1.TabIndex = 0;
+            // 
             // FCargos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,12 +335,12 @@
             this.ClientSize = new System.Drawing.Size(549, 428);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "FCargos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FCargos";
             this.Load += new System.EventHandler(this.FCargos_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -348,13 +350,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCargos)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private DevExpress.XtraGrid.GridControl gridCargos;
@@ -370,7 +372,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIdCargo;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
-        private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.SimpleButton btnNuevo;
@@ -380,5 +381,7 @@
         private System.Windows.Forms.TextBox ctDescripcion;
         private System.Windows.Forms.TextBox ctNombre;
         private System.Windows.Forms.TextBox ctId;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
     }
 }

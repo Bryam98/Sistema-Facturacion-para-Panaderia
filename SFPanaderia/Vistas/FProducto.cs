@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using SFPanaderia.PanaderiaBD;
+using SFPanaderia.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace SFPanaderia.Vistas
         //variable para verificar si estamos en ediccion de producto o guardando nuevo
         private bool IsEditar = false;
 
+        Producto producto;
         int valorCategoria, valorPresentacion, valorEstado;
 
         public FProducto()
@@ -77,11 +79,11 @@ namespace SFPanaderia.Vistas
             ctNombre.Clear();
             ctPrecio.Clear();
             ctCantidad.Clear();
-            searchCategoria.ResetText();
-            searchPresentacion.ResetText();
-            searchEstado.ResetText();
             dateFRegistro.ResetText();
-          
+            searchCategoria.EditValue = null;
+            searchPresentacion.EditValue = null;
+            searchEstado.EditValue = null;
+
 
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
@@ -134,57 +136,74 @@ namespace SFPanaderia.Vistas
                 return;
             }
 
-            Producto producto;
+            //verificar si el productos existe
 
+
+            if ((MessageBox.Show("Esta Seguro que desea guardar el registro", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
+            {
+                if (IsEditar)
+                {
+
+                    IsEditar = false;
+                }
+
+                LimpiarCajas();
+                return;
+            }
 
             if (!IsEditar)
             {
 
                 producto = new Producto(sessionProductos);
+
+                producto.Nombre = ctNombre.Text;
+                producto.PrecioUnidad = Convert.ToDouble(ctPrecio.Text);
+                producto.Existencias = Convert.ToInt32(ctCantidad.Text);
+                producto.FechaRegistro = DateTime.Now.Date;
+
+                producto.IdCategoria = (Categoria)searchEditCategoria.GetFocusedRow();
+                producto.IdPresentacion = (Presentacion)searchEditPresentacion.GetFocusedRow();
+                producto.IdEstado = (Estado)searchEditEstado.GetFocusedRow();
+
             }
             else
             {
                 producto = (Producto)gridViewProductos.GetFocusedRow();
+
+                if (searchCategoria.EditValue == null || Convert.ToInt32(searchCategoria.EditValue) != valorCategoria)
+                {
+                    producto.IdCategoria = (Categoria)searchEditCategoria.GetFocusedRow();
+                }
+                else
+                {
+                    producto.IdCategoria.IdCategoria = valorCategoria;
+                }
+
+                if (searchPresentacion.EditValue == null || Convert.ToInt32(searchPresentacion.EditValue) != valorPresentacion)
+                {
+                    producto.IdPresentacion = (Presentacion)searchEditPresentacion.GetFocusedRow();
+                }
+                else
+                {
+                    producto.IdPresentacion.IdPresentacion = valorPresentacion;
+                }
+
+                if (searchEstado.EditValue == null || Convert.ToInt32(searchEstado.EditValue) != valorEstado)
+                {
+                    producto.IdEstado = (Estado)searchEditEstado.GetFocusedRow();
+                }
+                else
+                {
+                    producto.IdEstado.IdEstado = valorEstado;
+                }
+
+
+
+                producto.Nombre = ctNombre.Text;
+                producto.PrecioUnidad = Convert.ToDouble(ctPrecio.Text);
+                producto.Existencias = Convert.ToInt32(ctCantidad.Text);
+                producto.FechaRegistro = DateTime.Now.Date;
             }
-
-
-
-            if (searchCategoria.EditValue == null || Convert.ToInt32(searchCategoria.EditValue) != valorCategoria)
-            {
-                producto.IdCategoria = (Categoria)searchEditCategoria.GetFocusedRow();
-            }
-            else
-            {
-                producto.IdCategoria.IdCategoria = valorCategoria;
-            }
-
-
-            if (searchPresentacion.EditValue == null || Convert.ToInt32(searchPresentacion.EditValue) != valorPresentacion)
-            {
-                producto.IdPresentacion = (Presentacion)searchEditPresentacion.GetFocusedRow();
-            }
-            else
-            {
-                producto.IdPresentacion.IdPresentacion = valorPresentacion;
-            }
-
-            if (searchEstado.EditValue == null || Convert.ToInt32(searchEstado.EditValue) != valorEstado)
-            {
-
-                producto.IdEstado = (Estado)searchEditEstado.GetFocusedRow();
-            }
-            else
-            {
-                producto.IdEstado.IdEstado = valorEstado;
-            }
-
-
-
-            producto.Nombre = ctNombre.Text;
-            producto.PrecioUnidad = Convert.ToDouble(ctPrecio.Text);
-            producto.Existencias = Convert.ToInt32(ctCantidad.Text);
-            producto.FechaRegistro = DateTime.Now.Date;
-            
 
             try
             {
@@ -271,7 +290,11 @@ namespace SFPanaderia.Vistas
             xpProductos.Reload();
         }
 
-     
+        private void ctNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Producto producto = (Producto)gridViewProductos.GetFocusedRow();

@@ -197,3 +197,4 @@ C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Report
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Reportes.ReporteProductos.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FEntrada.resources
 C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.Modales.FIngresoCliente.resources
+C:\Users\Bryam\source\repos\SFPanaderia\SFPanaderia\obj\Debug\SFPanaderia.Vistas.FEntradas.resources

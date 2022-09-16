@@ -18,6 +18,7 @@ namespace SFPanaderia.Vistas
 
         private bool IsEditar = false;
         int valorCargo, valorEstado;
+        Empleado emp;
 
         public FEmpleados()
         {
@@ -84,8 +85,8 @@ namespace SFPanaderia.Vistas
             ctTelefono.Clear();
             cbSexo.Text = string.Empty;
             dateFNacimiento.ResetText();
-            searchCargo.ResetText();
-            searchEstado.ResetText();
+            searchCargo.EditValue = null;
+            searchEstado.EditValue = null;
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
         public void Habilitar(bool v)
@@ -168,14 +169,25 @@ namespace SFPanaderia.Vistas
                 return;
             }
 
-            Empleado emp;
-
-
+           
             if (!IsEditar)
             {
 
                 emp = new Empleado(sessionEmpleados);
 
+                emp.Nombres = ctNombres.Text;
+                emp.Apellidos = ctApellidos.Text;
+                emp.Cedula = ctCedula.Text;
+                if (cbSexo.Text == "Femenino")
+                    emp.Sexo = 'F';
+                else
+                    emp.Sexo = 'M';
+                emp.Direccion = ctDireccion.Text;
+                emp.Telefono = ctTelefono.Text;
+                emp.FechaNacimiento = DateTime.Parse(dateFNacimiento.Text);
+                emp.FechaRegistro = DateTime.Now;
+                emp.IdCargo = (Cargo)searchLookUpCargo.GetFocusedRow();
+                emp.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
 
             }
             else
@@ -183,44 +195,41 @@ namespace SFPanaderia.Vistas
 
                 emp = (Empleado)gridViewEmpleados.GetFocusedRow();
 
+
+
+                emp.Nombres = ctNombres.Text;
+                emp.Apellidos = ctApellidos.Text;
+                emp.Cedula = ctCedula.Text;
+                if (cbSexo.Text == "Femenino")
+                    emp.Sexo = 'F';
+                else
+                    emp.Sexo = 'M';
+                emp.Direccion = ctDireccion.Text;
+                emp.Telefono = ctTelefono.Text;
+                emp.FechaNacimiento = DateTime.Parse(dateFNacimiento.Text);
+                emp.FechaRegistro = DateTime.Now;
+
+                if (searchCargo.EditValue == null || Convert.ToInt32(searchCargo.EditValue) != valorCargo)
+                {
+                    emp.IdCargo = (Cargo)searchLookUpCargo.GetFocusedRow();
+                }
+                else
+                {
+                    emp.IdCargo.IdCargo = valorCargo;
+                }
+
+                if (searchEstado.EditValue == null || Convert.ToInt32(searchEstado.EditValue) != valorEstado)
+                {
+                    emp.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+
+                }
+                else
+                {
+                    emp.IdEstado.IdEstado = valorEstado;
+                }
+
+
             }
-
-
-            emp.Nombres = ctNombres.Text;
-            emp.Apellidos = ctApellidos.Text;
-            emp.Cedula = ctCedula.Text;
-            if (cbSexo.Text == "Femenino")
-                emp.Sexo = 'F';
-            else
-                emp.Sexo = 'M';
-            emp.Direccion = ctDireccion.Text;
-            emp.Telefono = ctTelefono.Text;
-            emp.FechaNacimiento = DateTime.Parse(dateFNacimiento.Text);
-            emp.FechaRegistro = DateTime.Now;
-
-            if (searchCargo.EditValue == null || Convert.ToInt32(searchCargo.EditValue) != valorCargo)
-            {
-
-                emp.IdCargo = (Cargo)searchLookUpCargo.GetFocusedRow();
-
-
-            }
-            else
-            {
-                emp.IdCargo.IdCargo = valorCargo;
-            }
-
-            if (searchEstado.EditValue == null || Convert.ToInt32(searchEstado.EditValue) != valorEstado)
-            {
-                emp.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
-
-            }
-            else
-            {
-                emp.IdEstado.IdEstado = valorEstado;
-            }
-
-
 
             try
             {

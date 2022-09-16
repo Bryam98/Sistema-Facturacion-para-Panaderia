@@ -64,11 +64,12 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clientes";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnSeleccionar.Location = new System.Drawing.Point(462, 310);
+            this.btnSeleccionar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionar.ImageOptions.Image")));
+            this.btnSeleccionar.Location = new System.Drawing.Point(471, 310);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(110, 45);
             this.btnSeleccionar.TabIndex = 1;
@@ -112,9 +113,11 @@
             this.gridColumn2});
             this.gridViewClientes.GridControl = this.gridClientes;
             this.gridViewClientes.Name = "gridViewClientes";
+            this.gridViewClientes.OptionsBehavior.Editable = false;
             this.gridViewClientes.OptionsFind.AlwaysVisible = true;
             this.gridViewClientes.OptionsFind.ShowFindButton = false;
             this.gridViewClientes.OptionsView.ColumnAutoWidth = false;
+            this.gridViewClientes.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridViewClientes.DoubleClick += new System.EventHandler(this.gridViewClientes_DoubleClick);
             // 
             // colIdCliente

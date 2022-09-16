@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProducto));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.rrInactivos = new System.Windows.Forms.RadioButton();
             this.rrActivo = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -82,7 +80,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ctNombre = new System.Windows.Forms.TextBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -102,26 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchCategoria.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEditCategoria)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(714, 46);
-            this.panel1.TabIndex = 0;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(78, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 25);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Productos";
             // 
             // rrInactivos
             // 
@@ -151,11 +132,11 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 46);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl1.Location = new System.Drawing.Point(0, 62);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(714, 435);
+            this.tabControl1.Size = new System.Drawing.Size(714, 429);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -168,7 +149,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(706, 409);
+            this.tabPage1.Size = new System.Drawing.Size(706, 403);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado de Productos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -178,7 +159,7 @@
             this.btnSalir.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Appearance.Options.UseFont = true;
             this.btnSalir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.ImageOptions.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(580, 360);
+            this.btnSalir.Location = new System.Drawing.Point(583, 352);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(120, 43);
             this.btnSalir.TabIndex = 6;
@@ -190,7 +171,7 @@
             this.btnEditar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Appearance.Options.UseFont = true;
             this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.ImageOptions.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(454, 360);
+            this.btnEditar.Location = new System.Drawing.Point(457, 352);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 43);
             this.btnEditar.TabIndex = 5;
@@ -202,7 +183,7 @@
             this.btnEliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Appearance.Options.UseFont = true;
             this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(328, 360);
+            this.btnEliminar.Location = new System.Drawing.Point(331, 352);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 43);
             this.btnEliminar.TabIndex = 4;
@@ -228,7 +209,7 @@
             this.gridProductos.Location = new System.Drawing.Point(3, 38);
             this.gridProductos.MainView = this.gridViewProductos;
             this.gridProductos.Name = "gridProductos";
-            this.gridProductos.Size = new System.Drawing.Size(700, 319);
+            this.gridProductos.Size = new System.Drawing.Size(700, 308);
             this.gridProductos.TabIndex = 3;
             this.gridProductos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewProductos});
@@ -371,7 +352,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(706, 409);
+            this.tabPage2.Size = new System.Drawing.Size(706, 403);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento Productos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -622,22 +603,40 @@
             this.ctNombre.Name = "ctNombre";
             this.ctNombre.Size = new System.Drawing.Size(199, 22);
             this.ctNombre.TabIndex = 2;
+            this.ctNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctNombre_KeyPress);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(714, 41);
+            this.panel1.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(66, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(118, 25);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Productos";
             // 
             // FProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 481);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(714, 491);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.FProducto_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -659,13 +658,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchCategoria.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEditCategoria)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -708,7 +707,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.SimpleButton btnNuevo;
-        private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.SimpleButton btnSalir;
         private DevExpress.XtraEditors.SimpleButton btnEliminar;
         private DevExpress.XtraEditors.SimpleButton btnEditar;
@@ -717,5 +715,7 @@
         private System.Windows.Forms.RadioButton rrInactivos;
         private System.Windows.Forms.RadioButton rrActivo;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label9;
     }
 }

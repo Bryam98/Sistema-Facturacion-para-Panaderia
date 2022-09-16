@@ -13,6 +13,8 @@ namespace SFPanaderia.Vistas
 {
     public partial class FCargos : Form
     {
+
+        Cargo cargo;
         public FCargos()
         {
             InitializeComponent();
@@ -81,9 +83,18 @@ namespace SFPanaderia.Vistas
                 ctNombre.Focus();
                 return;
             }
+            if ((MessageBox.Show("Esta Seguro que desea guardar el registro", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
+            {
+                if (IsEditar)
+                {
 
-            Cargo cargo;
+                    IsEditar = false;
+                }
 
+                LimpiarCajas();
+                return;
+            }
+           
 
             if (!IsEditar)
             {

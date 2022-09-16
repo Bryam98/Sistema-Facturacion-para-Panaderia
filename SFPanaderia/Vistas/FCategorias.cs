@@ -13,6 +13,8 @@ namespace SFPanaderia.Vistas
 {
     public partial class FCategorias : Form
     {
+
+        Categoria c;
         public FCategorias()
         {
             InitializeComponent();
@@ -83,8 +85,17 @@ namespace SFPanaderia.Vistas
                 return;
             }
 
-            Categoria c;
+            if ((MessageBox.Show("Esta Seguro que desea guardar el registro", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
+            {
+                if (IsEditar)
+                {
 
+                    IsEditar = false;
+                }
+
+                LimpiarCajas();
+                return;
+            }
 
             if (!IsEditar)
             {

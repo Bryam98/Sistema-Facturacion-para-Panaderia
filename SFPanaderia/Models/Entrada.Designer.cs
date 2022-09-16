@@ -32,14 +32,6 @@ namespace SFPanaderia.PanaderiaBD
             get { return fFechaEntrada; }
             set { SetPropertyValue<DateTime>(nameof(FechaEntrada), ref fFechaEntrada, value); }
         }
-        Empleado fIdEmpleado;
-        [Persistent(@"idEmpleado")]
-        [Association(@"EntradaReferencesEmpleado")]
-        public Empleado IdEmpleado
-        {
-            get { return fIdEmpleado; }
-            set { SetPropertyValue<Empleado>(nameof(IdEmpleado), ref fIdEmpleado, value); }
-        }
         int fTotal;
         [Persistent(@"total")]
         public int Total
@@ -54,6 +46,14 @@ namespace SFPanaderia.PanaderiaBD
         {
             get { return fIdEstado; }
             set { SetPropertyValue<Estado>(nameof(IdEstado), ref fIdEstado, value); }
+        }
+        Empleado fIdEmpleado;
+        [Persistent(@"idEmpleado")]
+        [Association(@"EntradaReferencesEmpleado")]
+        public Empleado IdEmpleado
+        {
+            get { return fIdEmpleado; }
+            set { SetPropertyValue<Empleado>(nameof(IdEmpleado), ref fIdEmpleado, value); }
         }
         [Association(@"DetalleEntradaReferencesEntrada")]
         public XPCollection<DetalleEntrada> DetalleEntradas { get { return GetCollection<DetalleEntrada>(nameof(DetalleEntradas)); } }

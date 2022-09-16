@@ -1,4 +1,7 @@
 ﻿using SFPanaderia.PanaderiaBD;
+using SFPanaderia.Servicios;
+using SFPanaderia.Validaciones;
+using SFPanaderia.Vistas.Modales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +16,12 @@ namespace SFPanaderia.Vistas
 {
     public partial class FEntrada : Form
     {
+
+        int idProducto;
+        DetalleEntrada dEntrada;
+        int acum = 0;
+        Entrada entrada;
+
         public FEntrada()
         {
             InitializeComponent();
@@ -21,7 +30,7 @@ namespace SFPanaderia.Vistas
         private void mensajesDeAyuda()
         {
             this.ttMensaje.SetToolTip(this.ctIdEntrada, "Codigo de la Entrada");
-            this.ttMensaje.SetToolTip(this.ctProducto, "Eliga el producto a ingresar");
+            this.ttMensaje.SetToolTip(this.searchProductos, "Eliga el producto a ingresar");
             this.ttMensaje.SetToolTip(this.fechaEntrada, "Ingrese la fecha entrada");
             this.ttMensaje.SetToolTip(this.btnAgregar, "Agrega productos a la entrada");
             this.ttMensaje.SetToolTip(this.btnEliminar, "Elimina productos de la entrada");
@@ -47,9 +56,10 @@ namespace SFPanaderia.Vistas
         private bool CamposVacios()
         {
             return (
-                    ctProducto.Text.Trim().Length == 0 ||
-                    fechaEntrada.Text.Trim().Length == 0 
-                  
+                   
+                    fechaEntrada.Text.Trim().Length == 0 ||
+                    searchProductos.Text.Trim().Length == 0 || searchProductos.Text.Equals("[Vacío]")
+
                    );
         }
 
@@ -57,17 +67,18 @@ namespace SFPanaderia.Vistas
         private void LimpiarCajas()
         {
             ctIdEntrada.Clear();
-            ctProducto.Clear();
+            searchProductos.EditValue = null;
             fechaEntrada.ResetText();
-            gridDetalleEntrada.DataSource = null;
+            ctCantidad.Clear();
+            //gridDetalleEntrada.DataSource = null;
 
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
         public void Habilitar(bool v)
         {
             //Text desactivados
-            ctProducto.Enabled = !v;
-            fechaEntrada.Enabled = !v;
+           searchProductos.Enabled = !v;
+           fechaEntrada.Enabled = !v;
            
 
             btnNuevo.Enabled = v;
@@ -80,7 +91,9 @@ namespace SFPanaderia.Vistas
 
         private void FEntrada_Load(object sender, EventArgs e)
         {
-
+            Habilitar(true);
+            entrada = new Entrada(sessionEntrada);
+            gridDetalleEntrada.DataSource = entrada.DetalleEntradas;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -89,16 +102,76 @@ namespace SFPanaderia.Vistas
             if (CamposVacios())
             {
                 mensajeError("Error todos los campos son obligatorios");
-                ctProducto.Focus();
+                searchProductos.Focus();
                 return;
             }
 
 
-            DetalleEntrada dEntrada = new DetalleEntrada(sessionEntrada);
+            dEntrada = new DetalleEntrada(sessionEntrada);
+
+            dEntrada.IdProducto = (Producto)searchViewProductos.GetFocusedRow();
+            dEntrada.Cantidad = Convert.ToInt32(ctCantidad.Text);
+            //entrada.Save();
+
+            entrada.DetalleEntradas.Add(dEntrada);
 
             
+            acum = acum + dEntrada.Cantidad;
+            CantidadTotal();
+
+            gridDetalleEntrada.RefreshDataSource();
+            LimpiarCajas();
 
 
+        }
+
+        private void CantidadTotal()
+        {
+            txtTotal.Text = acum.ToString();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+       
+
+        private void ctCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Habilitar(false);
+            searchProductos.Focus();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            Habilitar(true);
+            LimpiarCajas();
+            return;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var  elemento = (DetalleEntrada)gridViewDetalleEntrada.GetFocusedRow();
+            entrada.DetalleEntradas.Remove(elemento);
+            gridDetalleEntrada.RefreshDataSource();
+
+        }
+
+        private void searchProductos_Popup(object sender, EventArgs e)
+        {
+           searchViewProductos.ActiveFilterString = "[IdEstado.Nombre] = 'activo'";
+        }
+
+        private void searchProductos_EditValueChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

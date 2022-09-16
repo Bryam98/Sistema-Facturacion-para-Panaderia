@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SFPanaderia.PanaderiaBD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace SFPanaderia.Servicios
 {
-    public interface IServicesObtenerData<T>
+    public interface IServicesCliente
+
     {
-        void TransladarInformacion(T Data);
+       void ObtenerCliente(Cliente Data);
 
 
  

@@ -13,6 +13,8 @@ namespace SFPanaderia.Vistas
 {
     public partial class FPresentacion : Form
     {
+
+        Presentacion p;
         public FPresentacion()
         {
             InitializeComponent();
@@ -83,9 +85,17 @@ namespace SFPanaderia.Vistas
                 ctNombre.Focus();
                 return;
             }
+            if ((MessageBox.Show("Esta Seguro que desea guardar el registro", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
+            {
+                if (IsEditar)
+                {
 
-            Presentacion p;
+                    IsEditar = false;
+                }
 
+                LimpiarCajas();
+                return;
+            }
 
             if (!IsEditar)
             {

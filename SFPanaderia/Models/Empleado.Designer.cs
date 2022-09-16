@@ -71,7 +71,7 @@ namespace SFPanaderia.PanaderiaBD
             set { SetPropertyValue<string>(nameof(Direccion), ref fDireccion, value); }
         }
         string fTelefono;
-        [Size(20)]
+        [Size(12)]
         [Persistent(@"telefono")]
         public string Telefono
         {

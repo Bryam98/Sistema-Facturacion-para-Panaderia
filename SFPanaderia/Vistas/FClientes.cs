@@ -18,7 +18,7 @@ namespace SFPanaderia.Vistas
 
         private bool IsEditar = false;
         int valorEstado;
-     
+        Cliente c;
 
         public FClientes()
         {
@@ -79,8 +79,8 @@ namespace SFPanaderia.Vistas
             ctDireccion.Clear();
             ctTelefono.Clear();
             cbSexo.Text = string.Empty;
-            searchLookEstado.ResetText();
-         
+           searchLookEstado.EditValue = null;
+
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
         public void Habilitar(bool v)
@@ -138,46 +138,54 @@ namespace SFPanaderia.Vistas
                     return;
                 }
             }
-            Cliente c;
+            
 
 
             if (!IsEditar)
             {
 
                 c = new Cliente(sessionClientes);
-            }
-            else
-            {
-                c = (Cliente)gridViewClientes.GetFocusedRow();
-                
-            }
-
-
-            c.Nombres= ctNombres.Text;
-            c.Apellidos = ctApellidos.Text;
-            c.Cedula = ctCedula.Text;
-            if (cbSexo.Text == "Femenino")
-                c.Sexo = 'F';
-            else
-                c.Sexo = 'M';   
-            c.Direccion = ctDireccion.Text;
-            c.Telefono = ctTelefono.Text;
-            c.FechaRegistro = DateTime.Now;
-
-            if (searchLookEstado.EditValue == null || Convert.ToInt32(searchLookEstado.EditValue) != valorEstado)
-            {
+                c.Nombres = ctNombres.Text;
+                c.Apellidos = ctApellidos.Text;
+                c.Cedula = ctCedula.Text;
+                if (cbSexo.Text == "Femenino")
+                    c.Sexo = 'F';
+                else
+                    c.Sexo = 'M';
+                c.Direccion = ctDireccion.Text;
+                c.Telefono = ctTelefono.Text;
+                c.FechaRegistro = DateTime.Now;
                 c.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
 
             }
             else
             {
-                c.IdEstado.IdEstado = valorEstado;
-            }
+                c = (Cliente)gridViewClientes.GetFocusedRow();
 
-            c.Save();
+                if (searchLookEstado.EditValue == null || Convert.ToInt32(searchLookEstado.EditValue) != valorEstado)
+                {
+                    c.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+                }
+                else
+                {
+                    c.IdEstado.IdEstado = valorEstado;
+                }
+
+                c.Nombres = ctNombres.Text;
+                c.Apellidos = ctApellidos.Text;
+                c.Cedula = ctCedula.Text;
+                if (cbSexo.Text == "Femenino")
+                    c.Sexo = 'F';
+                else
+                    c.Sexo = 'M';
+                c.Direccion = ctDireccion.Text;
+                c.Telefono = ctTelefono.Text;
+                c.FechaRegistro = DateTime.Now;
+            }
 
             try
             {
+                c.Save();
                 sessionClientes.CommitChanges();
 
             }

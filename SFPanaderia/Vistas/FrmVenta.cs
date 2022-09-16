@@ -15,7 +15,7 @@ using SFPanaderia.Vistas.Modales;
 
 namespace SFPanaderia.Vistas
 {
-    public partial class FrmVenta : Form, IServicesObtenerData<Cliente>
+    public partial class FrmVenta : Form, IServicesCliente
     {
         public FrmVenta()
         {
@@ -45,7 +45,7 @@ namespace SFPanaderia.Vistas
             fIngreso.ShowDialog();
         }
 
-        public void TransladarInformacion(Cliente DataCliente)
+        public void ObtenerCliente(Cliente DataCliente)
         {
             string nombreCompleto;
 
@@ -57,5 +57,22 @@ namespace SFPanaderia.Vistas
 
 
         }
+
+        private void btnProducto_Click(object sender, EventArgs e)
+        {
+            //FModalProductos fModalProductos = new FModalProductos(this);
+            //fModalProductos.ShowDialog();
+
+        }
+
+        //public void ObtenerProducto(Producto Data)
+        //{
+        //    ctIdProducto.Text = Data.IdProducto.ToString();
+        //    ctProducto.Text = Data.Nombre;
+        //    ctStock.Text = Data.Existencias.ToString();
+        //    ctPrecio.Text = Data.PrecioUnidad.ToString();
+
+           
+        //}
     }
 }

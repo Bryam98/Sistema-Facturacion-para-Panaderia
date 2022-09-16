@@ -417,7 +417,7 @@
             this.dateFNacimiento.Properties.Appearance.Options.UseFont = true;
             this.dateFNacimiento.Properties.Mask.EditMask = "d";
             this.dateFNacimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.dateFNacimiento.Size = new System.Drawing.Size(75, 22);
+            this.dateFNacimiento.Size = new System.Drawing.Size(67, 22);
             this.dateFNacimiento.TabIndex = 7;
             // 
             // ctTelefono
@@ -689,6 +689,8 @@
             this.ClientSize = new System.Drawing.Size(714, 461);
             this.Controls.Add(this.tabEmpleados);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FEmpleado";

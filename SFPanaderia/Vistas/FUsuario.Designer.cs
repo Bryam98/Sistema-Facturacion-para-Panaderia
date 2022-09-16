@@ -54,14 +54,14 @@
             this.btnEditar = new DevExpress.XtraEditors.SimpleButton();
             this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.searchEmpleado = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.xpEmpleados = new DevExpress.Xpo.XPCollection(this.components);
+            this.searchViewEmpleados = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CkMostrar = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevo = new DevExpress.XtraEditors.SimpleButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.searchLookEmpleado = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.xpEmpleados = new DevExpress.Xpo.XPCollection(this.components);
-            this.searchLookUpEmpleados = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ctClave = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,9 +81,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewUsuarios)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookEmpleado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchEmpleado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEmpleados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchViewEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -325,12 +325,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.searchEmpleado);
             this.tabPage2.Controls.Add(this.CkMostrar);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Controls.Add(this.btnNuevo);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.searchLookEmpleado);
             this.tabPage2.Controls.Add(this.ctClave);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label3);
@@ -347,11 +347,41 @@
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // searchEmpleado
+            // 
+            this.searchEmpleado.Location = new System.Drawing.Point(104, 83);
+            this.searchEmpleado.Name = "searchEmpleado";
+            this.searchEmpleado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.searchEmpleado.Properties.DataSource = this.xpEmpleados;
+            this.searchEmpleado.Properties.DisplayMember = "Nombres";
+            this.searchEmpleado.Properties.PopupView = this.searchViewEmpleados;
+            this.searchEmpleado.Properties.ValueMember = "IdEmpleado";
+            this.searchEmpleado.Size = new System.Drawing.Size(187, 20);
+            this.searchEmpleado.TabIndex = 10;
+            this.searchEmpleado.Popup += new System.EventHandler(this.searchEmpleado_Popup);
+            // 
+            // xpEmpleados
+            // 
+            this.xpEmpleados.DisplayableProperties = "This;IdEmpleado;Nombres;Apellidos;Direccion;Telefono;IdCargo;Cedula;IdEstado.Nomb" +
+    "re";
+            this.xpEmpleados.ObjectType = typeof(SFPanaderia.PanaderiaBD.Empleado);
+            this.xpEmpleados.Session = this.sessionUsuarios;
+            // 
+            // searchViewEmpleados
+            // 
+            this.searchViewEmpleados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchViewEmpleados.Name = "searchViewEmpleados";
+            this.searchViewEmpleados.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchViewEmpleados.OptionsView.ColumnAutoWidth = false;
+            this.searchViewEmpleados.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.searchViewEmpleados.OptionsView.ShowGroupPanel = false;
+            // 
             // CkMostrar
             // 
             this.CkMostrar.AutoSize = true;
             this.CkMostrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CkMostrar.Location = new System.Drawing.Point(102, 146);
+            this.CkMostrar.Location = new System.Drawing.Point(101, 184);
             this.CkMostrar.Name = "CkMostrar";
             this.CkMostrar.Size = new System.Drawing.Size(152, 19);
             this.CkMostrar.TabIndex = 3;
@@ -399,44 +429,16 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(20, 227);
+            this.label6.Location = new System.Drawing.Point(21, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 15);
             this.label6.TabIndex = 9;
             this.label6.Text = "Empleado:";
             // 
-            // searchLookEmpleado
-            // 
-            this.searchLookEmpleado.Location = new System.Drawing.Point(102, 224);
-            this.searchLookEmpleado.Name = "searchLookEmpleado";
-            this.searchLookEmpleado.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLookEmpleado.Properties.Appearance.Options.UseFont = true;
-            this.searchLookEmpleado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.searchLookEmpleado.Properties.DataSource = this.xpEmpleados;
-            this.searchLookEmpleado.Properties.DisplayMember = "Nombres";
-            this.searchLookEmpleado.Properties.PopupView = this.searchLookUpEmpleados;
-            this.searchLookEmpleado.Properties.ValueMember = "IdEmpleado";
-            this.searchLookEmpleado.Size = new System.Drawing.Size(205, 22);
-            this.searchLookEmpleado.TabIndex = 5;
-            // 
-            // xpEmpleados
-            // 
-            this.xpEmpleados.DisplayableProperties = "This;IdEmpleado;Nombres;Apellidos";
-            this.xpEmpleados.ObjectType = typeof(SFPanaderia.PanaderiaBD.Empleado);
-            this.xpEmpleados.Session = this.sessionUsuarios;
-            // 
-            // searchLookUpEmpleados
-            // 
-            this.searchLookUpEmpleados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEmpleados.Name = "searchLookUpEmpleados";
-            this.searchLookUpEmpleados.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEmpleados.OptionsView.ShowGroupPanel = false;
-            // 
             // ctClave
             // 
             this.ctClave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctClave.Location = new System.Drawing.Point(102, 120);
+            this.ctClave.Location = new System.Drawing.Point(101, 158);
             this.ctClave.Name = "ctClave";
             this.ctClave.PasswordChar = '*';
             this.ctClave.Size = new System.Drawing.Size(205, 22);
@@ -446,7 +448,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 187);
+            this.label5.Location = new System.Drawing.Point(22, 216);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 15);
             this.label5.TabIndex = 6;
@@ -456,7 +458,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(50, 120);
+            this.label3.Location = new System.Drawing.Point(49, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 15);
             this.label3.TabIndex = 5;
@@ -464,8 +466,8 @@
             // 
             // ctCorfirmacion
             // 
-            this.ctCorfirmacion.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctCorfirmacion.Location = new System.Drawing.Point(102, 187);
+            this.ctCorfirmacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctCorfirmacion.Location = new System.Drawing.Point(101, 216);
             this.ctCorfirmacion.Name = "ctCorfirmacion";
             this.ctCorfirmacion.PasswordChar = '*';
             this.ctCorfirmacion.Size = new System.Drawing.Size(205, 22);
@@ -475,7 +477,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 81);
+            this.label2.Location = new System.Drawing.Point(34, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 3;
@@ -484,7 +486,7 @@
             // ctUsuario
             // 
             this.ctUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctUsuario.Location = new System.Drawing.Point(102, 81);
+            this.ctUsuario.Location = new System.Drawing.Point(101, 119);
             this.ctUsuario.MaxLength = 12;
             this.ctUsuario.Name = "ctUsuario";
             this.ctUsuario.Size = new System.Drawing.Size(135, 22);
@@ -516,7 +518,10 @@
             this.ClientSize = new System.Drawing.Size(634, 451);
             this.Controls.Add(this.tabControlUsuarios);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FUsuario";
             this.Load += new System.EventHandler(this.FUsuario_Load);
             this.panel1.ResumeLayout(false);
@@ -532,9 +537,9 @@
             this.panel2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookEmpleado.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchEmpleado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEmpleados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchViewEmpleados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -560,14 +565,10 @@
         private System.Windows.Forms.TextBox ctId;
         private System.Windows.Forms.TextBox ctClave;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private DevExpress.XtraEditors.SearchLookUpEdit searchLookEmpleado;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEmpleados;
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
         private DevExpress.XtraEditors.SimpleButton btnGuardar;
         private DevExpress.XtraEditors.SimpleButton btnNuevo;
         private System.Windows.Forms.CheckBox CkMostrar;
-        private DevExpress.Xpo.XPCollection xpEmpleados;
         private DevExpress.Xpo.XPCollection xpUsuarios;
         private DevExpress.XtraGrid.GridControl gridUsuarios;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewUsuarios;
@@ -582,5 +583,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rrInactivos;
         private System.Windows.Forms.RadioButton rrActivo;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.Xpo.XPCollection xpEmpleados;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchEmpleado;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchViewEmpleados;
     }
 }

@@ -154,7 +154,7 @@
     <Compile Include="Reportes\XtraProducto.Designer.cs">
       <DependentUpon>XtraProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\IServicesObtenerData.cs" />
+    <Compile Include="Servicios\IServicesCliente.cs" />
     <Compile Include="Validaciones\Validar.cs" />
     <Compile Include="Vistas\FCargos.cs">
       <SubType>Form</SubType>
@@ -185,6 +185,12 @@
     </Compile>
     <Compile Include="Vistas\FEntrada.Designer.cs">
       <DependentUpon>FEntrada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FEntradas.Designer.cs">
+      <DependentUpon>FEntradas.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FPresentacion.cs">
       <SubType>Form</SubType>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FEntrada.resx">
       <DependentUpon>FEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FEntradas.resx">
+      <DependentUpon>FEntradas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FPresentacion.resx">
       <DependentUpon>FPresentacion.cs</DependentUpon>
