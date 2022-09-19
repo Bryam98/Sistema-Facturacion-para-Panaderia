@@ -144,6 +144,7 @@
             this.ctUsuario.Name = "ctUsuario";
             this.ctUsuario.Size = new System.Drawing.Size(182, 26);
             this.ctUsuario.TabIndex = 8;
+            this.ctUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctUsuario_KeyPress);
             // 
             // ctClave
             // 
@@ -153,6 +154,7 @@
             this.ctClave.PasswordChar = '*';
             this.ctClave.Size = new System.Drawing.Size(182, 26);
             this.ctClave.TabIndex = 9;
+            this.ctClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctClave_KeyPress);
             // 
             // xpLogin
             // 

@@ -11,11 +11,11 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using SFPanaderia.Servicios;
-using SFPanaderia.Vistas.Modales;
+
 
 namespace SFPanaderia.Vistas
 {
-    public partial class FrmVenta : Form, IServicesCliente
+    public partial class FrmVenta : Form
     {
         public FrmVenta()
         {
@@ -41,38 +41,15 @@ namespace SFPanaderia.Vistas
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            FIngresoCliente fIngreso = new FIngresoCliente(this);
-            fIngreso.ShowDialog();
+            
         }
 
-        public void ObtenerCliente(Cliente DataCliente)
-        {
-            string nombreCompleto;
-
-            ctId.Text = DataCliente.IdCliente.ToString();
-            ctCedula.Text = DataCliente.Cedula;
-     
-            nombreCompleto = DataCliente.Nombres + " " + DataCliente.Apellidos;
-            ctNombre.Text = nombreCompleto;
-
-
-        }
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            //FModalProductos fModalProductos = new FModalProductos(this);
-            //fModalProductos.ShowDialog();
 
         }
 
-        //public void ObtenerProducto(Producto Data)
-        //{
-        //    ctIdProducto.Text = Data.IdProducto.ToString();
-        //    ctProducto.Text = Data.Nombre;
-        //    ctStock.Text = Data.Existencias.ToString();
-        //    ctPrecio.Text = Data.PrecioUnidad.ToString();
-
-           
-        //}
+     
     }
 }

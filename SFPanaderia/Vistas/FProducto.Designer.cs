@@ -54,8 +54,6 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateFRegistro = new DevExpress.XtraEditors.DateEdit();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuardar = new DevExpress.XtraEditors.SimpleButton();
             this.btnNuevo = new DevExpress.XtraEditors.SimpleButton();
@@ -90,8 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.sessionProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProductos)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFRegistro.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFRegistro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEstado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEditEstado)).BeginInit();
@@ -330,8 +326,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.dateFRegistro);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnGuardar);
             this.tabPage2.Controls.Add(this.btnNuevo);
@@ -356,32 +350,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento Productos";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(322, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 15);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Fecha Registro:";
-            // 
-            // dateFRegistro
-            // 
-            this.dateFRegistro.EditValue = null;
-            this.dateFRegistro.Enabled = false;
-            this.dateFRegistro.Location = new System.Drawing.Point(436, 88);
-            this.dateFRegistro.Name = "dateFRegistro";
-            this.dateFRegistro.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateFRegistro.Properties.Appearance.Options.UseFont = true;
-            this.dateFRegistro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFRegistro.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateFRegistro.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.dateFRegistro.Size = new System.Drawing.Size(146, 22);
-            this.dateFRegistro.TabIndex = 3;
             // 
             // btnCancelar
             // 
@@ -421,9 +389,10 @@
             // 
             // searchEstado
             // 
-            this.searchEstado.Location = new System.Drawing.Point(436, 177);
+            this.searchEstado.Enabled = false;
+            this.searchEstado.Location = new System.Drawing.Point(420, 130);
             this.searchEstado.Name = "searchEstado";
-            this.searchEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEstado.Properties.Appearance.Options.UseFont = true;
             this.searchEstado.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -450,7 +419,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(375, 177);
+            this.label7.Location = new System.Drawing.Point(359, 130);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 15);
             this.label7.TabIndex = 12;
@@ -458,9 +427,9 @@
             // 
             // searchPresentacion
             // 
-            this.searchPresentacion.Location = new System.Drawing.Point(438, 130);
+            this.searchPresentacion.Location = new System.Drawing.Point(420, 85);
             this.searchPresentacion.Name = "searchPresentacion";
-            this.searchPresentacion.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPresentacion.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchPresentacion.Properties.Appearance.Options.UseFont = true;
             this.searchPresentacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -490,6 +459,7 @@
             this.ctPrecio.Name = "ctPrecio";
             this.ctPrecio.Size = new System.Drawing.Size(100, 22);
             this.ctPrecio.TabIndex = 6;
+            this.ctPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctPrecio_KeyPress);
             // 
             // ctCantidad
             // 
@@ -498,12 +468,13 @@
             this.ctCantidad.Name = "ctCantidad";
             this.ctCantidad.Size = new System.Drawing.Size(100, 22);
             this.ctCantidad.TabIndex = 8;
+            this.ctCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctCantidad_KeyPress);
             // 
             // searchCategoria
             // 
             this.searchCategoria.Location = new System.Drawing.Point(95, 130);
             this.searchCategoria.Name = "searchCategoria";
-            this.searchCategoria.Properties.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchCategoria.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchCategoria.Properties.Appearance.Options.UseFont = true;
             this.searchCategoria.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -560,7 +531,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(337, 131);
+            this.label3.Location = new System.Drawing.Point(319, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 15);
             this.label3.TabIndex = 4;
@@ -598,7 +569,7 @@
             // ctNombre
             // 
             this.ctNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.ctNombre.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctNombre.Location = new System.Drawing.Point(95, 88);
             this.ctNombre.Name = "ctNombre";
             this.ctNombre.Size = new System.Drawing.Size(199, 22);
@@ -613,6 +584,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(714, 41);
             this.panel1.TabIndex = 2;
+       
             // 
             // label9
             // 
@@ -647,8 +619,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewProductos)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFRegistro.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateFRegistro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEstado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchEditEstado)).EndInit();
@@ -710,8 +680,6 @@
         private DevExpress.XtraEditors.SimpleButton btnSalir;
         private DevExpress.XtraEditors.SimpleButton btnEliminar;
         private DevExpress.XtraEditors.SimpleButton btnEditar;
-        private DevExpress.XtraEditors.DateEdit dateFRegistro;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rrInactivos;
         private System.Windows.Forms.RadioButton rrActivo;
         private System.Windows.Forms.GroupBox groupBox1;

@@ -1,4 +1,5 @@
 ﻿using SFPanaderia.PanaderiaBD;
+using SFPanaderia.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,9 @@ namespace SFPanaderia.Vistas
     {
 
         Categoria c;
+        private bool IsEditar = false;
+
+
         public FCategorias()
         {
             InitializeComponent();
@@ -65,6 +69,7 @@ namespace SFPanaderia.Vistas
             btnCancelar.Enabled = !v;
             btnEditar.Enabled = v;
             btnEliminar.Enabled = v;
+            btnSalir.Enabled = v;
 
         }
 
@@ -75,7 +80,6 @@ namespace SFPanaderia.Vistas
         }
 
 
-        private bool IsEditar = false;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (CamposVacios())
@@ -159,27 +163,6 @@ namespace SFPanaderia.Vistas
             this.tabControl1.SelectedIndex = 1;
         }
 
-  
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (IsEditar)
-            {
-                Habilitar(true);
-                LimpiarCajas();
-                tabControl1.SelectedIndex = 0;
-                return;
-            }
-
-            Habilitar(true);
-            LimpiarCajas();
-            return;
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
@@ -202,6 +185,37 @@ namespace SFPanaderia.Vistas
             sessionCategorias.CommitChanges();
 
             mensajeCorrecto("El registro fue eliminado correctamente");
+        }
+
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (IsEditar)
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                tabControl1.SelectedIndex = 0;
+                return;
+            }
+            else
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                return;
+            }
+
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ctNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+
         }
     }
 }

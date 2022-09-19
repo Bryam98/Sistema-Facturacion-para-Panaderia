@@ -43,6 +43,10 @@
             this.gridViewEntrada = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.searchEstados = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.xpEstado = new DevExpress.Xpo.XPCollection(this.components);
+            this.searchViewEstados = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.searchProductos = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.xpProductos = new DevExpress.Xpo.XPCollection(this.components);
             this.searchViewProductos = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -53,8 +57,6 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.ctCantidad = new System.Windows.Forms.TextBox();
-            this.ctPresentacion = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnEliminar = new DevExpress.XtraEditors.SimpleButton();
@@ -78,6 +80,7 @@
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.xpEmpleados = new DevExpress.Xpo.XPCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xpDetalleEntrada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessionEntrada)).BeginInit();
             this.panel2.SuspendLayout();
@@ -88,6 +91,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewEntrada)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchEstados.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchViewEstados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchProductos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchViewProductos)).BeginInit();
@@ -95,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fechaEntrada.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalleEntrada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetalleEntrada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // xpDetalleEntrada
@@ -208,11 +215,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.searchEstados);
             this.groupBox1.Controls.Add(this.searchProductos);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.ctCantidad);
-            this.groupBox1.Controls.Add(this.ctPresentacion);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnEliminar);
@@ -233,6 +240,42 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso Productos";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(286, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 15);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Estado:";
+            // 
+            // searchEstados
+            // 
+            this.searchEstados.EditValue = 1;
+            this.searchEstados.Location = new System.Drawing.Point(347, 67);
+            this.searchEstados.Name = "searchEstados";
+            this.searchEstados.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.searchEstados.Properties.DataSource = this.xpEstado;
+            this.searchEstados.Properties.DisplayMember = "Nombre";
+            this.searchEstados.Properties.PopupView = this.searchViewEstados;
+            this.searchEstados.Properties.ValueMember = "IdEstado";
+            this.searchEstados.Size = new System.Drawing.Size(110, 20);
+            this.searchEstados.TabIndex = 31;
+            // 
+            // xpEstado
+            // 
+            this.xpEstado.ObjectType = typeof(SFPanaderia.PanaderiaBD.Estado);
+            this.xpEstado.Session = this.sessionEntrada;
+            // 
+            // searchViewEstados
+            // 
+            this.searchViewEstados.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchViewEstados.Name = "searchViewEstados";
+            this.searchViewEstados.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchViewEstados.OptionsView.ShowGroupPanel = false;
             // 
             // searchProductos
             // 
@@ -327,25 +370,6 @@
             this.ctCantidad.Size = new System.Drawing.Size(114, 20);
             this.ctCantidad.TabIndex = 28;
             this.ctCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctCantidad_KeyPress);
-            // 
-            // ctPresentacion
-            // 
-            this.ctPresentacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctPresentacion.Location = new System.Drawing.Point(347, 71);
-            this.ctPresentacion.Name = "ctPresentacion";
-            this.ctPresentacion.ReadOnly = true;
-            this.ctPresentacion.Size = new System.Drawing.Size(128, 22);
-            this.ctPresentacion.TabIndex = 26;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(251, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 15);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Presentacion:";
             // 
             // txtTotal
             // 
@@ -443,7 +467,8 @@
             // 
             // fechaEntrada
             // 
-            this.fechaEntrada.EditValue = new System.DateTime(2022, 9, 15, 22, 6, 30, 0);
+            this.fechaEntrada.EditValue = new System.DateTime(2022, 9, 15, 0, 0, 0, 0);
+            this.fechaEntrada.Enabled = false;
             this.fechaEntrada.Location = new System.Drawing.Point(347, 27);
             this.fechaEntrada.Name = "fechaEntrada";
             this.fechaEntrada.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -452,7 +477,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.fechaEntrada.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.fechaEntrada.Size = new System.Drawing.Size(110, 22);
+            this.fechaEntrada.Size = new System.Drawing.Size(85, 22);
             this.fechaEntrada.TabIndex = 3;
             // 
             // ctIdEntrada
@@ -566,6 +591,11 @@
             this.gridColumn1.VisibleIndex = 4;
             this.gridColumn1.Width = 149;
             // 
+            // xpEmpleados
+            // 
+            this.xpEmpleados.ObjectType = typeof(SFPanaderia.PanaderiaBD.Empleado);
+            this.xpEmpleados.Session = this.sessionEntrada;
+            // 
             // FEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,6 +621,9 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchEstados.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpEstado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchViewEstados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchProductos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchViewProductos)).EndInit();
@@ -598,6 +631,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fechaEntrada.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalleEntrada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetalleEntrada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpEmpleados)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -638,18 +672,21 @@
         private System.Windows.Forms.ToolTip ttMensaje;
         private DevExpress.XtraGrid.GridControl gridControlEntrada;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewEntrada;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ctCantidad;
         private DevExpress.Xpo.XPCollection xpProductos;
         private DevExpress.XtraEditors.SearchLookUpEdit searchProductos;
         private DevExpress.XtraGrid.Views.Grid.GridView searchViewProductos;
-        private System.Windows.Forms.TextBox ctPresentacion;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchEstados;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchViewEstados;
+        private DevExpress.Xpo.XPCollection xpEstado;
+        private DevExpress.Xpo.XPCollection xpEmpleados;
     }
 }

@@ -417,7 +417,7 @@
             this.dateFNacimiento.Properties.Appearance.Options.UseFont = true;
             this.dateFNacimiento.Properties.Mask.EditMask = "d";
             this.dateFNacimiento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
-            this.dateFNacimiento.Size = new System.Drawing.Size(67, 22);
+            this.dateFNacimiento.Size = new System.Drawing.Size(71, 22);
             this.dateFNacimiento.TabIndex = 7;
             // 
             // ctTelefono
@@ -431,6 +431,7 @@
             // 
             // searchEstado
             // 
+            this.searchEstado.Enabled = false;
             this.searchEstado.Location = new System.Drawing.Point(393, 238);
             this.searchEstado.Name = "searchEstado";
             this.searchEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -111,9 +111,9 @@ namespace SFPanaderia.Vistas
 
         private void barIngresos_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FEntrada fEntrada = new FEntrada();
-            fEntrada.MdiParent = this;
-            fEntrada.Show();
+            FEntradas fEntradas = new FEntradas(usuario);
+            fEntradas.MdiParent = this;
+            fEntradas.Show();
             BarIngreso = false;
         }
 

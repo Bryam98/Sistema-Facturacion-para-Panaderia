@@ -1,4 +1,5 @@
 ﻿using SFPanaderia.PanaderiaBD;
+using SFPanaderia.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,13 +32,13 @@ namespace SFPanaderia.Vistas
         private void mensajeCorrecto(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         private void mensajeError(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Categoria", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(mensaje, "Cargos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -64,13 +65,15 @@ namespace SFPanaderia.Vistas
             btnCancelar.Enabled = !v;
             btnEditar.Enabled = v;
             btnEliminar.Enabled = v;
+            btnSalir.Enabled = v;
 
         }
 
         private void FCargos_Load(object sender, EventArgs e)
         {
             Habilitar(true);
-            
+            this.Left = (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2;
+
         }
 
         private bool IsEditar = false;
@@ -87,7 +90,6 @@ namespace SFPanaderia.Vistas
             {
                 if (IsEditar)
                 {
-
                     IsEditar = false;
                 }
 
@@ -95,7 +97,6 @@ namespace SFPanaderia.Vistas
                 return;
             }
            
-
             if (!IsEditar)
             {
 
@@ -140,21 +141,6 @@ namespace SFPanaderia.Vistas
             ctNombre.Focus();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (IsEditar)
-            {
-                Habilitar(true);
-                LimpiarCajas();
-                tabControl1.SelectedIndex = 0;
-                return;
-            }
-
-            Habilitar(true);
-            LimpiarCajas();
-            return;
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Cargo cargo = (Cargo)gridViewCargos.GetFocusedRow();
@@ -196,10 +182,32 @@ namespace SFPanaderia.Vistas
 
             mensajeCorrecto("El registro fue eliminado correctamente");
         }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (IsEditar)
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                tabControl1.SelectedIndex = 0;
+                return;
+            }
+            else
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                return;
+            }
 
+
+        }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ctNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
         }
     }
 }

@@ -228,12 +228,6 @@
     <Compile Include="Vistas\FUsuario.Designer.cs">
       <DependentUpon>FUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Modales\FIngresoCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Modales\FIngresoCliente.Designer.cs">
-      <DependentUpon>FIngresoCliente.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -286,9 +280,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FUsuario.resx">
       <DependentUpon>FUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Modales\FIngresoCliente.resx">
-      <DependentUpon>FIngresoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ORMPanaderia.xpo" />
     <None Include="ORMPanaderia.xpo.diagram">

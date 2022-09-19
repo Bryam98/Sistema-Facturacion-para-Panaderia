@@ -5,6 +5,7 @@ using SFPanaderia.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -36,7 +37,6 @@ namespace SFPanaderia.Vistas
             this.ttMensaje.SetToolTip(this.ctNombre, "Ingrese el nombre del producto");
             this.ttMensaje.SetToolTip(this.ctPrecio, "Ingrese el precio del producto");
             this.ttMensaje.SetToolTip(this.ctCantidad, "Ingrese la cantidad del producto");
-            this.ttMensaje.SetToolTip(this.dateFRegistro, "Ingrese la fecha de registro del producto");
             this.ttMensaje.SetToolTip(this.searchCategoria, "seleccione la categoria del producto");
             this.ttMensaje.SetToolTip(this.searchPresentacion, "seleccione la presentacion del producto");
             this.ttMensaje.SetToolTip(this.searchEstado, "seleccione el estado del producto");
@@ -79,10 +79,9 @@ namespace SFPanaderia.Vistas
             ctNombre.Clear();
             ctPrecio.Clear();
             ctCantidad.Clear();
-            dateFRegistro.ResetText();
             searchCategoria.EditValue = null;
             searchPresentacion.EditValue = null;
-            searchEstado.EditValue = null;
+            searchEstado.EditValue = 1;
 
 
         }
@@ -94,24 +93,21 @@ namespace SFPanaderia.Vistas
             ctNombre.Enabled = !v;
             ctPrecio.Enabled = !v;
             ctCantidad.Enabled = !v;
-            dateFRegistro.Enabled = !v;
             searchCategoria.Enabled = !v;
             searchPresentacion.Enabled = !v;
-            searchEstado.Enabled = !v;
+           
 
             btnNuevo.Enabled = v;
             btnGuardar.Enabled = !v;
             btnCancelar.Enabled = !v;
             btnEditar.Enabled = v;
             btnEliminar.Enabled = v;
-
+            btnSalir.Enabled = v;
         }
 
         private void FProducto_Load(object sender, EventArgs e)
         {
             Habilitar(true);
-            dateFRegistro.DateTime = DateTime.Now.Date;
-
             gridViewProductos.ActiveFilterString = "[IdEstado.Nombre] = 'Activo'";
 
 
@@ -160,10 +156,16 @@ namespace SFPanaderia.Vistas
                 producto.PrecioUnidad = Convert.ToDouble(ctPrecio.Text);
                 producto.Existencias = Convert.ToInt32(ctCantidad.Text);
                 producto.FechaRegistro = DateTime.Now.Date;
-
                 producto.IdCategoria = (Categoria)searchEditCategoria.GetFocusedRow();
                 producto.IdPresentacion = (Presentacion)searchEditPresentacion.GetFocusedRow();
-                producto.IdEstado = (Estado)searchEditEstado.GetFocusedRow();
+
+                //asignamos id por defecto
+                foreach (Estado estado in xpEstado)
+                {
+                    if (estado.IdEstado == 1)
+                        producto.IdEstado = estado;
+
+                }
 
             }
             else
@@ -202,7 +204,8 @@ namespace SFPanaderia.Vistas
                 producto.Nombre = ctNombre.Text;
                 producto.PrecioUnidad = Convert.ToDouble(ctPrecio.Text);
                 producto.Existencias = Convert.ToInt32(ctCantidad.Text);
-                producto.FechaRegistro = DateTime.Now.Date;
+                //aplico filtro activo por si se activo un cliente inactivo
+                rrActivo.Checked = true;
             }
 
             try
@@ -228,26 +231,37 @@ namespace SFPanaderia.Vistas
             //Nos cambia a la seccion de Listado de Categorias
             this.tabControl1.SelectedIndex = 0;
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
+            
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (IsEditar)
+            Producto producto = (Producto)gridViewProductos.GetFocusedRow();
+
+            if (producto == null)
             {
-                Habilitar(true);
-                LimpiarCajas();
-                tabControl1.SelectedIndex = 0;
+                mensajeError("Debe selecionar un registro a editar");
                 return;
             }
-            Habilitar(true);
-            LimpiarCajas();
-            return;
-        }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+            ctId.Text = producto.IdProducto.ToString();
+            ctNombre.Text = producto.Nombre.ToString();
+            ctPrecio.Text = producto.PrecioUnidad.ToString();
+            ctCantidad.Text = producto.Existencias.ToString();
 
+            searchCategoria.EditValue = producto.IdCategoria.IdCategoria;
+            valorCategoria = producto.IdCategoria.IdCategoria;
+
+            searchPresentacion.EditValue = producto.IdPresentacion.IdPresentacion;
+            valorPresentacion = producto.IdPresentacion.IdPresentacion;
+
+            searchEstado.EditValue = producto.IdEstado.IdEstado;
+            valorEstado = producto.IdEstado.IdEstado;
+
+
+            IsEditar = true;
+            Habilitar(false);
+            searchEstado.Enabled = true;
+            this.tabControl1.SelectedIndex = 1;
+        }
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             if (xpProductos.Count == 0)
@@ -278,11 +292,37 @@ namespace SFPanaderia.Vistas
             MensajeCorrecto("El registro fue eliminado correctamente");
         }
 
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            //si estamos edicion y cancelamos mandamo a la seccion 1
+            if (IsEditar)
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                tabControl1.SelectedIndex = 0;
+
+            } 
+            else
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                return;
+
+            }
+         
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void rrActivo_CheckedChanged(object sender, EventArgs e)
         {
             gridViewProductos.ActiveFilterString = "[IdEstado.Nombre] = 'Activo'";
             xpProductos.Reload();
         }
+
 
         private void rrInactivos_CheckedChanged(object sender, EventArgs e)
         {
@@ -295,41 +335,16 @@ namespace SFPanaderia.Vistas
             Validar.SoloLetras(e);
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+
+        private void ctPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Producto producto = (Producto)gridViewProductos.GetFocusedRow();
-
-            if (producto == null)
-            {
-                mensajeError("Debe selecionar un registro a editar");
-                return;
-            }
-
-            ctId.Text = producto.IdProducto.ToString();
-            ctNombre.Text = producto.Nombre.ToString();
-            ctPrecio.Text = producto.PrecioUnidad.ToString();
-            ctCantidad.Text = producto.Existencias.ToString();
-            dateFRegistro.Text = producto.FechaRegistro.ToString();
-
-            searchCategoria.EditValue = producto.IdCategoria.IdCategoria;
-            valorCategoria = producto.IdCategoria.IdCategoria;
-
-            searchPresentacion.EditValue = producto.IdPresentacion.IdPresentacion;
-            valorPresentacion = producto.IdPresentacion.IdPresentacion;
-
-            searchEstado.EditValue = producto.IdEstado.IdEstado;
-            valorEstado = producto.IdEstado.IdEstado;
-
-
-            IsEditar = true;
-            Habilitar(false);
-
-            this.tabControl1.SelectedIndex = 1;
+            Validar.SoloNumeros(e);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void ctCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            Validar.SoloNumeros(e);
         }
+
     }
 }

@@ -132,7 +132,7 @@
             // btnEditar
             // 
             this.btnEditar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.ImageOptions.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(448, 356);
+            this.btnEditar.Location = new System.Drawing.Point(454, 356);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 45);
             this.btnEditar.TabIndex = 1;
@@ -142,7 +142,7 @@
             // btnEliminar
             // 
             this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(322, 356);
+            this.btnEliminar.Location = new System.Drawing.Point(328, 356);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(120, 45);
             this.btnEliminar.TabIndex = 0;
@@ -376,6 +376,8 @@
             // 
             // searchLookEstado
             // 
+            this.searchLookEstado.EditValue = 1;
+            this.searchLookEstado.Enabled = false;
             this.searchLookEstado.Location = new System.Drawing.Point(387, 194);
             this.searchLookEstado.Name = "searchLookEstado";
             this.searchLookEstado.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

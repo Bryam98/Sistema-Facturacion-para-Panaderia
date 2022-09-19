@@ -45,13 +45,13 @@ namespace SFPanaderia.Vistas
         private void mensajeCorrecto(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         private void mensajeError(string mensaje)
         {
 
-            MessageBox.Show(mensaje, "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(mensaje, "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -86,7 +86,7 @@ namespace SFPanaderia.Vistas
             cbSexo.Text = string.Empty;
             dateFNacimiento.ResetText();
             searchCargo.EditValue = null;
-            searchEstado.EditValue = null;
+            searchEstado.EditValue = 1;
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
         public void Habilitar(bool v)
@@ -100,13 +100,14 @@ namespace SFPanaderia.Vistas
             cbSexo.Enabled = !v;
             dateFNacimiento.Enabled = !v;
             searchCargo.Enabled = !v;
-            searchEstado.Enabled = !v;
+     
 
             btnNuevo.Enabled = v;
             btnGuardar.Enabled = !v;
             btnCancelar.Enabled = !v;
             btnEditar.Enabled = v;
-            //btnEliminar.Enabled = v;
+            btnEliminar.Enabled = v;
+            btnSalir.Enabled = v;
 
         }
 
@@ -118,27 +119,13 @@ namespace SFPanaderia.Vistas
             
 
         }
-        private bool verificarCedula()
+
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-            bool existe = false;
-
-            foreach (Empleado emp in xpEmpleados)
-            {
-                if (emp.Cedula == ctCedula.Text)
-                {
-                    existe = true;
-                }
-
-            }
-
-            return existe;
-
+            Habilitar(false);
+            ctNombres.Focus();
 
         }
-
-
-
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -158,18 +145,19 @@ namespace SFPanaderia.Vistas
                 }
             }
 
-            if ((MessageBox.Show("Esta Seguro que desea guardar el registro","Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
+            if ((MessageBox.Show("Esta Seguro que desea guardar el registro", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information)) == DialogResult.No)
             {
-                if (IsEditar) {
+                if (IsEditar)
+                {
 
                     IsEditar = false;
                 }
-                 
+
                 LimpiarCajas();
                 return;
             }
 
-           
+
             if (!IsEditar)
             {
 
@@ -185,9 +173,17 @@ namespace SFPanaderia.Vistas
                 emp.Direccion = ctDireccion.Text;
                 emp.Telefono = ctTelefono.Text;
                 emp.FechaNacimiento = DateTime.Parse(dateFNacimiento.Text);
-                emp.FechaRegistro = DateTime.Now;
+                emp.FechaRegistro = DateTime.Now.Date;
                 emp.IdCargo = (Cargo)searchLookUpCargo.GetFocusedRow();
-                emp.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+
+                //asignamos id por defecto
+                foreach (Estado estado in xpEstado)
+                {
+                    if (estado.IdEstado == 1)
+                        emp.IdEstado = estado;
+
+                }
+
 
             }
             else
@@ -207,7 +203,7 @@ namespace SFPanaderia.Vistas
                 emp.Direccion = ctDireccion.Text;
                 emp.Telefono = ctTelefono.Text;
                 emp.FechaNacimiento = DateTime.Parse(dateFNacimiento.Text);
-                emp.FechaRegistro = DateTime.Now;
+
 
                 if (searchCargo.EditValue == null || Convert.ToInt32(searchCargo.EditValue) != valorCargo)
                 {
@@ -229,6 +225,8 @@ namespace SFPanaderia.Vistas
                 }
 
 
+                //aplico filtro activo por si se activo un cliente inactivo
+                rrActivo.Checked = true;
             }
 
             try
@@ -254,18 +252,7 @@ namespace SFPanaderia.Vistas
 
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            Habilitar(false);
-            ctNombres.Focus();
-
-        }
-
-        private void FClientes_Load(object sender, EventArgs e)
-        {
-            Habilitar(true);
-            gridViewEmpleados.ActiveFilterString = "[IdEstado.Nombre] = 'activo'";
-        }
+      
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -302,6 +289,7 @@ namespace SFPanaderia.Vistas
             
             IsEditar = true;
             Habilitar(false);
+            searchEstado.Enabled = true;
             //manda al seccion de Mantenimiento
             this.tabEmpleados.SelectedIndex = 1;
         }
@@ -323,7 +311,7 @@ namespace SFPanaderia.Vistas
                 return;
             }
 
-            var result = MessageBox.Show("Seguro que desea eliminar el registro", "Clientes", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            var result = MessageBox.Show("Seguro que desea eliminar el registro", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
             if (result == DialogResult.No)
             {
@@ -336,12 +324,6 @@ namespace SFPanaderia.Vistas
             mensajeCorrecto("El registro fue eliminado correctamente");
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-      
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (IsEditar)
@@ -351,15 +333,36 @@ namespace SFPanaderia.Vistas
                 tabEmpleados.SelectedIndex = 0;
                 return;
             }
-
-            Habilitar(true);
-            LimpiarCajas();
-            return;
+            else
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                return;
+            }
+        
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
-        private void ctApellidos_KeyPress(object sender, KeyPressEventArgs e)
+
+        private bool verificarCedula()
         {
-            Validar.SoloLetras(e);  
+            bool existe = false;
+
+            foreach (Empleado emp in xpEmpleados)
+            {
+                if (emp.Cedula == ctCedula.Text)
+                {
+                    existe = true;
+                }
+
+            }
+
+            return existe;
+
+
         }
 
         private void rrActivo_CheckedChanged(object sender, EventArgs e)
@@ -375,6 +378,10 @@ namespace SFPanaderia.Vistas
         }
 
         private void ctNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
+        private void ctApellidos_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloLetras(e);
         }

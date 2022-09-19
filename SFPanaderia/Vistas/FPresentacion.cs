@@ -1,4 +1,5 @@
 ﻿using SFPanaderia.PanaderiaBD;
+using SFPanaderia.Validaciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace SFPanaderia.Vistas
     {
 
         Presentacion p;
+        private bool IsEditar = false;
+
         public FPresentacion()
         {
             InitializeComponent();
@@ -64,16 +67,20 @@ namespace SFPanaderia.Vistas
             btnCancelar.Enabled = !v;
             btnEditar.Enabled = v;
             btnEliminar.Enabled = v;
-
+            btnSalir.Enabled = v;
         }
-
-        private bool IsEditar = false;
 
         private void FPresentacion_Load(object sender, EventArgs e)
         {
 
             Habilitar(true);
 
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Habilitar(false);
+            ctNombre.Focus();
         }
 
 
@@ -155,20 +162,7 @@ namespace SFPanaderia.Vistas
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (IsEditar)
-            {
-                Habilitar(true);
-                LimpiarCajas();
-                tabControl1.SelectedIndex = 0;
-                return;
-            }
-            Habilitar(true);
-            LimpiarCajas();
-            return;
-        }
-
+       
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Presentacion p = (Presentacion)gridViewPresentacion.GetFocusedRow();
@@ -191,18 +185,33 @@ namespace SFPanaderia.Vistas
 
             mensajeCorrecto("El registro fue eliminado correctamente");
         }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Habilitar(false);
-            ctNombre.Focus();
+            if (IsEditar)
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                tabControl1.SelectedIndex = 0;
+                return;
+            }
+            else
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                return;
+            }
+          
         }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-       
+        private void ctNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloLetras(e);
+        }
     }
 }

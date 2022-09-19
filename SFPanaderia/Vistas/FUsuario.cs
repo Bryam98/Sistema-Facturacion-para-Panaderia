@@ -1,6 +1,5 @@
 ﻿using SFPanaderia.PanaderiaBD;
 using SFPanaderia.Servicios;
-using SFPanaderia.Vistas.Modales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,7 +86,7 @@ namespace SFPanaderia.Vistas
             btnCancelar.Enabled = !v;
             btnEditar.Enabled = v;
             btnEliminar.Enabled = v;
-
+            btnSalir.Enabled = v;
         }
 
         private void FUsuario_Load(object sender, EventArgs e)
@@ -101,23 +100,6 @@ namespace SFPanaderia.Vistas
             Habilitar(false);
             ctUsuario.Focus();
         }
-
-        private void CkMostrar_CheckedChanged(object sender, EventArgs e)
-        {
-            if(CkMostrar.Checked == true)
-            {
-                ctCorfirmacion.PasswordChar = '\0';
-                ctClave.PasswordChar = '\0';
-            }
-            else
-            {
-                ctCorfirmacion.PasswordChar = '*';
-                ctClave.PasswordChar = '*';
-            }
-                    
-        }
-   
-        
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -159,10 +141,8 @@ namespace SFPanaderia.Vistas
             else
             {
                 user = (Usuario)gridViewUsuarios.GetFocusedRow();
-
                 user.Login = ctUsuario.Text;
                 user.Clave = ctCorfirmacion.Text;
-                user.FechaRegistro = DateTime.Now.Date;
 
                 if (searchEmpleado.EditValue == null || Convert.ToInt32(searchEmpleado.EditValue) != valorEmpleado)
                 {
@@ -199,51 +179,7 @@ namespace SFPanaderia.Vistas
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (IsEditar)
-            {
-                Habilitar(true);
-                LimpiarCajas();
-                tabControlUsuarios.SelectedIndex = 0;
-                return;
-            }
-
-
-            Habilitar(true);
-            LimpiarCajas();
-            return;
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            Usuario user = (Usuario)gridViewUsuarios.GetFocusedRow();
-
-            if (user == null)
-            {
-
-                mensajeError("Debe seleccionar un registro a eliminar");
-                return;
-            }
-
-            var result = MessageBox.Show("Seguro que desea eliminar el registro", "Usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-
-            if (result == DialogResult.No)
-            {
-
-                return;
-            }
-            user.Delete();
-            sessionUsuarios.CommitChanges();
-
-            mensajeCorrecto("El registro fue eliminado correctamente");
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+      
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Usuario user = (Usuario)gridViewUsuarios.GetFocusedRow();
@@ -269,8 +205,55 @@ namespace SFPanaderia.Vistas
             //manda al seccion de Mantenimiento
             this.tabControlUsuarios.SelectedIndex = 1;
         }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Usuario user = (Usuario)gridViewUsuarios.GetFocusedRow();
+
+            if (user == null)
+            {
+
+                mensajeError("Debe seleccionar un registro a eliminar");
+                return;
+            }
+
+            var result = MessageBox.Show("Seguro que desea eliminar el registro", "Usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+            if (result == DialogResult.No)
+            {
+
+                return;
+            }
+            user.Delete();
+            sessionUsuarios.CommitChanges();
+
+            mensajeCorrecto("El registro fue eliminado correctamente");
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (IsEditar)
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                CkMostrar.Checked = false;
+                tabControlUsuarios.SelectedIndex = 0;
+               
+            }
+            else
+            {
+                Habilitar(true);
+                LimpiarCajas();
+                CkMostrar.Checked = false;
+                return;
+            }
 
 
+        }
+
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         public bool verificarExistenciaBD()
         {
@@ -292,6 +275,22 @@ namespace SFPanaderia.Vistas
             }
    
             return existe;
+        }
+
+        //funcion Encargada de mostrar las claves
+        private void CkMostrar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CkMostrar.Checked == true)
+            {
+                ctCorfirmacion.PasswordChar = '\0';
+                ctClave.PasswordChar = '\0';
+            }
+            else
+            {
+                ctCorfirmacion.PasswordChar = '*';
+                ctClave.PasswordChar = '*';
+            }
+
         }
 
         private bool verificarUsuario()
@@ -321,6 +320,7 @@ namespace SFPanaderia.Vistas
             xpUsuarios.Reload();
         }
 
+        //funcion aplica fitros a los xpEmpleados
         private void searchEmpleado_Popup(object sender, EventArgs e)
         {
             searchViewEmpleados.ActiveFilterString = "[IdEstado.Nombre] = 'activo'";

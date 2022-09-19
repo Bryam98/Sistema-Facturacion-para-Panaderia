@@ -79,7 +79,7 @@ namespace SFPanaderia.Vistas
             ctDireccion.Clear();
             ctTelefono.Clear();
             cbSexo.Text = string.Empty;
-           searchLookEstado.EditValue = null;
+            searchLookEstado.EditValue = 1;
 
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
@@ -92,14 +92,14 @@ namespace SFPanaderia.Vistas
             ctDireccion.Enabled = !v;
             ctTelefono.Enabled = !v;
             cbSexo.Enabled = !v;
-            searchLookEstado.Enabled = !v;
+            
 
             btnNuevo.Enabled = v;
             btnGuardar.Enabled = !v;
             btnCancelar.Enabled = !v;
             btnEditar.Enabled = v;
-            //btnEliminar.Enabled = v;
-
+            btnEliminar.Enabled = v;
+            btnSalir.Enabled = v;
         }
 
         private bool verificarCedula()
@@ -154,8 +154,15 @@ namespace SFPanaderia.Vistas
                     c.Sexo = 'M';
                 c.Direccion = ctDireccion.Text;
                 c.Telefono = ctTelefono.Text;
-                c.FechaRegistro = DateTime.Now;
-                c.IdEstado = (Estado)searchLookUpEstado.GetFocusedRow();
+                c.FechaRegistro = DateTime.Now.Date;
+
+                //asignamos id por defecto
+                foreach (Estado estado in xpEstado)
+                {
+                    if (estado.IdEstado == 1)
+                        c.IdEstado = estado;
+
+                }
 
             }
             else
@@ -180,7 +187,10 @@ namespace SFPanaderia.Vistas
                     c.Sexo = 'M';
                 c.Direccion = ctDireccion.Text;
                 c.Telefono = ctTelefono.Text;
-                c.FechaRegistro = DateTime.Now;
+      
+
+                //aplico filtro activo por si se activo un cliente inactivo
+                rrActivo.Checked = true;
             }
 
             try
@@ -205,7 +215,7 @@ namespace SFPanaderia.Vistas
 
         }
 
-
+      
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Habilitar(false);
@@ -248,6 +258,7 @@ namespace SFPanaderia.Vistas
 
             IsEditar = true;
             Habilitar(false);
+            searchLookEstado.Enabled = true;
             //manda al seccion de Mantenimiento
             this.tabControl1.SelectedIndex = 1;
         }
@@ -264,11 +275,15 @@ namespace SFPanaderia.Vistas
                 Habilitar(true);
                 LimpiarCajas();
                 tabControl1.SelectedIndex = 0;
+               
+            }
+            else
+            {
+                Habilitar(true);
+                searchLookEstado.Enabled = false;
+                LimpiarCajas();
                 return;
             }
-            Habilitar(true);
-            LimpiarCajas();
-            return;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -294,7 +309,7 @@ namespace SFPanaderia.Vistas
 
             mensajeCorrecto("El registro fue eliminado correctamente");
         }
-
+        
         private void ctNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloLetras(e);
@@ -309,6 +324,7 @@ namespace SFPanaderia.Vistas
         {
             Validar.SoloNumeros(e);
         }
+
 
         private void rrActivo_CheckedChanged(object sender, EventArgs e)
         {

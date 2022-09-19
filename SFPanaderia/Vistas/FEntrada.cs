@@ -1,7 +1,6 @@
 ﻿using SFPanaderia.PanaderiaBD;
 using SFPanaderia.Servicios;
 using SFPanaderia.Validaciones;
-using SFPanaderia.Vistas.Modales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +16,15 @@ namespace SFPanaderia.Vistas
     public partial class FEntrada : Form
     {
 
-        int idProducto;
+        //int idProducto;
         DetalleEntrada dEntrada;
         int acum = 0;
         Entrada entrada;
+        Usuario usuario;
 
-        public FEntrada()
+        public FEntrada(Usuario user)
         {
+            this.usuario = user;
             InitializeComponent();
         }
 
@@ -57,10 +58,19 @@ namespace SFPanaderia.Vistas
         {
             return (
                    
-                    fechaEntrada.Text.Trim().Length == 0 ||
                     searchProductos.Text.Trim().Length == 0 || searchProductos.Text.Equals("[Vacío]")
+                   
+                  );
+        }
+        private bool CamposVaciosEntrada()
+        {
+            return (
 
-                   );
+                   
+                    fechaEntrada.Text.Trim().Length == 0 ||
+                    searchEstados.Text.Trim().Length == 0 || searchEstados.Text.Equals("[Vacío]")
+
+                  );
         }
 
         //FUNCION LIMPIAR CAJA DE TEXTO
@@ -68,7 +78,7 @@ namespace SFPanaderia.Vistas
         {
             ctIdEntrada.Clear();
             searchProductos.EditValue = null;
-            fechaEntrada.ResetText();
+            fechaEntrada.Text = DateTime.Now.Date.ToString();
             ctCantidad.Clear();
             //gridDetalleEntrada.DataSource = null;
 
@@ -111,7 +121,7 @@ namespace SFPanaderia.Vistas
 
             dEntrada.IdProducto = (Producto)searchViewProductos.GetFocusedRow();
             dEntrada.Cantidad = Convert.ToInt32(ctCantidad.Text);
-            //entrada.Save();
+            entrada.Save();
 
             entrada.DetalleEntradas.Add(dEntrada);
 
@@ -132,7 +142,41 @@ namespace SFPanaderia.Vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (CamposVaciosEntrada())
+            {
+                mensajeError("Error todos los campos son obligatorios");
+                fechaEntrada.Focus();
+                return;
+            }
+
+            foreach (Empleado emp in xpEmpleados)
+            {
+                if(emp.IdEmpleado == usuario.IdEmpleado.IdEmpleado)
+                    entrada.IdEmpleado = emp;
+            }
+            //asignamos id por defecto
+            foreach (Estado estado in xpEstado)
+            {
+                if (estado.IdEstado == 1)
+                    entrada.IdEstado = estado;
+
+            }
+            entrada.FechaEntrada = DateTime.Now.Date;
+            
+            entrada.Total = acum;
+            entrada.Save();
+
            
+            sessionEntrada.CommitChanges();
+            MessageBox.Show("Registro de Entrada almacenado.", "Venta",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            entrada = new Entrada(sessionEntrada);
+            gridDetalleEntrada.DataSource = null;
+            gridDetalleEntrada.Refresh();
+            xpEntrada.Reload();
+            gridDetalleEntrada.DataSource = entrada.DetalleEntradas;
+
         }
 
        

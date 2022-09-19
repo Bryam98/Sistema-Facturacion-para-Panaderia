@@ -308,6 +308,7 @@
             this.ctNombre.Name = "ctNombre";
             this.ctNombre.Size = new System.Drawing.Size(200, 22);
             this.ctNombre.TabIndex = 10;
+            this.ctNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctNombre_KeyPress);
             // 
             // ctId
             // 
