@@ -450,7 +450,7 @@
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem1);
             this.ribbonStatusBar.ItemLinks.Add(this.labelUsuario);
             this.ribbonStatusBar.ItemLinks.Add(this.ctUserActivo);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 568);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 668);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1090, 31);
@@ -471,7 +471,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 599);
+            this.ClientSize = new System.Drawing.Size(1090, 699);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

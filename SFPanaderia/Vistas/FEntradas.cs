@@ -16,8 +16,10 @@ namespace SFPanaderia.Vistas
 {
     public partial class FEntradas : Form
     {
+
+        
         //int idProducto;
-        DetalleEntrada dEntrada;
+        
         int acum = 0;
         Entrada entrada;
         Usuario usuario;
@@ -52,35 +54,23 @@ namespace SFPanaderia.Vistas
 
         }
 
-        //Verificar si estan vacias la cajas
-        private bool CamposVacios()
-        {
-            return (
-
-                    searchProductos.Text.Trim().Length == 0 || searchProductos.Text.Equals("[Vacío]")
-
-                  );
-        }
-        private bool CamposVaciosEntrada()
-        {
-            return (
-
-
-                    fechaEntrada.Text.Trim().Length == 0 ||
-                    searchEstados.Text.Trim().Length == 0 || searchEstados.Text.Equals("[Vacío]")
-
-                  );
-        }
-
         //FUNCION LIMPIAR CAJA DE TEXTO
-        private void LimpiarCajas()
+        private void LimpiarCajasDetalle()
+        {
+            
+            searchProductos.EditValue = null;
+            ctCantidad.Clear();
+            ctPresentacion.Clear();
+
+        }
+        private void LimpiarCajasEntrada()
         {
             ctIdEntrada.Clear();
-            searchProductos.EditValue = null;
             fechaEntrada.Text = DateTime.Now.Date.ToString();
-            ctCantidad.Clear();
-            txtTotal.Text = "0.00";
-            //gridDetalleEntrada.DataSource = null;
+            txtTotal.Text = "0";
+            acum = 0;
+            searchEstados.EditValue = 1;
+
 
         }
         //FUNCION HABILITAR Y DESEBILITAR CONTROLER
@@ -94,7 +84,6 @@ namespace SFPanaderia.Vistas
             btnNuevo.Enabled = v;
             btnGuardar.Enabled = !v;
             btnCancelar.Enabled = !v;
-            btnEliminar.Enabled = !v;
             btnAgregar.Enabled = !v;
 
         }
@@ -104,19 +93,25 @@ namespace SFPanaderia.Vistas
             entrada = new Entrada(sessionEntrada);
             gridDetalleEntrada.DataSource = entrada.DetalleEntradas;
 
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (CamposVacios())
+            if (searchProductos.Text.Trim().Length == 0 || searchProductos.Text.Equals("[Vacío]"))
             {
-                mensajeError("Error todos los campos son obligatorios");
+                mensajeError("Error debe seleccionar un producto");
                 searchProductos.Focus();
                 return;
             }
+            if (ctCantidad.Text.Trim().Length == 0)
+            {
+                mensajeError("Error debe agregar una cantidad de producto");
+                ctCantidad.Focus();
+                return;
+            }
 
-
-            dEntrada = new DetalleEntrada(sessionEntrada);
+            DetalleEntrada dEntrada = new DetalleEntrada(sessionEntrada);
 
             dEntrada.IdProducto = (Producto)searchViewProductos.GetFocusedRow();
             dEntrada.Cantidad = Convert.ToInt32(ctCantidad.Text);
@@ -129,25 +124,44 @@ namespace SFPanaderia.Vistas
             CantidadTotal();
 
             gridDetalleEntrada.RefreshDataSource();
-            LimpiarCajas();
+            LimpiarCajasDetalle();
 
 
         }
         private void CantidadTotal()
         {
             txtTotal.Text = acum.ToString();
+
+
+            //verificamos si cantidad e de producto es mayor a cero podemos eliminar
+            //de los controrio no, desabilitamos el boton eliminar
+            
+            if(acum > 0)
+            {
+                btnEliminar.Enabled = true;
+            }
+            else{
+                btnEliminar.Enabled = false;
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            var elemento = (DetalleEntrada)gridViewDetalleEntrada.GetFocusedRow();
-            entrada.DetalleEntradas.Remove(elemento);
-          
-            
-           // entrada.Save();
+            DetalleEntrada elemento = (DetalleEntrada)gridViewDetalleEntrada.GetFocusedRow();
+            if(elemento == null)
+            {
+                mensajeError("Error debe selecionar un producto");
+                return;
+            }
 
+            entrada.DetalleEntradas.Remove(elemento);
+
+            //borra el objeto de la memoria
+            elemento.Delete();
+            
             acum = acum - elemento.Cantidad;
-            txtTotal.Text = acum.ToString() ;
+            CantidadTotal();
             gridDetalleEntrada.RefreshDataSource();
         }
 
@@ -160,9 +174,9 @@ namespace SFPanaderia.Vistas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            if (CamposVaciosEntrada())
+            if (fechaEntrada.Text.Trim().Length == 0)
             {
-                mensajeError("Error todos los campos son obligatorios");
+                mensajeError("Error debe seleccionar un fecha de entrada");
                 fechaEntrada.Focus();
                 return;
             }
@@ -187,23 +201,52 @@ namespace SFPanaderia.Vistas
                 item.IdProducto.Existencias = item.IdProducto.Existencias + item.Cantidad;
             }
 
-            //entrada.Save();
+        
+
+            entrada.Save();
             sessionEntrada.CommitChanges();
             MessageBox.Show("Registro de Entrada almacenado.", "Venta",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            //Creamos un nuevo para la siguiente entrada
             entrada = new Entrada(sessionEntrada);
+
+
+            //asignamos null a la grid
             gridDetalleEntrada.DataSource = null;
+
+            //refrecasmos el grid detalle de entrada despues de haberlo  limpiado
             gridDetalleEntrada.Refresh();
+            
+            //refrescamos el xpEntradas para que se muestre en la grilla
             xpEntradas.Reload();
+
+            //asignamos el valor al grilla detalle de entrada con el nuevo objeto entrada
             gridDetalleEntrada.DataSource = entrada.DetalleEntradas;
 
+
+            //reiniciamos los controller
+            Habilitar(true);
+            btnEliminar.Enabled = false;
+
+            //limpiamos las cajas de texto
+            LimpiarCajasDetalle();
+            LimpiarCajasEntrada();
+
+
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Habilitar(true);
-            LimpiarCajas();
+            LimpiarCajasDetalle();
+            LimpiarCajasEntrada();
+
+       
+
+            btnEliminar.Enabled = false;
+            btnNuevo.Focus();
             return;
         }
 
@@ -285,6 +328,13 @@ namespace SFPanaderia.Vistas
         private void ctCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloNumeros(e);
+        }
+
+        private void searchProductos_EditValueChanged(object sender, EventArgs e)
+        {
+            ctPresentacion.Clear();
+            Producto p = (Producto)searchViewProductos.GetFocusedRow();
+            ctPresentacion.Text = p.IdPresentacion.Nombre;
         }
     }
 }

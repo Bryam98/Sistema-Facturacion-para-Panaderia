@@ -49,6 +49,8 @@
             this.btnAnular = new DevExpress.XtraEditors.SimpleButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ctPresentacion = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
@@ -64,6 +66,7 @@
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.searchEstados = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.xpEstados = new DevExpress.Xpo.XPCollection(this.components);
@@ -117,7 +120,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(614, 42);
+            this.panel2.Size = new System.Drawing.Size(663, 42);
             this.panel2.TabIndex = 2;
             // 
             // label1
@@ -138,7 +141,7 @@
             this.tabEntradas.Location = new System.Drawing.Point(0, 42);
             this.tabEntradas.Name = "tabEntradas";
             this.tabEntradas.SelectedIndex = 0;
-            this.tabEntradas.Size = new System.Drawing.Size(614, 439);
+            this.tabEntradas.Size = new System.Drawing.Size(663, 439);
             this.tabEntradas.TabIndex = 3;
             // 
             // tabPage1
@@ -149,7 +152,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(606, 413);
+            this.tabPage1.Size = new System.Drawing.Size(655, 413);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Entradas";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -161,7 +164,7 @@
             this.gridEntradas.Location = new System.Drawing.Point(3, 47);
             this.gridEntradas.MainView = this.gridViewEntradas;
             this.gridEntradas.Name = "gridEntradas";
-            this.gridEntradas.Size = new System.Drawing.Size(600, 363);
+            this.gridEntradas.Size = new System.Drawing.Size(649, 363);
             this.gridEntradas.TabIndex = 15;
             this.gridEntradas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewEntradas});
@@ -281,13 +284,15 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(606, 413);
+            this.tabPage2.Size = new System.Drawing.Size(655, 413);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registros de Entradas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.ctPresentacion);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnCancelar);
@@ -309,10 +314,29 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 407);
+            this.groupBox1.Size = new System.Drawing.Size(649, 407);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso de Productos";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(245, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 15);
+            this.label8.TabIndex = 52;
+            this.label8.Text = "Presentacion:";
+            // 
+            // ctPresentacion
+            // 
+            this.ctPresentacion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctPresentacion.Location = new System.Drawing.Point(346, 105);
+            this.ctPresentacion.Name = "ctPresentacion";
+            this.ctPresentacion.ReadOnly = true;
+            this.ctPresentacion.Size = new System.Drawing.Size(152, 22);
+            this.ctPresentacion.TabIndex = 51;
             // 
             // txtTotal
             // 
@@ -320,9 +344,9 @@
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(149, 376);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(36, 16);
+            this.txtTotal.Size = new System.Drawing.Size(16, 16);
             this.txtTotal.TabIndex = 46;
-            this.txtTotal.Text = "0.00";
+            this.txtTotal.Text = "0";
             // 
             // label5
             // 
@@ -339,7 +363,7 @@
             this.btnCancelar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Appearance.Options.UseFont = true;
             this.btnCancelar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.ImageOptions.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(484, 363);
+            this.btnCancelar.Location = new System.Drawing.Point(536, 363);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 41);
             this.btnCancelar.TabIndex = 49;
@@ -351,7 +375,7 @@
             this.btnGuardar.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Appearance.Options.UseFont = true;
             this.btnGuardar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.ImageOptions.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(368, 364);
+            this.btnGuardar.Location = new System.Drawing.Point(420, 364);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(110, 41);
             this.btnGuardar.TabIndex = 48;
@@ -363,7 +387,7 @@
             this.btnNuevo.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Appearance.Options.UseFont = true;
             this.btnNuevo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.ImageOptions.Image")));
-            this.btnNuevo.Location = new System.Drawing.Point(252, 364);
+            this.btnNuevo.Location = new System.Drawing.Point(304, 364);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(110, 41);
             this.btnNuevo.TabIndex = 47;
@@ -373,10 +397,10 @@
             // gridDetalleEntrada
             // 
             this.gridDetalleEntrada.DataSource = this.xpDetalleEntradas;
-            this.gridDetalleEntrada.Location = new System.Drawing.Point(-3, 141);
+            this.gridDetalleEntrada.Location = new System.Drawing.Point(-3, 147);
             this.gridDetalleEntrada.MainView = this.gridViewDetalleEntrada;
             this.gridDetalleEntrada.Name = "gridDetalleEntrada";
-            this.gridDetalleEntrada.Size = new System.Drawing.Size(606, 217);
+            this.gridDetalleEntrada.Size = new System.Drawing.Size(652, 211);
             this.gridDetalleEntrada.TabIndex = 45;
             this.gridDetalleEntrada.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDetalleEntrada});
@@ -395,7 +419,8 @@
             this.gridColumn12,
             this.gridColumn13,
             this.colCantidad,
-            this.gridColumn14});
+            this.gridColumn14,
+            this.gridColumn15});
             this.gridViewDetalleEntrada.GridControl = this.gridDetalleEntrada;
             this.gridViewDetalleEntrada.Name = "gridViewDetalleEntrada";
             // 
@@ -421,7 +446,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 0;
-            this.gridColumn12.Width = 102;
+            this.gridColumn12.Width = 83;
             // 
             // gridColumn13
             // 
@@ -430,7 +455,7 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 1;
-            this.gridColumn13.Width = 169;
+            this.gridColumn13.Width = 165;
             // 
             // colCantidad
             // 
@@ -439,7 +464,7 @@
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.Visible = true;
             this.colCantidad.VisibleIndex = 2;
-            this.colCantidad.Width = 130;
+            this.colCantidad.Width = 126;
             // 
             // gridColumn14
             // 
@@ -448,7 +473,16 @@
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 3;
-            this.gridColumn14.Width = 187;
+            this.gridColumn14.Width = 131;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Categoria";
+            this.gridColumn15.FieldName = "IdProducto.IdCategoria.Nombre";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 4;
+            this.gridColumn15.Width = 129;
             // 
             // label6
             // 
@@ -463,15 +497,18 @@
             // searchEstados
             // 
             this.searchEstados.EditValue = 1;
+            this.searchEstados.Enabled = false;
             this.searchEstados.Location = new System.Drawing.Point(346, 63);
             this.searchEstados.Name = "searchEstados";
+            this.searchEstados.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchEstados.Properties.Appearance.Options.UseFont = true;
             this.searchEstados.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchEstados.Properties.DataSource = this.xpEstados;
             this.searchEstados.Properties.DisplayMember = "Nombre";
             this.searchEstados.Properties.PopupView = this.searchViewEstados;
             this.searchEstados.Properties.ValueMember = "IdEstado";
-            this.searchEstados.Size = new System.Drawing.Size(110, 20);
+            this.searchEstados.Size = new System.Drawing.Size(110, 22);
             this.searchEstados.TabIndex = 43;
             // 
             // xpEstados
@@ -488,8 +525,10 @@
             // 
             // searchProductos
             // 
-            this.searchProductos.Location = new System.Drawing.Point(78, 68);
+            this.searchProductos.Location = new System.Drawing.Point(78, 66);
             this.searchProductos.Name = "searchProductos";
+            this.searchProductos.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchProductos.Properties.Appearance.Options.UseFont = true;
             this.searchProductos.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchProductos.Properties.DataSource = this.xpProductos;
@@ -497,8 +536,9 @@
             this.searchProductos.Properties.PopupView = this.searchViewProductos;
             this.searchProductos.Properties.ValueMember = "IdProducto";
             this.searchProductos.Properties.Popup += new System.EventHandler(this.searchProductos_Properties_Popup);
-            this.searchProductos.Size = new System.Drawing.Size(143, 20);
+            this.searchProductos.Size = new System.Drawing.Size(143, 22);
             this.searchProductos.TabIndex = 42;
+            this.searchProductos.EditValueChanged += new System.EventHandler(this.searchProductos_EditValueChanged);
             // 
             // xpProductos
             // 
@@ -573,35 +613,43 @@
             // 
             // ctCantidad
             // 
-            this.ctCantidad.Location = new System.Drawing.Point(78, 108);
+            this.ctCantidad.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctCantidad.Location = new System.Drawing.Point(78, 105);
             this.ctCantidad.Name = "ctCantidad";
-            this.ctCantidad.Size = new System.Drawing.Size(114, 20);
+            this.ctCantidad.Size = new System.Drawing.Size(100, 22);
             this.ctCantidad.TabIndex = 40;
             this.ctCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ctCantidad_KeyPress);
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Appearance.Options.UseFont = true;
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.ImageOptions.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(391, 95);
+            this.btnEliminar.Location = new System.Drawing.Point(521, 84);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(40, 40);
+            this.btnEliminar.Size = new System.Drawing.Size(110, 45);
             this.btnEliminar.TabIndex = 39;
+            this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Appearance.Options.UseFont = true;
             this.btnAgregar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.ImageOptions.Image")));
-            this.btnAgregar.Location = new System.Drawing.Point(345, 95);
+            this.btnAgregar.Location = new System.Drawing.Point(521, 34);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(40, 40);
+            this.btnAgregar.Size = new System.Drawing.Size(110, 45);
             this.btnAgregar.TabIndex = 38;
+            this.btnAgregar.Text = "Agregar";
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 69);
+            this.label4.Location = new System.Drawing.Point(5, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 15);
             this.label4.TabIndex = 37;
@@ -634,17 +682,18 @@
             // 
             // ctIdEntrada
             // 
-            this.ctIdEntrada.Location = new System.Drawing.Point(78, 26);
+            this.ctIdEntrada.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctIdEntrada.Location = new System.Drawing.Point(78, 27);
             this.ctIdEntrada.Name = "ctIdEntrada";
             this.ctIdEntrada.ReadOnly = true;
-            this.ctIdEntrada.Size = new System.Drawing.Size(100, 20);
+            this.ctIdEntrada.Size = new System.Drawing.Size(100, 22);
             this.ctIdEntrada.TabIndex = 34;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 26);
+            this.label2.Location = new System.Drawing.Point(16, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 33;
@@ -659,7 +708,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 481);
+            this.ClientSize = new System.Drawing.Size(663, 481);
             this.Controls.Add(this.tabEntradas);
             this.Controls.Add(this.panel2);
             this.Name = "FEntradas";
@@ -752,5 +801,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn colCantidad;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox ctPresentacion;
     }
 }

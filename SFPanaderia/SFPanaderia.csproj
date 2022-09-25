@@ -148,6 +148,18 @@
     <Compile Include="Reportes\ReporteProductos.Designer.cs">
       <DependentUpon>ReporteProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\RFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RFactura.Designer.cs">
+      <DependentUpon>RFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\XtraFactura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\XtraFactura.Designer.cs">
+      <DependentUpon>XtraFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\XtraProducto.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -180,12 +192,6 @@
     <Compile Include="Vistas\FEmpleados.Designer.cs">
       <DependentUpon>FEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FEntrada.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FEntrada.Designer.cs">
-      <DependentUpon>FEntrada.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\FEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,17 +222,17 @@
     <Compile Include="Vistas\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FrmVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\FrmVenta.Designer.cs">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\FUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\FUsuario.Designer.cs">
       <DependentUpon>FUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FVentas.Designer.cs">
+      <DependentUpon>FVentas.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -241,6 +247,12 @@
     </Compile>
     <EmbeddedResource Include="Reportes\ReporteProductos.resx">
       <DependentUpon>ReporteProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RFactura.resx">
+      <DependentUpon>RFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\XtraFactura.resx">
+      <DependentUpon>XtraFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\XtraProducto.resx">
       <DependentUpon>XtraProducto.cs</DependentUpon>
@@ -257,9 +269,6 @@
     <EmbeddedResource Include="Vistas\FEmpleados.resx">
       <DependentUpon>FEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FEntrada.resx">
-      <DependentUpon>FEntrada.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FEntradas.resx">
       <DependentUpon>FEntradas.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,15 +284,15 @@
     <EmbeddedResource Include="Vistas\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmVenta.resx">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FUsuario.resx">
       <DependentUpon>FUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ORMPanaderia.xpo" />
-    <None Include="ORMPanaderia.xpo.diagram">
-      <DependentUpon>ORMPanaderia.xpo</DependentUpon>
+    <EmbeddedResource Include="Vistas\FVentas.resx">
+      <DependentUpon>FVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ORMPanderia.xpo" />
+    <None Include="ORMPanderia.xpo.diagram">
+      <DependentUpon>ORMPanderia.xpo</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

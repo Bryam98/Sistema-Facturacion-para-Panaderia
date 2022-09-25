@@ -77,6 +77,14 @@ namespace SFPanaderia.PanaderiaBD
             get { return fIdEstado; }
             set { SetPropertyValue<Estado>(nameof(IdEstado), ref fIdEstado, value); }
         }
+        string fNumComprobante;
+        [Size(10)]
+        [Persistent(@"numComprobante")]
+        public string NumComprobante
+        {
+            get { return fNumComprobante; }
+            set { SetPropertyValue<string>(nameof(NumComprobante), ref fNumComprobante, value); }
+        }
         [Association(@"DetalleVentaReferencesVenta")]
         public XPCollection<DetalleVenta> DetalleVentas { get { return GetCollection<DetalleVenta>(nameof(DetalleVentas)); } }
     }

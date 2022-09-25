@@ -135,10 +135,10 @@ namespace SFPanaderia.Vistas
 
         private void barVentas_ItemClick(object sender, ItemClickEventArgs e)
         {
-            FrmVenta frmVenta = new FrmVenta();
-            frmVenta.MdiParent = this;
-            frmVenta.Show();
-            BarVentas = false;
+            FVentas fVenta = new FVentas(usuario);
+            fVenta.MdiParent = this;
+            fVenta.Show();
+            BarVentas = true;
 
         }
 
